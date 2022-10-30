@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		86E596ED290E28A0008EA5B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E596EB290E28A0008EA5B0 /* LoginViewController.swift */; };
 		86E596EE290E28A0008EA5B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E596EC290E28A0008EA5B0 /* LoginViewController.xib */; };
+		86E596F1290E3B85008EA5B0 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */; };
+		86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F2290E3B85008EA5B0 /* KakaoSDKCommon */; };
+		86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F4290E3B85008EA5B0 /* KakaoSDKCommonCore */; };
+		86E596F7290E3B85008EA5B0 /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F6290E3B85008EA5B0 /* KakaoSDKShare */; };
+		86E596F9290E3B85008EA5B0 /* KakaoSDKStory in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F8290E3B85008EA5B0 /* KakaoSDKStory */; };
+		86E596FB290E3B85008EA5B0 /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596FA290E3B85008EA5B0 /* KakaoSDKTalk */; };
+		86E596FD290E3B85008EA5B0 /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596FC290E3B85008EA5B0 /* KakaoSDKTemplate */; };
+		86E596FF290E3B85008EA5B0 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596FE290E3B85008EA5B0 /* KakaoSDKUser */; };
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
 		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
@@ -35,6 +43,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */,
+				86E596F7290E3B85008EA5B0 /* KakaoSDKShare in Frameworks */,
+				86E596FD290E3B85008EA5B0 /* KakaoSDKTemplate in Frameworks */,
+				86E596F1290E3B85008EA5B0 /* KakaoSDKAuth in Frameworks */,
+				86E596FF290E3B85008EA5B0 /* KakaoSDKUser in Frameworks */,
+				86E596FB290E3B85008EA5B0 /* KakaoSDKTalk in Frameworks */,
+				86E596F9290E3B85008EA5B0 /* KakaoSDKStory in Frameworks */,
+				86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +113,16 @@
 			dependencies = (
 			);
 			name = HappyFridge;
+			packageProductDependencies = (
+				86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */,
+				86E596F2290E3B85008EA5B0 /* KakaoSDKCommon */,
+				86E596F4290E3B85008EA5B0 /* KakaoSDKCommonCore */,
+				86E596F6290E3B85008EA5B0 /* KakaoSDKShare */,
+				86E596F8290E3B85008EA5B0 /* KakaoSDKStory */,
+				86E596FA290E3B85008EA5B0 /* KakaoSDKTalk */,
+				86E596FC290E3B85008EA5B0 /* KakaoSDKTemplate */,
+				86E596FE290E3B85008EA5B0 /* KakaoSDKUser */,
+			);
 			productName = HappyFridge;
 			productReference = D1B889C8290DFA04009EEA55 /* HappyFridge.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +151,9 @@
 				Base,
 			);
 			mainGroup = D1B889BF290DFA04009EEA55;
+			packageReferences = (
+				86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = D1B889C9290DFA04009EEA55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -372,6 +401,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		86E596F2290E3B85008EA5B0 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		86E596F4290E3B85008EA5B0 /* KakaoSDKCommonCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommonCore;
+		};
+		86E596F6290E3B85008EA5B0 /* KakaoSDKShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKShare;
+		};
+		86E596F8290E3B85008EA5B0 /* KakaoSDKStory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKStory;
+		};
+		86E596FA290E3B85008EA5B0 /* KakaoSDKTalk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTalk;
+		};
+		86E596FC290E3B85008EA5B0 /* KakaoSDKTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTemplate;
+		};
+		86E596FE290E3B85008EA5B0 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D1B889C0290DFA04009EEA55 /* Project object */;
 }
