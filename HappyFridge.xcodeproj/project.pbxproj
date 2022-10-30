@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86E596ED290E28A0008EA5B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E596EB290E28A0008EA5B0 /* LoginViewController.swift */; };
+		86E596EE290E28A0008EA5B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E596EC290E28A0008EA5B0 /* LoginViewController.xib */; };
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
 		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86E596EB290E28A0008EA5B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		86E596EC290E28A0008EA5B0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D1B889C8290DFA04009EEA55 /* HappyFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86E596EA290E2880008EA5B0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				86E596EB290E28A0008EA5B0 /* LoginViewController.swift */,
+				86E596EC290E28A0008EA5B0 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		D1B889BF290DFA04009EEA55 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +69,7 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				86E596EA290E2880008EA5B0 /* Login */,
 				D1B889CB290DFA04009EEA55 /* AppDelegate.swift */,
 				D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */,
 				D1B889CF290DFA04009EEA55 /* ViewController.swift */,
@@ -125,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E596EE290E28A0008EA5B0 /* LoginViewController.xib in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
 				D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */,
 				D1B889D3290DFA04009EEA55 /* Main.storyboard in Resources */,
@@ -138,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E596ED290E28A0008EA5B0 /* LoginViewController.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,
