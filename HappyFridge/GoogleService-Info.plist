@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1014482425207-hsc148pe6vpqml5oq0bo4c6cpj4jqv8d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1014482425207-hsc148pe6vpqml5oq0bo4c6cpj4jqv8d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJ1eWKGSQqJbO_STZB9OIvwRtb0GBhu7s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1014482425207</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>kr.happysmile.HappyFridge.test</string>
+	<key>PROJECT_ID</key>
+	<string>happyfridge-224d8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>happyfridge-224d8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1014482425207:ios:bf36c0ea784371b0fffd72</string>
+</dict>
+</plist>
