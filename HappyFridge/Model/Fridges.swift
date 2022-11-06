@@ -12,7 +12,7 @@ struct Fridges: Codable {
 }
 
 struct Fridge: Codable {
-    //let createDate:String
+    let createDate:Date
     let fridgeName:String
     let owner:String
 }
