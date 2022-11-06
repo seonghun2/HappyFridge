@@ -17,12 +17,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bookMarkButton: UIButton!
     
     var itemSearhBar = ItemSearchTextField()
+
+    var searchItems: [Item]?
+    var showSearchItem: Bool = false
+    
     // 냉장고 크게/작게보기 결정할 변수
     var showSmall: Bool = true
     
     var refrigeArray: [Refrigerator] = [r1,r2,r3,r4,r5,r6,r7,r8,r9]
     
     var itemArray: [Item] = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10]
+    
     var bookmarkItemArray: [Item] = []
     
     var showOnlyBookmark: Bool = false
@@ -36,6 +41,14 @@ class MainViewController: UIViewController {
         
         setRefrigeCollectionView()
         setItemCollectionView()
+        itemSearhBar.delegate = self
+        self.itemSearhBar.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+    }
+    @objc func textFieldDidChange(_ sender: Any?) {
+        if itemSearhBar.text == "" {
+            showSearchItem = false
+            itemCollectionView.reloadData()
+        }
     }
     
     func setRefrigeCollectionView() {
@@ -182,7 +195,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if showOnlyBookmark {
                 return bookmarkItemArray.count
             } else {
-                return itemArray.count + 1
+                if showSearchItem {
+                    return searchItems!.count
+                } else {
+                    return itemArray.count + 1
+                }
             }
         }
     }
@@ -233,26 +250,34 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             // 모든품목
             } else {
-                // +셀
-                if indexPath.row == 0 {
-                    cell.plusImage.isHidden = false
-                    cell.itemNameLabel.isHidden = true
-                    cell.bookmarkButton.isHidden = true
-                    return cell
-                // 나머지셀
-                } else {
-                    cell.isBookmarked = itemArray[indexPath.row - 1].isBookmarked
-                    cell.setBookmarkButton()
+                if showSearchItem {
                     cell.plusImage.isHidden = true
                     cell.itemNameLabel.isHidden = false
                     cell.bookmarkButton.isHidden = false
-                    
-                    cell.itemNameLabel.text = itemArray[indexPath.row - 1].name
-                    cell.eventClosure = { index, toggle in
-                        self.itemArray[index - 1].isBookmarked = toggle
-                        print(index - 1, toggle)
-                        print(self.itemArray[index - 1])
-                        print(self.itemArray)
+                    cell.itemNameLabel.text = searchItems![indexPath.row].name
+                    return cell
+                } else {
+                    // +셀
+                    if indexPath.row == 0 {
+                        cell.plusImage.isHidden = false
+                        cell.itemNameLabel.isHidden = true
+                        cell.bookmarkButton.isHidden = true
+                        return cell
+                    // 나머지셀
+                    } else {
+                        cell.isBookmarked = itemArray[indexPath.row - 1].isBookmarked
+                        cell.setBookmarkButton()
+                        cell.plusImage.isHidden = true
+                        cell.itemNameLabel.isHidden = false
+                        cell.bookmarkButton.isHidden = false
+                        
+                        cell.itemNameLabel.text = itemArray[indexPath.row - 1].name
+                        cell.eventClosure = { index, toggle in
+                            self.itemArray[index - 1].isBookmarked = toggle
+                            print(index - 1, toggle)
+                            print(self.itemArray[index - 1])
+                            print(self.itemArray)
+                        }
                     }
                 }
             }
@@ -336,15 +361,38 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
     
     //드래그 시작될때 호출. 드래그하는 item을 전역변수에 저장시킴
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-
-        let item = itemArray[indexPath.row].name
-        let itemProvider = NSItemProvider(object: item as NSString)
+        
+        let item: String?
+        
+        if showOnlyBookmark {
+            item = bookmarkItemArray[indexPath.row].name
+        } else {
+            item = itemArray[indexPath.row].name
+        }
+        
+        let itemProvider = NSItemProvider(object: item! as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         
         print(#function, itemProvider, dragItem)
+        if showOnlyBookmark {
+            draggingItem = bookmarkItemArray[indexPath.row]
+        } else {
+            draggingItem = itemArray[indexPath.row - 1]
+        }
         
-        draggingItem = itemArray[indexPath.row-1]
         return [dragItem]
     }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //itemArray.filter { $0.name == textField.text }
+        showSearchItem.toggle()
+        searchItems = itemArray.filter{ $0.name == textField.text }
+        print(itemArray.filter{ $0.name == textField.text })
+        itemCollectionView.reloadData()
+        return true
+    }
+    
 }

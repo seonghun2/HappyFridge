@@ -8,15 +8,25 @@
 import UIKit
 
 class ItemSearchTextField: UITextField {
+
+    var searchButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         //border.
-        backgroundColor = .red
+        backgroundColor = .lightGray
         layer.borderWidth = 1
         
-        //placeholder = "검색어를 입력하세요"
+        placeholder = "검색어를 입력하세요"
         
+        searchButton.titleLabel?.text = "Test"
+        searchButton.backgroundColor = .red
+        self.addSubview(searchButton)
+        searchButton.snp.makeConstraints { make in
+            make.top.equalTo(3)
+            make.right.equalTo(-5)
+            make.width.height.equalTo(20)
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,6 +40,4 @@ class ItemSearchTextField: UITextField {
     */
 
 }
-extension ItemSearchTextField: UITextViewDelegate {
-    
-}
+

@@ -34,6 +34,7 @@ class ItemCell: UICollectionViewCell {
             bookmarkButton.setImage(UIImage(systemName: "star"), for: .normal)
         }
     }
+    
     @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBOutlet weak var itemNameLabel: UILabel!
