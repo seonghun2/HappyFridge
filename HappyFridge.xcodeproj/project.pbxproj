@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8638475F291664520042033B /* Fridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8638475E291664520042033B /* Fridges.swift */; };
+		8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384761291694600042033B /* Pretendard-ExtraLight.otf */; };
+		8638476B291694610042033B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384762291694600042033B /* Pretendard-Light.otf */; };
+		8638476C291694610042033B /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384763291694600042033B /* Pretendard-Black.otf */; };
+		8638476D291694610042033B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384764291694600042033B /* Pretendard-Bold.otf */; };
+		8638476E291694610042033B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384765291694600042033B /* Pretendard-Medium.otf */; };
+		8638476F291694610042033B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384766291694610042033B /* Pretendard-ExtraBold.otf */; };
+		86384770291694610042033B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384767291694610042033B /* Pretendard-Regular.otf */; };
+		86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384768291694610042033B /* Pretendard-SemiBold.otf */; };
+		86384772291694610042033B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384769291694610042033B /* Pretendard-Thin.otf */; };
+		866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799B32914DE3F004BB7B2 /* CopyLaunchViewController.swift */; };
+		866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866799B42914DE3F004BB7B2 /* CopyLaunchViewController.xib */; };
+		866799BB2914E39F004BB7B2 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799B92914E39F004BB7B2 /* PermissionViewController.swift */; };
+		866799BC2914E39F004BB7B2 /* PermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866799BA2914E39F004BB7B2 /* PermissionViewController.xib */; };
+		866799C229161AB4004BB7B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799C129161AB4004BB7B2 /* Users.swift */; };
 		86E596F1290E3B85008EA5B0 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */; };
 		86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F2290E3B85008EA5B0 /* KakaoSDKCommon */; };
 		86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F4290E3B85008EA5B0 /* KakaoSDKCommonCore */; };
@@ -30,6 +45,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8638475E291664520042033B /* Fridges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fridges.swift; sourceTree = "<group>"; };
+		86384761291694600042033B /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		86384762291694600042033B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		86384763291694600042033B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		86384764291694600042033B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		86384765291694600042033B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		86384766291694610042033B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		86384767291694610042033B /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		86384768291694610042033B /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		86384769291694610042033B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		866799B32914DE3F004BB7B2 /* CopyLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLaunchViewController.swift; sourceTree = "<group>"; };
+		866799B42914DE3F004BB7B2 /* CopyLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyLaunchViewController.xib; sourceTree = "<group>"; };
+		866799B92914E39F004BB7B2 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		866799BA2914E39F004BB7B2 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
+		866799C129161AB4004BB7B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		86E59704290E4D01008EA5B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86E59705290E4D01008EA5B0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		86E59709290E5F42008EA5B0 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +95,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86384760291693DB0042033B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86384763291694600042033B /* Pretendard-Black.otf */,
+				86384764291694600042033B /* Pretendard-Bold.otf */,
+				86384766291694610042033B /* Pretendard-ExtraBold.otf */,
+				86384761291694600042033B /* Pretendard-ExtraLight.otf */,
+				86384762291694600042033B /* Pretendard-Light.otf */,
+				86384765291694600042033B /* Pretendard-Medium.otf */,
+				86384767291694610042033B /* Pretendard-Regular.otf */,
+				86384768291694610042033B /* Pretendard-SemiBold.otf */,
+				86384769291694610042033B /* Pretendard-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		866799B22914DE0B004BB7B2 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				866799B32914DE3F004BB7B2 /* CopyLaunchViewController.swift */,
+				866799B42914DE3F004BB7B2 /* CopyLaunchViewController.xib */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		866799B82914E38D004BB7B2 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				866799B92914E39F004BB7B2 /* PermissionViewController.swift */,
+				866799BA2914E39F004BB7B2 /* PermissionViewController.xib */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		86DE9C1A29126B970090073A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				866799C129161AB4004BB7B2 /* Users.swift */,
+				8638475E291664520042033B /* Fridges.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		86E596EA290E2880008EA5B0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +175,10 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				86384760291693DB0042033B /* Fonts */,
+				866799B82914E38D004BB7B2 /* Permission */,
+				866799B22914DE0B004BB7B2 /* LaunchScreen */,
+				86DE9C1A29126B970090073A /* Model */,
 				86E59708290E5F23008EA5B0 /* NickName */,
 				86E596EA290E2880008EA5B0 /* Login */,
 				D1B889CB290DFA04009EEA55 /* AppDelegate.swift */,
@@ -189,11 +266,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8638476D291694610042033B /* Pretendard-Bold.otf in Resources */,
+				866799BC2914E39F004BB7B2 /* PermissionViewController.xib in Resources */,
 				86E5970C290E5F42008EA5B0 /* NickNameViewController.xib in Resources */,
+				86384772291694610042033B /* Pretendard-Thin.otf in Resources */,
+				8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
+				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
+				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
 				86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */,
 				D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */,
+				8638476F291694610042033B /* Pretendard-ExtraBold.otf in Resources */,
 				86E59707290E4D01008EA5B0 /* LoginViewController.xib in Resources */,
+				86384770291694610042033B /* Pretendard-Regular.otf in Resources */,
+				86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */,
+				8638476B291694610042033B /* Pretendard-Light.otf in Resources */,
+				8638476E291694610042033B /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +292,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866799BB2914E39F004BB7B2 /* PermissionViewController.swift in Sources */,
+				866799C229161AB4004BB7B2 /* Users.swift in Sources */,
 				86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */,
+				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
+				8638475F291664520042033B /* Fridges.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,

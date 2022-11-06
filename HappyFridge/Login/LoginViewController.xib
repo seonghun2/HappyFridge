@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
@@ -27,14 +32,35 @@
                         <action selector="kakaoLoginAction:" destination="-1" eventType="touchUpInside" id="ZiE-Nu-Ico"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유통기한 확인 할 땐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1N-8X-MBQ">
+                    <rect key="frame" x="0.0" y="187" width="390" height="18.666666666666657"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HqD-7j-UKh">
+                    <rect key="frame" x="85" y="205.66666666666663" width="220" height="220"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="gWT-WG-0CH"/>
+                        <constraint firstAttribute="width" constant="220" id="kOU-5Y-deK"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="HqD-7j-UKh" firstAttribute="top" secondItem="j1N-8X-MBQ" secondAttribute="bottom" id="Dg9-C1-SHN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j1N-8X-MBQ" secondAttribute="trailing" id="XmA-eC-TCR"/>
+                <constraint firstItem="j1N-8X-MBQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eIB-iI-RDF"/>
+                <constraint firstItem="HqD-7j-UKh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="r1z-0z-Xnf"/>
+                <constraint firstItem="j1N-8X-MBQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="140" id="vSv-cK-xxn"/>
+            </constraints>
             <point key="canvasLocation" x="65" y="-11"/>
         </view>
     </objects>
     <resources>
         <image name="kakao_login_medium_wide" width="300" height="45"/>
+        <image name="logo" width="220" height="220"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

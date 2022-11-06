@@ -32,7 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: scene)
         //window?.rootViewController = LoginViewController()
-        window?.rootViewController = NickNameViewController()
+        //window?.rootViewController = NickNameViewController()
+        window?.rootViewController = CopyLaunchViewController()
         window?.makeKeyAndVisible()
     }
 
