@@ -17,6 +17,8 @@
 		86384770291694610042033B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384767291694610042033B /* Pretendard-Regular.otf */; };
 		86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384768291694610042033B /* Pretendard-SemiBold.otf */; };
 		86384772291694610042033B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384769291694610042033B /* Pretendard-Thin.otf */; };
+		866084082917A36100F108DD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866084072917A36100F108DD /* Constant.swift */; };
+		8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866084092917ADF700F108DD /* DefaultFood.swift */; };
 		866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799B32914DE3F004BB7B2 /* CopyLaunchViewController.swift */; };
 		866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866799B42914DE3F004BB7B2 /* CopyLaunchViewController.xib */; };
 		866799BB2914E39F004BB7B2 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799B92914E39F004BB7B2 /* PermissionViewController.swift */; };
@@ -69,6 +71,8 @@
 		86384767291694610042033B /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		86384768291694610042033B /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		86384769291694610042033B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		866084072917A36100F108DD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		866084092917ADF700F108DD /* DefaultFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFood.swift; sourceTree = "<group>"; };
 		866799B32914DE3F004BB7B2 /* CopyLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLaunchViewController.swift; sourceTree = "<group>"; };
 		866799B42914DE3F004BB7B2 /* CopyLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyLaunchViewController.xib; sourceTree = "<group>"; };
 		866799B92914E39F004BB7B2 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		866084062917A33B00F108DD /* Comman */ = {
+			isa = PBXGroup;
+			children = (
+				866084072917A36100F108DD /* Constant.swift */,
+			);
+			path = Comman;
+			sourceTree = "<group>";
+		};
 		866799B22914DE0B004BB7B2 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +216,7 @@
 			children = (
 				CE4A3CAF2917818E003971DE /* Item.swift */,
 				CE4A3CB02917818E003971DE /* Refrigerator.swift */,
+				866084092917ADF700F108DD /* DefaultFood.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				866084062917A33B00F108DD /* Comman */,
 				CE4A3CB7291781A5003971DE /* Main */,
 				CE4A3CAE2917818E003971DE /* Models */,
 				CE4A3C9B29178161003971DE /* Cells */,
@@ -370,11 +384,13 @@
 				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
 				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
 				CE4A3CA629178161003971DE /* ItemCell.swift in Sources */,
+				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
 				CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */,
 				CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */,
 				CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */,
 				8638475F291664520042033B /* Fridges.swift in Sources */,
+				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
 				CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */,

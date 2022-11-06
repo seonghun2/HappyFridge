@@ -30,6 +30,7 @@ class NickNameViewController: UIViewController {
         
         //getTest()
         getInfoTest()
+        //getFood()
     }
     
     // MARK: 닉네임 중복체크
@@ -82,12 +83,20 @@ class NickNameViewController: UIViewController {
         
         //로그인 했다는 이력 저장
         UserDefaults.standard.set(true, forKey: "Login")
+        UserDefaults.standard.set(nickNameTextField.text!, forKey: "nickName")
+        
+        
+        //나의 냉장고 화면으로 이동
+        let vc = MainViewController(nibName:"MainViewController", bundle: nil)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
         
         
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {         self.view.endEditing(true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     
@@ -101,6 +110,7 @@ class NickNameViewController: UIViewController {
     
     // 냉장고 정보 가져오기 테스트
     func getInfoTest() {
+        //let docRef = db.collection("fridge").document(Constant.nickName!)
         let docRef = db.collection("fridge").document("횡성훈")
         docRef.getDocument { document, error in
             if let error = error as NSError? {
@@ -108,17 +118,27 @@ class NickNameViewController: UIViewController {
             }else {
                 if let document = document {
                     do {
-                        print(try document.data(as: Fridges.self).fridge[0].fridgeName)
+                        print("do")
+                        
+                        if document.data()?.count == nil {
+                            print("냉장고없음")
+                            
+                            
+                        }else {
+                            print("냉장고있음")
+                            print(try document.data(as: Fridges.self).fridge)
+                        }
+                        
                         
                     }
                     catch {
+                        print("catch")
                         print(error)
                     }
                 }
             }
         }
     }
-    
     
     // 냉장고 생성 하기 테스트
     func getTest() {
@@ -130,5 +150,13 @@ class NickNameViewController: UIViewController {
         
     }
     
+    //기본 물품 조회 테스트
+//    func getFood() {
+//        db.collection("defaultFood").document("SgahXQM6joSLFc0sxgDM").getDocument { (snapshot, error) in
+//                    if error == nil && snapshot != nil && snapshot!.data() != nil {
+//                        print(snapshot!.data())
+//                    }
+//                }
+//    }
 }
 
