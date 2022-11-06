@@ -37,6 +37,20 @@
 		86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E5970D290E7993008EA5B0 /* GoogleService-Info.plist */; };
 		86E59711290E7AB1008EA5B0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E59710290E7AB1008EA5B0 /* FirebaseFirestore */; };
 		86E59713290E7AB1008EA5B0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E59712290E7AB1008EA5B0 /* FirebaseFirestoreSwift */; };
+		CE4A3CA429178161003971DE /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9C29178161003971DE /* ItemCell.xib */; };
+		CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */; };
+		CE4A3CA629178161003971DE /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9E29178161003971DE /* ItemCell.swift */; };
+		CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */; };
+		CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */; };
+		CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */; };
+		CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */; };
+		CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */; };
+		CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CAC2917818E003971DE /* MainViewController.swift */; };
+		CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CAD2917818E003971DE /* MainViewController.xib */; };
+		CE4A3CB42917818E003971DE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CAF2917818E003971DE /* Item.swift */; };
+		CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB02917818E003971DE /* Refrigerator.swift */; };
+		CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */; };
+		CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A3CB9291781FC003971DE /* SnapKit */; };
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
 		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
@@ -65,6 +79,19 @@
 		86E59709290E5F42008EA5B0 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		86E5970A290E5F42008EA5B0 /* NickNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
 		86E5970D290E7993008EA5B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE4A3C9C29178161003971DE /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeSmallCell.xib; sourceTree = "<group>"; };
+		CE4A3C9E29178161003971DE /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeItemListCell.swift; sourceTree = "<group>"; };
+		CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeSmallCell.swift; sourceTree = "<group>"; };
+		CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeLargeCell.xib; sourceTree = "<group>"; };
+		CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeItemListCell.xib; sourceTree = "<group>"; };
+		CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeLargeCell.swift; sourceTree = "<group>"; };
+		CE4A3CAC2917818E003971DE /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CE4A3CAD2917818E003971DE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CE4A3CAF2917818E003971DE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CE4A3CB02917818E003971DE /* Refrigerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refrigerator.swift; sourceTree = "<group>"; };
+		CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchTextField.swift; sourceTree = "<group>"; };
 		D1B889C8290DFA04009EEA55 /* HappyFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +116,7 @@
 				86E596FB290E3B85008EA5B0 /* KakaoSDKTalk in Frameworks */,
 				86E596F9290E3B85008EA5B0 /* KakaoSDKStory in Frameworks */,
 				86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */,
+				CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +184,40 @@
 			path = NickName;
 			sourceTree = "<group>";
 		};
+		CE4A3C9B29178161003971DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE4A3C9C29178161003971DE /* ItemCell.xib */,
+				CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */,
+				CE4A3C9E29178161003971DE /* ItemCell.swift */,
+				CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */,
+				CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */,
+				CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */,
+				CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */,
+				CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CE4A3CAE2917818E003971DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE4A3CAF2917818E003971DE /* Item.swift */,
+				CE4A3CB02917818E003971DE /* Refrigerator.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE4A3CB7291781A5003971DE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */,
+				CE4A3CAC2917818E003971DE /* MainViewController.swift */,
+				CE4A3CAD2917818E003971DE /* MainViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		D1B889BF290DFA04009EEA55 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +237,9 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				CE4A3CB7291781A5003971DE /* Main */,
+				CE4A3CAE2917818E003971DE /* Models */,
+				CE4A3C9B29178161003971DE /* Cells */,
 				86384760291693DB0042033B /* Fonts */,
 				866799B82914E38D004BB7B2 /* Permission */,
 				866799B22914DE0B004BB7B2 /* LaunchScreen */,
@@ -219,6 +284,7 @@
 				86E596FE290E3B85008EA5B0 /* KakaoSDKUser */,
 				86E59710290E7AB1008EA5B0 /* FirebaseFirestore */,
 				86E59712290E7AB1008EA5B0 /* FirebaseFirestoreSwift */,
+				CE4A3CB9291781FC003971DE /* SnapKit */,
 			);
 			productName = HappyFridge;
 			productReference = D1B889C8290DFA04009EEA55 /* HappyFridge.app */;
@@ -251,6 +317,7 @@
 			packageReferences = (
 				86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D1B889C9290DFA04009EEA55 /* Products */;
 			projectDirPath = "";
@@ -271,16 +338,21 @@
 				86E5970C290E5F42008EA5B0 /* NickNameViewController.xib in Resources */,
 				86384772291694610042033B /* Pretendard-Thin.otf in Resources */,
 				8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */,
+				CE4A3CA429178161003971DE /* ItemCell.xib in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
+				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
 				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
+				CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */,
 				86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */,
+				CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */,
 				D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */,
 				8638476F291694610042033B /* Pretendard-ExtraBold.otf in Resources */,
 				86E59707290E4D01008EA5B0 /* LoginViewController.xib in Resources */,
 				86384770291694610042033B /* Pretendard-Regular.otf in Resources */,
 				86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */,
 				8638476B291694610042033B /* Pretendard-Light.otf in Resources */,
+				CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */,
 				8638476E291694610042033B /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,11 +368,19 @@
 				866799C229161AB4004BB7B2 /* Users.swift in Sources */,
 				86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */,
 				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
+				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
+				CE4A3CA629178161003971DE /* ItemCell.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
+				CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */,
+				CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */,
+				CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */,
 				8638475F291664520042033B /* Fridges.swift in Sources */,
+				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
+				CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,
+				CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +606,14 @@
 				kind = branch;
 			};
 		};
+		CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +666,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		CE4A3CB9291781FC003971DE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
