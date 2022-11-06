@@ -9,7 +9,7 @@ import Foundation
 
 struct Users: Codable {
     let nickName: String
-    //let registerDate: String
+    let registerDate: Date
     let token: String
     let favorite: [String]
     let defalutFood: [String]

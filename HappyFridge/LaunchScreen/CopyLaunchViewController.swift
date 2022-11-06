@@ -14,7 +14,7 @@ class CopyLaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
             self.imageViewEye.isHidden = true
             self.imageView.image = UIImage(named: "Vector")
@@ -27,7 +27,9 @@ class CopyLaunchViewController: UIViewController {
     }
     
     func nextViewSetting() {
+       
         let loginValue = UserDefaults.standard.bool(forKey: "Login")
+        
         print(loginValue)
         
         if loginValue {
