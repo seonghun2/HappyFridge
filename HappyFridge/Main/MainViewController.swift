@@ -34,7 +34,6 @@ class MainViewController: UIViewController {
 
         super.viewDidLoad()
         
-        
         setRefrigeCollectionView()
         setItemCollectionView()
     }
