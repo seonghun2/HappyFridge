@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PermissionViewController" customModule="HappyFridge" customModuleProvider="target">
+            <connections>
+                <outlet property="confirmButton" destination="o9y-RK-T8s" id="X20-sL-oRH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 서비스 접근권한 안내" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-dP-2bH">
+                    <rect key="frame" x="82.666666666666686" y="137" width="225" height="29"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9y-RK-T8s">
+                    <rect key="frame" x="45" y="534" width="300" height="48"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="bfJ-zC-c3N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="확인"/>
+                    <connections>
+                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="KXp-Vr-C3S"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 131" translatesAutoresizingMaskIntoConstraints="NO" id="iU7-3y-2OZ">
+                    <rect key="frame" x="82.666666666666671" y="233" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="XcF-ez-UEU"/>
+                        <constraint firstAttribute="height" constant="40" id="kWJ-AS-QgI"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="push" translatesAutoresizingMaskIntoConstraints="NO" id="PdS-96-NUF">
+                    <rect key="frame" x="82.666666666666671" y="311" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BDp-K6-VLd"/>
+                        <constraint firstAttribute="width" constant="40" id="hZw-qZ-ljA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기기 및 앱 기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnl-ZH-8qT">
+                    <rect key="frame" x="138.66666666666666" y="230" width="95" height="20"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 개선 및 오류 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-GI-CEJ">
+                    <rect key="frame" x="138.66666666666666" y="254" width="134.99999999999997" height="17"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                    <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISU-4P-dBn">
+                    <rect key="frame" x="138.66666666666666" y="311" width="28" height="19.666666666666686"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="푸시 알림 및 메시지 수신 안내" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS6-n8-WUP">
+                    <rect key="frame" x="138.66666666666663" y="334" width="162.33333333333337" height="17"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                    <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-ft-uQt">
+                    <rect key="frame" x="170.66666666666666" y="316" width="29.333333333333343" height="14.666666666666686"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
+                    <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="nVo-ft-uQt" firstAttribute="bottom" secondItem="ISU-4P-dBn" secondAttribute="bottom" id="0CL-sP-k6M"/>
+                <constraint firstItem="iU7-3y-2OZ" firstAttribute="leading" secondItem="xG7-dP-2bH" secondAttribute="leading" id="25q-Ie-T20"/>
+                <constraint firstItem="iU7-3y-2OZ" firstAttribute="top" secondItem="xG7-dP-2bH" secondAttribute="bottom" constant="67" id="3iA-m6-oKg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o9y-RK-T8s" secondAttribute="trailing" constant="45" id="4bt-Py-rkU"/>
+                <constraint firstItem="ISU-4P-dBn" firstAttribute="top" secondItem="PdS-96-NUF" secondAttribute="top" id="BKv-OV-aGg"/>
+                <constraint firstItem="ISU-4P-dBn" firstAttribute="leading" secondItem="PdS-96-NUF" secondAttribute="trailing" constant="16" id="CPx-Jk-Nou"/>
+                <constraint firstItem="o9y-RK-T8s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="45" id="E7J-nJ-Dmq"/>
+                <constraint firstItem="xG7-dP-2bH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FB0-02-LEL"/>
+                <constraint firstItem="Fuc-GI-CEJ" firstAttribute="leading" secondItem="Pnl-ZH-8qT" secondAttribute="leading" id="Fux-e8-MUr"/>
+                <constraint firstItem="FS6-n8-WUP" firstAttribute="leading" secondItem="ISU-4P-dBn" secondAttribute="leading" id="GYW-Mv-289"/>
+                <constraint firstItem="FS6-n8-WUP" firstAttribute="bottom" secondItem="PdS-96-NUF" secondAttribute="bottom" id="NVr-e6-aRB"/>
+                <constraint firstItem="Fuc-GI-CEJ" firstAttribute="top" secondItem="Pnl-ZH-8qT" secondAttribute="bottom" constant="4" id="OBb-dT-saK"/>
+                <constraint firstItem="xG7-dP-2bH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="Tpj-jI-LdH"/>
+                <constraint firstItem="PdS-96-NUF" firstAttribute="top" secondItem="iU7-3y-2OZ" secondAttribute="bottom" constant="38" id="U8n-we-3Zw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="o9y-RK-T8s" secondAttribute="bottom" constant="228" id="cqh-vg-TuY"/>
+                <constraint firstItem="PdS-96-NUF" firstAttribute="leading" secondItem="iU7-3y-2OZ" secondAttribute="leading" id="fZB-nD-NfX"/>
+                <constraint firstItem="Pnl-ZH-8qT" firstAttribute="leading" secondItem="iU7-3y-2OZ" secondAttribute="trailing" constant="16" id="ilq-t3-fpK"/>
+                <constraint firstItem="nVo-ft-uQt" firstAttribute="leading" secondItem="ISU-4P-dBn" secondAttribute="trailing" constant="4" id="j5k-Nk-VIx"/>
+                <constraint firstItem="Pnl-ZH-8qT" firstAttribute="top" secondItem="xG7-dP-2bH" secondAttribute="bottom" constant="64" id="uQo-XV-DoS"/>
+            </constraints>
+            <point key="canvasLocation" x="-58.46153846153846" y="-11.374407582938389"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Frame 131" width="40" height="40"/>
+        <image name="push" width="40" height="40"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

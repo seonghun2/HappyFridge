@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CopyLaunchViewController" customModule="HappyFridge" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="iIG-Qe-ELV" id="vc6-Xd-nsm"/>
+                <outlet property="imageViewEye" destination="Iqs-nr-8EW" id="SyZ-Oy-jHj"/>
+                <outlet property="view" destination="891-eS-Ah6" id="Pj3-L9-em8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="891-eS-Ah6">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="iIG-Qe-ELV">
+                    <rect key="frame" x="124.66666666666669" y="237" width="141" height="131.66666666666663"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smileEye" translatesAutoresizingMaskIntoConstraints="NO" id="Iqs-nr-8EW">
+                    <rect key="frame" x="195.66666666666666" y="237" width="69.999999999999972" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="WKJ-bz-QXL"/>
+                        <constraint firstAttribute="width" constant="70" id="boO-VY-pUM"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="NOj-Z4-x98"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Iqs-nr-8EW" firstAttribute="trailing" secondItem="iIG-Qe-ELV" secondAttribute="trailing" id="LHe-N6-3BJ"/>
+                <constraint firstItem="iIG-Qe-ELV" firstAttribute="centerX" secondItem="891-eS-Ah6" secondAttribute="centerX" id="nO6-Jd-JbK"/>
+                <constraint firstItem="iIG-Qe-ELV" firstAttribute="top" secondItem="NOj-Z4-x98" secondAttribute="top" constant="190" id="sG9-dK-kvM"/>
+                <constraint firstItem="Iqs-nr-8EW" firstAttribute="top" secondItem="iIG-Qe-ELV" secondAttribute="top" id="w9R-bW-WM3"/>
+            </constraints>
+            <point key="canvasLocation" x="646" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="smile" width="141" height="131.66667175292969"/>
+        <image name="smileEye" width="70.666664123535156" height="33"/>
+    </resources>
+</document>

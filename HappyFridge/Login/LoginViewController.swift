@@ -13,10 +13,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         
     }
     
-
+    
     func kakaoLogin() {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
