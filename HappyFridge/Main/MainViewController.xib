@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="bookMarkButton" destination="8Jp-B5-Ere" id="NT2-V4-EUd"/>
                 <outlet property="itemCollectionView" destination="N8a-pf-NZ8" id="oV8-4w-0Hn"/>
+                <outlet property="itemSortButton" destination="9Nb-Om-YE5" id="lp7-bT-uwj"/>
                 <outlet property="refrigeCollectionView" destination="HJz-C2-k1g" id="Wda-AR-usZ"/>
                 <outlet property="view" destination="uXU-Mm-iwO" id="zym-th-Qb3"/>
             </connections>
@@ -120,7 +121,7 @@
                     </connections>
                 </button>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edh-X3-YRC">
-                    <rect key="frame" x="0.0" y="761" width="390" height="49"/>
+                    <rect key="frame" x="0.0" y="727" width="390" height="83"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <tabBarItem title="나의냉장고" id="ald-1G-tAE"/>
@@ -139,18 +140,18 @@
                 <constraint firstItem="8Jp-B5-Ere" firstAttribute="leading" secondItem="9Nb-Om-YE5" secondAttribute="trailing" constant="10" id="H2q-0m-yoe"/>
                 <constraint firstItem="N8a-pf-NZ8" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="bottom" id="Iar-ZN-jm4"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="edh-X3-YRC" secondAttribute="bottom" id="L25-YI-Bmk"/>
-                <constraint firstItem="9Nb-Om-YE5" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="bottom" constant="10" id="LtI-a5-h5R"/>
                 <constraint firstItem="N8a-pf-NZ8" firstAttribute="leading" secondItem="3IF-hK-SQI" secondAttribute="leading" id="ONL-Oq-g6K"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="tOb-CF-d5V" secondAttribute="trailing" constant="10" id="S5w-00-PbG"/>
                 <constraint firstItem="HJz-C2-k1g" firstAttribute="leading" secondItem="3IF-hK-SQI" secondAttribute="leading" id="U8B-L9-0Aq"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="N8a-pf-NZ8" secondAttribute="trailing" id="cXX-Kb-FsU"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="8Jp-B5-Ere" secondAttribute="trailing" constant="10" id="gYr-PA-73u"/>
+                <constraint firstItem="9Nb-Om-YE5" firstAttribute="top" secondItem="8Jp-B5-Ere" secondAttribute="top" id="mts-We-rX3"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="HJz-C2-k1g" secondAttribute="bottom" constant="350" id="nqd-BF-sPI"/>
                 <constraint firstItem="8Jp-B5-Ere" firstAttribute="top" secondItem="N8a-pf-NZ8" secondAttribute="top" constant="10" id="qsQ-af-4kC"/>
                 <constraint firstItem="tOb-CF-d5V" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="top" constant="10" id="rud-1n-CFa"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="HJz-C2-k1g" secondAttribute="trailing" id="sQh-Fn-9gV"/>
                 <constraint firstItem="tOb-CF-d5V" firstAttribute="leading" secondItem="0qM-0D-TkZ" secondAttribute="trailing" constant="10" id="ucb-Zj-WGC"/>
-                <constraint firstItem="HJz-C2-k1g" firstAttribute="top" secondItem="3IF-hK-SQI" secondAttribute="top" id="w4M-ku-t56"/>
+                <constraint firstItem="HJz-C2-k1g" firstAttribute="top" secondItem="3IF-hK-SQI" secondAttribute="top" id="vbz-ld-VKk"/>
                 <constraint firstItem="edh-X3-YRC" firstAttribute="trailing" secondItem="3IF-hK-SQI" secondAttribute="trailing" id="yeD-rr-TqI"/>
             </constraints>
             <point key="canvasLocation" x="957" y="-22"/>

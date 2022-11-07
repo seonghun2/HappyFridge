@@ -9,24 +9,20 @@ import UIKit
 
 class ItemSearchTextField: UITextField {
 
-    var searchButton = UIButton()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         //border.
         backgroundColor = .lightGray
         layer.borderWidth = 1
-        
+        layer.cornerRadius = 15
         placeholder = "검색어를 입력하세요"
         
-        searchButton.titleLabel?.text = "Test"
-        searchButton.backgroundColor = .red
-        self.addSubview(searchButton)
-        searchButton.snp.makeConstraints { make in
-            make.top.equalTo(3)
-            make.right.equalTo(-5)
-            make.width.height.equalTo(20)
-        }
+        leftView = UIImageView(image: UIImage(systemName: "sunrise"))
+        leftViewMode = .unlessEditing
+        rightView = UIButton(type: .infoDark)
+        rightViewMode = .whileEditing
+        
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
