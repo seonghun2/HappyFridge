@@ -16,7 +16,8 @@ class NickNameViewController: UIViewController {
     @IBOutlet weak var nickNameCheckLabel: UILabel!
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
-    
+    @IBOutlet weak var nickNameCheckButton: UIButton!
+   
     var kakaoUserId:String = ""
     lazy var db = Firestore.firestore()
     
@@ -24,6 +25,9 @@ class NickNameViewController: UIViewController {
         super.viewDidLoad()
         
         print("kakaoid: \(kakaoUserId)")
+    
+        nickNameCheckButton.layer.cornerRadius = 16
+        startButton.layer.cornerRadius = 8
         
         self.nickNameTextField.addTarget(self, action: #selector(self.nickNameDidChanged(_:)), for: .editingChanged)
         startButtonActivate(activate: false)
@@ -50,7 +54,7 @@ class NickNameViewController: UIViewController {
             } else {
                 print("데이터 중복 됨 가입 진행 불가")
                 self.nickNameCheckLabel.textColor = .red
-                self.nickNameCheckLabel.text = "중복된 닉네임 입니다."
+                self.nickNameCheckLabel.text = "이미 사용중인 닉네임 입니다."
             }
         }
         
@@ -66,7 +70,7 @@ class NickNameViewController: UIViewController {
     func startButtonActivate(activate:Bool) {
         if activate {
             self.startButton.isEnabled = true
-            self.startButton.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            self.startButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
             
         } else {
             self.startButton.isEnabled = false
@@ -102,6 +106,7 @@ class NickNameViewController: UIViewController {
     
     
     @IBAction func nickNameCheckAction(_ sender: Any) {
+        view.endEditing(true)
         nickNameCheck(nickName: nickNameTextField.text ?? "")
     }
     @IBAction func startAction(_ sender: Any) {
