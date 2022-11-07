@@ -12,6 +12,7 @@ class RefrigeSmallCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
         setItemListTableView()
     }
     

@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var bookMarkButton: UIButton!
     
+    @IBOutlet weak var itemSortButton: UIButton!
+    
     var itemSearhBar = ItemSearchTextField()
 
     var searchItems: [Item]?
@@ -42,14 +44,26 @@ class MainViewController: UIViewController {
         setRefrigeCollectionView()
         setItemCollectionView()
         itemSearhBar.delegate = self
+        itemSearhBar.returnKeyType = .search
         self.itemSearhBar.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     @objc func textFieldDidChange(_ sender: Any?) {
         if itemSearhBar.text == "" {
             showSearchItem = false
             itemCollectionView.reloadData()
+            //itemSearhBar.becomeFirstResponder()
+            bookMarkButton.isHidden = false
+            itemSortButton.isHidden = false
+            itemSearhBar.snp.updateConstraints { update in
+                update.width.equalTo(248)
+            }
+            itemCollectionView.snp.updateConstraints { make in
+                make.top.equalTo(refrigeCollectionView.snp.bottom)
+            }
+            print(#function)
         }
     }
+    
     
     func setRefrigeCollectionView() {
         refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
@@ -62,9 +76,9 @@ class MainViewController: UIViewController {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             if showSmall {
-                layout.sectionInset = UIEdgeInsets(top: 70, left: 40, bottom: 40, right: 20)
-                layout.minimumLineSpacing = 40.0
-                layout.itemSize = CGSize(width: 160, height: 150)
+                layout.sectionInset = UIEdgeInsets(top: 70, left: 15, bottom: 40, right: 20)
+                layout.minimumLineSpacing = 16
+                layout.itemSize = CGSize(width: 172, height: 168)
                 return layout
             } else {
                 layout.sectionInset = UIEdgeInsets(top: 70, left: 40, bottom: 40, right: 20)
@@ -76,7 +90,6 @@ class MainViewController: UIViewController {
         
         refrigeCollectionView.collectionViewLayout = flowLayout
         refrigeCollectionView.showsHorizontalScrollIndicator = false
-        refrigeCollectionView.backgroundColor = .darkGray
         
         refrigeCollectionView.isPagingEnabled = true
         
@@ -95,7 +108,7 @@ class MainViewController: UIViewController {
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
         itemCollectionView.dragDelegate = self
-        
+        itemCollectionView.layer.cornerRadius = 16
         let flowLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
@@ -211,25 +224,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.refrigeNameLabel.text = refrigeArray[indexPath.row].name
             cell.itemList = refrigeArray[indexPath.row].items
-//            var itemList = ""
-//            for itemName in refrigeArray[indexPath.row].items {
-//                itemList.append("\(itemName.name)\n")
-//            }
-//            cell.itemListLabel.text = itemList
-            
-//            var ddayList = ""
-//            for date in refrigeArray[indexPath.row].items {
-//                ddayList.append("\(getDdayString(date: date.expirationDate))\n")
-//
-//            }
-//            cell.itemDdayLabel.text = ddayList
+
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 20
             //****
             cell.itemListTableView.reloadData()
             if refrigeArray[indexPath.row].isShared {
-                cell.layer.borderColor = CGColor(gray: 1, alpha: 0.2)
-                cell.layer.borderWidth = 3
+                cell.layer.borderColor = UIColor.systemGray5.cgColor
+                cell.layer.borderWidth = 2
+            } else{
+                cell.layer.borderColor = UIColor.black.cgColor
+                cell.layer.borderWidth = 2
             }
             return cell
         //하단품목
@@ -387,12 +392,35 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
 
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //itemArray.filter { $0.name == textField.text }
+        print(#function)
         showSearchItem.toggle()
         searchItems = itemArray.filter{ $0.name == textField.text }
-        print(itemArray.filter{ $0.name == textField.text })
         itemCollectionView.reloadData()
+        bookMarkButton.isHidden = true
+        itemSortButton.isHidden = true
+        itemCollectionView.snp.updateConstraints { make in
+            make.top.equalTo(refrigeCollectionView.snp.bottom)
+        }
         return true
     }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(#function)
+        bookMarkButton.isHidden = true
+        itemSortButton.isHidden = true
+        itemSearhBar.snp.updateConstraints { update in
+            update.width.equalTo(340)
+        }
+        itemCollectionView.snp.updateConstraints { make in
+            make.top.equalTo(refrigeCollectionView.snp.bottom).inset(120)
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(#function)
+        bookMarkButton.isHidden = false
+        itemSortButton.isHidden = false
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(#function)
+        itemSearhBar.resignFirstResponder()
+    }
 }
