@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HJz-C2-k1g">
-                    <rect key="frame" x="0.0" y="47" width="390" height="413"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="443"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aG5-LO-WbF">
                         <size key="itemSize" width="128" height="128"/>
@@ -67,7 +67,7 @@
                     </cells>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N8a-pf-NZ8">
-                    <rect key="frame" x="0.0" y="460" width="390" height="350"/>
+                    <rect key="frame" x="0.0" y="490" width="390" height="320"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gfD-C8-S4z">
                         <size key="itemSize" width="128" height="128"/>
@@ -103,12 +103,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nb-Om-YE5">
-                    <rect key="frame" x="281" y="470" width="54" height="35"/>
+                    <rect key="frame" x="281" y="500" width="54" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="정렬"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jp-B5-Ere">
-                    <rect key="frame" x="345" y="470" width="35" height="35"/>
+                    <rect key="frame" x="345" y="500" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="AF3-kg-sec"/>
                         <constraint firstAttribute="width" constant="35" id="tic-yL-01t"/>
@@ -120,39 +120,26 @@
                         <action selector="bookMarkButtonTapped:" destination="-1" eventType="touchUpInside" id="wxq-Hi-bZy"/>
                     </connections>
                 </button>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edh-X3-YRC">
-                    <rect key="frame" x="0.0" y="727" width="390" height="83"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <items>
-                        <tabBarItem title="나의냉장고" id="ald-1G-tAE"/>
-                        <tabBarItem title="공유냉장고" id="glt-k4-4gv"/>
-                        <tabBarItem title="알림" id="6Va-S1-eRF"/>
-                        <tabBarItem title="설정" image="gearshape.fill" catalog="system" id="XFg-ag-jJr"/>
-                    </items>
-                </tabBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="3IF-hK-SQI"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="0qM-0D-TkZ" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="top" constant="10" id="1hE-40-tzc"/>
-                <constraint firstItem="edh-X3-YRC" firstAttribute="leading" secondItem="3IF-hK-SQI" secondAttribute="leading" id="4AY-Gj-ubE"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="N8a-pf-NZ8" secondAttribute="bottom" id="64x-Pv-9EA"/>
                 <constraint firstItem="8Jp-B5-Ere" firstAttribute="leading" secondItem="9Nb-Om-YE5" secondAttribute="trailing" constant="10" id="H2q-0m-yoe"/>
                 <constraint firstItem="N8a-pf-NZ8" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="bottom" id="Iar-ZN-jm4"/>
-                <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="edh-X3-YRC" secondAttribute="bottom" id="L25-YI-Bmk"/>
                 <constraint firstItem="N8a-pf-NZ8" firstAttribute="leading" secondItem="3IF-hK-SQI" secondAttribute="leading" id="ONL-Oq-g6K"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="tOb-CF-d5V" secondAttribute="trailing" constant="10" id="S5w-00-PbG"/>
                 <constraint firstItem="HJz-C2-k1g" firstAttribute="leading" secondItem="3IF-hK-SQI" secondAttribute="leading" id="U8B-L9-0Aq"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="N8a-pf-NZ8" secondAttribute="trailing" id="cXX-Kb-FsU"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="8Jp-B5-Ere" secondAttribute="trailing" constant="10" id="gYr-PA-73u"/>
                 <constraint firstItem="9Nb-Om-YE5" firstAttribute="top" secondItem="8Jp-B5-Ere" secondAttribute="top" id="mts-We-rX3"/>
-                <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="HJz-C2-k1g" secondAttribute="bottom" constant="350" id="nqd-BF-sPI"/>
+                <constraint firstItem="3IF-hK-SQI" firstAttribute="bottom" secondItem="HJz-C2-k1g" secondAttribute="bottom" constant="320" id="nqd-BF-sPI"/>
                 <constraint firstItem="8Jp-B5-Ere" firstAttribute="top" secondItem="N8a-pf-NZ8" secondAttribute="top" constant="10" id="qsQ-af-4kC"/>
                 <constraint firstItem="tOb-CF-d5V" firstAttribute="top" secondItem="HJz-C2-k1g" secondAttribute="top" constant="10" id="rud-1n-CFa"/>
                 <constraint firstItem="3IF-hK-SQI" firstAttribute="trailing" secondItem="HJz-C2-k1g" secondAttribute="trailing" id="sQh-Fn-9gV"/>
                 <constraint firstItem="tOb-CF-d5V" firstAttribute="leading" secondItem="0qM-0D-TkZ" secondAttribute="trailing" constant="10" id="ucb-Zj-WGC"/>
                 <constraint firstItem="HJz-C2-k1g" firstAttribute="top" secondItem="3IF-hK-SQI" secondAttribute="top" id="vbz-ld-VKk"/>
-                <constraint firstItem="edh-X3-YRC" firstAttribute="trailing" secondItem="3IF-hK-SQI" secondAttribute="trailing" id="yeD-rr-TqI"/>
             </constraints>
             <point key="canvasLocation" x="957" y="-22"/>
         </view>
@@ -17106,7 +17093,6 @@ gVQAD4FZAA+BZgAPgWkAD4F2AA+BewAPgYMAD4GGAA+BiwAPgZMAAAAAAAAEAQAAAAAAAABWAAAAAAAA
 AAAAAAAAAA+Blg
 </mutableData>
         </image>
-        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -57,6 +57,14 @@
 		CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB02917818E003971DE /* Refrigerator.swift */; };
 		CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */; };
 		CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A3CB9291781FC003971DE /* SnapKit */; };
+		CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */; };
+		CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */; };
+		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
+		CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */; };
+		CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */; };
+		CEFDD0E8291A232B00E4FDBA /* SharedFridgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */; };
+		CEFDD0EB291A24EB00E4FDBA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */; };
+		CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */; };
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
 		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
@@ -104,6 +112,14 @@
 		CE4A3CAF2917818E003971DE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE4A3CB02917818E003971DE /* Refrigerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refrigerator.swift; sourceTree = "<group>"; };
 		CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchTextField.swift; sourceTree = "<group>"; };
+		CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFridgeViewController.swift; sourceTree = "<group>"; };
+		CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedFridgeViewController.xib; sourceTree = "<group>"; };
+		CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarController.xib; sourceTree = "<group>"; };
 		D1B889C8290DFA04009EEA55 /* HappyFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,8 +260,16 @@
 			isa = PBXGroup;
 			children = (
 				CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */,
+				CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */,
+				CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */,
 				CE4A3CAC2917818E003971DE /* MainViewController.swift */,
 				CE4A3CAD2917818E003971DE /* MainViewController.xib */,
+				CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */,
+				CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */,
+				CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */,
+				CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */,
+				CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */,
+				CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -373,10 +397,14 @@
 				86384772291694610042033B /* Pretendard-Thin.otf in Resources */,
 				8674D2CF2918D7B200FC3A46 /* FridgeDetailViewController.xib in Resources */,
 				8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */,
+				CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */,
+				CEFDD0E8291A232B00E4FDBA /* SharedFridgeViewController.xib in Resources */,
 				CE4A3CA429178161003971DE /* ItemCell.xib in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
+				CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
+				CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */,
 				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
 				CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */,
 				86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */,
@@ -401,9 +429,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				866799BB2914E39F004BB7B2 /* PermissionViewController.swift in Sources */,
+				CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */,
 				866799C229161AB4004BB7B2 /* Users.swift in Sources */,
 				86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */,
 				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
+				CEFDD0EB291A24EB00E4FDBA /* TabBarController.swift in Sources */,
 				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
 				CE4A3CA629178161003971DE /* ItemCell.swift in Sources */,
 				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
@@ -416,9 +446,11 @@
 				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
+				CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */,
 				CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,
+				CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */,
 				CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */,
 				86C490D8291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift in Sources */,
 			);
