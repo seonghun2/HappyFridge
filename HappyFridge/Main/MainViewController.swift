@@ -108,13 +108,16 @@ class MainViewController: UIViewController {
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
         itemCollectionView.dragDelegate = self
+        
         itemCollectionView.layer.cornerRadius = 16
+        itemCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         let flowLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-            layout.sectionInset = UIEdgeInsets(top: 50, left: 40, bottom: 70, right: 20)
+            layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
-            layout.itemSize = CGSize(width: 100, height: 100)
+            layout.itemSize = CGSize(width: 90, height: 100)
             return layout
         }()
         

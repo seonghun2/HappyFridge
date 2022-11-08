@@ -12,7 +12,7 @@ struct Refrigerator {
     var id: Int = 0
     var name: String
     var items: [Item]
-    var isShared: Bool = true
+    var isShared: Bool = false
     
     init(name: String, items: [Item]) {
         
