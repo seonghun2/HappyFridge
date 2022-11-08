@@ -7,9 +7,23 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Light.otf">
+            <string>Pretendard-Light</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FridgeDetailViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
+                <outlet property="filterButton" destination="Wr8-Dq-bkM" id="Q1F-Ns-GI3"/>
+                <outlet property="noticeContentLabel" destination="C0a-Jd-xV5" id="MZY-bY-szJ"/>
+                <outlet property="tableView" destination="drR-Ss-FlC" id="WAT-IR-Mch"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,11 +55,14 @@
                 </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr8-Dq-bkM">
                     <rect key="frame" x="15" y="111" width="80" height="20"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="유통기한순" image="arrowDown">
                         <color key="titleColor" systemColor="labelColor"/>
                     </state>
+                    <connections>
+                        <action selector="filterAction:" destination="-1" eventType="touchUpInside" id="6kH-Gu-Ia4"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="rxG-Fg-onO">
                     <rect key="frame" x="355" y="114" width="20" height="17"/>
@@ -54,19 +71,62 @@
                         <constraint firstAttribute="height" constant="17" id="s9W-z1-OIM"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-B2-6qz">
+                    <rect key="frame" x="0.0" y="144" width="390" height="1"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="PzB-O6-QyH"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSv-06-IST">
+                    <rect key="frame" x="20.000000000000004" y="161" width="55.333333333333343" height="19.333333333333343"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유 유통기한이 얼마 남지 않았으니 빨리 먹기!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0a-Jd-xV5">
+                    <rect key="frame" x="20" y="184.33333333333334" width="290" height="18.666666666666657"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-ts-159">
+                    <rect key="frame" x="0.0" y="219" width="390" height="1"/>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="LVZ-vS-XXs"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="drR-Ss-FlC">
+                    <rect key="frame" x="0.0" y="230" width="390" height="580"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="XSv-06-IST" firstAttribute="top" secondItem="8Sp-B2-6qz" secondAttribute="bottom" constant="16" id="0dz-JZ-M3w"/>
+                <constraint firstItem="drR-Ss-FlC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="29P-g2-doT"/>
                 <constraint firstItem="bH9-Jp-Dtg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="3" id="2jn-8r-wsm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bH9-Jp-Dtg" secondAttribute="trailing" id="2uW-Y9-YeP"/>
+                <constraint firstItem="8Sp-B2-6qz" firstAttribute="top" secondItem="Wr8-Dq-bkM" secondAttribute="bottom" constant="13" id="387-x7-9yD"/>
+                <constraint firstItem="drR-Ss-FlC" firstAttribute="top" secondItem="r9A-ts-159" secondAttribute="bottom" constant="10" id="4BK-39-6dg"/>
                 <constraint firstItem="Wr8-Dq-bkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="4LH-mP-hTN"/>
+                <constraint firstItem="8Sp-B2-6qz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ZM-uO-Glk"/>
+                <constraint firstItem="r9A-ts-159" firstAttribute="top" secondItem="C0a-Jd-xV5" secondAttribute="bottom" constant="16" id="Bjc-eg-XjR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="drR-Ss-FlC" secondAttribute="trailing" id="K1i-FJ-B98"/>
                 <constraint firstItem="rxG-Fg-onO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-15" id="KPS-Q3-ghV"/>
+                <constraint firstItem="C0a-Jd-xV5" firstAttribute="top" secondItem="XSv-06-IST" secondAttribute="bottom" constant="4" id="LUU-Z0-g3g"/>
+                <constraint firstAttribute="trailing" secondItem="r9A-ts-159" secondAttribute="trailing" id="XPK-qa-kH7"/>
                 <constraint firstItem="rxG-Fg-onO" firstAttribute="top" secondItem="bH9-Jp-Dtg" secondAttribute="bottom" constant="16" id="aFd-dU-QwG"/>
+                <constraint firstItem="XSv-06-IST" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bGF-uc-p9U"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="drR-Ss-FlC" secondAttribute="bottom" id="crB-AL-QPn"/>
                 <constraint firstItem="Wr8-Dq-bkM" firstAttribute="top" secondItem="bH9-Jp-Dtg" secondAttribute="bottom" constant="13" id="ebW-41-QuM"/>
+                <constraint firstAttribute="trailing" secondItem="8Sp-B2-6qz" secondAttribute="trailing" id="hmr-6k-0nL"/>
+                <constraint firstItem="r9A-ts-159" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qRG-4Q-Rel"/>
+                <constraint firstItem="C0a-Jd-xV5" firstAttribute="leading" secondItem="XSv-06-IST" secondAttribute="leading" id="wRD-oV-w6N"/>
                 <constraint firstItem="bH9-Jp-Dtg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xzo-7j-uFA"/>
             </constraints>
-            <point key="canvasLocation" x="-135" y="-12"/>
+            <point key="canvasLocation" x="-135.38461538461539" y="-12.085308056872037"/>
         </view>
     </objects>
     <resources>

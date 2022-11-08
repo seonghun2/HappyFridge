@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+        <array key="Pretendard-SemiBold.otf">
+            <string>Pretendard-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FridgeDetailCellTableViewCell" rowHeight="75" id="KGk-i7-Jjw" customClass="FridgeDetailCellTableViewCell" customModule="HappyFridge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="냉동닭가슴살" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-Nz-eRt">
+                        <rect key="frame" x="20" y="27.666666666666671" width="83" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="W08-r8-4MV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-sk-2rp">
+                        <rect key="frame" x="135" y="0.0" width="45" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eau-rr-b6s">
+                                <rect key="frame" x="0.0" y="27.666666666666671" width="27" height="20"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="Mnq-WW-Yuh"/>
+                                    <constraint firstAttribute="height" constant="20" id="quC-O4-kAz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30g-XE-4DT">
+                                <rect key="frame" x="30.999999999999996" y="29" width="12.333333333333332" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3D-TS-gW0">
+                                <rect key="frame" x="0.0" y="0.0" width="24" height="75"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Dt0-bb-POY"/>
+                            <constraint firstItem="u3D-TS-gW0" firstAttribute="top" secondItem="rFr-sk-2rp" secondAttribute="top" id="FzK-sB-6Uf"/>
+                            <constraint firstItem="30g-XE-4DT" firstAttribute="leading" secondItem="eau-rr-b6s" secondAttribute="trailing" constant="4" id="IOk-yN-tnW"/>
+                            <constraint firstAttribute="bottom" secondItem="u3D-TS-gW0" secondAttribute="bottom" id="YP4-5p-9gf"/>
+                            <constraint firstItem="u3D-TS-gW0" firstAttribute="leading" secondItem="rFr-sk-2rp" secondAttribute="leading" id="ihp-52-t6D"/>
+                            <constraint firstItem="eau-rr-b6s" firstAttribute="leading" secondItem="rFr-sk-2rp" secondAttribute="leading" id="jnq-wA-0eC"/>
+                            <constraint firstItem="eau-rr-b6s" firstAttribute="centerY" secondItem="rFr-sk-2rp" secondAttribute="centerY" id="mzS-oy-xto"/>
+                            <constraint firstItem="30g-XE-4DT" firstAttribute="centerY" secondItem="rFr-sk-2rp" secondAttribute="centerY" id="tso-3Q-VGy"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23일 지남" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doM-cH-IxN">
+                        <rect key="frame" x="232" y="25.666666666666671" width="72" height="24"/>
+                        <color key="backgroundColor" red="1" green="0.85490196078431369" blue="0.81960784313725488" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="0CN-qg-1Yn"/>
+                            <constraint firstAttribute="height" constant="24" id="4tb-Rf-9hU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO0-2K-DNF">
+                        <rect key="frame" x="347" y="33.666666666666664" width="8" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="IS3-gA-uCJ"/>
+                            <constraint firstAttribute="width" constant="8" id="umE-rP-eR3"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="close"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.16까지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJV-Yb-XGT">
+                        <rect key="frame" x="232" y="49.666666666666664" width="72" height="15.666666666666664"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
+                        <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eJV-Yb-XGT" firstAttribute="top" secondItem="doM-cH-IxN" secondAttribute="bottom" id="4Sc-tM-h1L"/>
+                    <constraint firstItem="eJV-Yb-XGT" firstAttribute="top" secondItem="doM-cH-IxN" secondAttribute="bottom" id="8iB-84-wYq"/>
+                    <constraint firstItem="lO0-2K-DNF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nkq-H8-Ljs"/>
+                    <constraint firstAttribute="trailing" secondItem="lO0-2K-DNF" secondAttribute="trailing" constant="40" id="SlE-4c-TDh"/>
+                    <constraint firstItem="BXj-Nz-eRt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VxR-0C-639"/>
+                    <constraint firstItem="rFr-sk-2rp" firstAttribute="leading" secondItem="BXj-Nz-eRt" secondAttribute="trailing" constant="32" id="W7g-h9-lhf"/>
+                    <constraint firstItem="doM-cH-IxN" firstAttribute="leading" secondItem="rFr-sk-2rp" secondAttribute="trailing" constant="52" id="YGI-yl-x1d"/>
+                    <constraint firstItem="eJV-Yb-XGT" firstAttribute="trailing" secondItem="doM-cH-IxN" secondAttribute="trailing" id="dYU-2c-dnX"/>
+                    <constraint firstItem="doM-cH-IxN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eIE-Cu-VSG"/>
+                    <constraint firstItem="BXj-Nz-eRt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jss-1a-oYw"/>
+                    <constraint firstItem="rFr-sk-2rp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o3p-iq-eAi"/>
+                    <constraint firstAttribute="bottom" secondItem="rFr-sk-2rp" secondAttribute="bottom" id="rvw-Wa-MGT"/>
+                    <constraint firstItem="rFr-sk-2rp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ul0-wa-C0i"/>
+                    <constraint firstItem="doM-cH-IxN" firstAttribute="leading" secondItem="eJV-Yb-XGT" secondAttribute="leading" id="uln-Hh-FAy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="d_dayLabel" destination="doM-cH-IxN" id="aBt-xe-RvF"/>
+                <outlet property="expirationDateLabel" destination="eJV-Yb-XGT" id="Oak-VH-exE"/>
+                <outlet property="foodCountLabel" destination="eau-rr-b6s" id="CGn-uz-gCS"/>
+                <outlet property="foodName" destination="BXj-Nz-eRt" id="kD0-gx-5RP"/>
+            </connections>
+            <point key="canvasLocation" x="93.89312977099236" y="-1.0563380281690142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="close" width="10" height="10"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
