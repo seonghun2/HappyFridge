@@ -26,6 +26,8 @@
 		866799C229161AB4004BB7B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799C129161AB4004BB7B2 /* Users.swift */; };
 		8674D2CE2918D7B200FC3A46 /* FridgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8674D2CC2918D7B200FC3A46 /* FridgeDetailViewController.swift */; };
 		8674D2CF2918D7B200FC3A46 /* FridgeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8674D2CD2918D7B200FC3A46 /* FridgeDetailViewController.xib */; };
+		86C490D8291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C490D6291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift */; };
+		86C490D9291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C490D7291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib */; };
 		86E596F1290E3B85008EA5B0 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */; };
 		86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F2290E3B85008EA5B0 /* KakaoSDKCommon */; };
 		86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E596F4290E3B85008EA5B0 /* KakaoSDKCommonCore */; };
@@ -90,6 +92,8 @@
 		866799C129161AB4004BB7B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		8674D2CC2918D7B200FC3A46 /* FridgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeDetailViewController.swift; sourceTree = "<group>"; };
 		8674D2CD2918D7B200FC3A46 /* FridgeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FridgeDetailViewController.xib; sourceTree = "<group>"; };
+		86C490D6291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeDetailCellTableViewCell.swift; sourceTree = "<group>"; };
+		86C490D7291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FridgeDetailCellTableViewCell.xib; sourceTree = "<group>"; };
 		86E59704290E4D01008EA5B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86E59705290E4D01008EA5B0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		86E59709290E5F42008EA5B0 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			children = (
 				8674D2CC2918D7B200FC3A46 /* FridgeDetailViewController.swift */,
 				8674D2CD2918D7B200FC3A46 /* FridgeDetailViewController.xib */,
+				86C490D6291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift */,
+				86C490D7291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib */,
 			);
 			path = FridgeDetail;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				86384770291694610042033B /* Pretendard-Regular.otf in Resources */,
 				86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */,
 				8638476B291694610042033B /* Pretendard-Light.otf in Resources */,
+				86C490D9291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib in Resources */,
 				CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */,
 				8638476E291694610042033B /* Pretendard-Medium.otf in Resources */,
 			);
@@ -445,6 +452,7 @@
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,
 				CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */,
 				CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */,
+				86C490D8291A2F2F00802C50 /* FridgeDetailCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
