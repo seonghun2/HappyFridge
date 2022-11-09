@@ -21,21 +21,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOM-Vb-mdj">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOM-Vb-mdj">
                         <rect key="frame" x="5" y="0.0" width="90" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="nrW-lw-6Vq"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOP-ab-fsw">
-                        <rect key="frame" x="260" y="2" width="50" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOP-ab-fsw">
+                        <rect key="frame" x="238" y="9" width="72" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="ZJg-k4-3g7"/>
+                            <constraint firstAttribute="height" constant="26" id="N3c-m7-lwd"/>
+                            <constraint firstAttribute="width" constant="72" id="xEV-ip-6jN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -43,11 +44,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="tOM-Vb-mdj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="52h-2V-UpE"/>
-                    <constraint firstAttribute="bottom" secondItem="zOP-ab-fsw" secondAttribute="bottom" constant="2" id="IGJ-QH-LPu"/>
-                    <constraint firstItem="zOP-ab-fsw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Qgn-O3-vab"/>
                     <constraint firstItem="tOM-Vb-mdj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WTG-mF-diY"/>
                     <constraint firstAttribute="trailing" secondItem="zOP-ab-fsw" secondAttribute="trailing" constant="10" id="gCl-AI-h4g"/>
                     <constraint firstAttribute="bottom" secondItem="tOM-Vb-mdj" secondAttribute="bottom" id="iIT-Fn-1bv"/>
+                    <constraint firstItem="zOP-ab-fsw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pB8-ge-tQ6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

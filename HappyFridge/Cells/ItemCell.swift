@@ -24,8 +24,9 @@ class ItemCell: UICollectionViewCell {
         // Initialization code
         bookmarkButton.tintColor = .black
         self.addSubview(plusImage)
+        plusImage.tintColor = .black
         plusImage.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
+            make.width.height.equalTo(16)
             make.center.equalToSuperview()
         }
         

@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var itemSortButton: UIButton!
     
+    @IBOutlet weak var previousButton: UIButton!
+    
     var itemSearhBar = ItemSearchTextField()
 
     var searchItems: [Item]?
@@ -44,25 +46,26 @@ class MainViewController: UIViewController {
         setRefrigeCollectionView()
         setItemCollectionView()
         itemSearhBar.delegate = self
-        itemSearhBar.returnKeyType = .search
-        self.itemSearhBar.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        itemSearhBar.returnKeyType = .done
+//        self.itemSearhBar.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
-    @objc func textFieldDidChange(_ sender: Any?) {
-        if itemSearhBar.text == "" {
-            showSearchItem = false
-            itemCollectionView.reloadData()
-            //itemSearhBar.becomeFirstResponder()
-            bookMarkButton.isHidden = false
-            itemSortButton.isHidden = false
-            itemSearhBar.snp.updateConstraints { update in
-                update.width.equalTo(248)
-            }
-            itemCollectionView.snp.updateConstraints { make in
-                make.top.equalTo(refrigeCollectionView.snp.bottom)
-            }
-            print(#function)
-        }
-    }
+//    @objc func textFieldDidChange(_ sender: Any?) {
+//        if itemSearhBar.text == "" {
+//            if showSearchItem == true {
+//                showSearchItem.toggle()
+//                itemCollectionView.reloadData()
+//                bookMarkButton.isHidden = false
+//                itemSortButton.isHidden = false
+//                itemSearhBar.snp.updateConstraints { update in
+//                    update.width.equalTo(248)
+//                }
+//                itemCollectionView.snp.updateConstraints { make in
+//                    make.top.equalTo(refrigeCollectionView.snp.bottom)
+//                }
+//            }
+//            print(#function)
+//        }
+//    }
     
     
     func setRefrigeCollectionView() {
@@ -76,9 +79,9 @@ class MainViewController: UIViewController {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             if showSmall {
-                layout.sectionInset = UIEdgeInsets(top: 70, left: 15, bottom: 40, right: 20)
+                layout.sectionInset = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 20)
                 layout.minimumLineSpacing = 16
-                layout.itemSize = CGSize(width: 172, height: 168)
+                layout.itemSize = CGSize(width: 180, height: 180)
                 return layout
             } else {
                 layout.sectionInset = UIEdgeInsets(top: 70, left: 40, bottom: 40, right: 20)
@@ -117,7 +120,9 @@ class MainViewController: UIViewController {
             layout.scrollDirection = .horizontal
             layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
+            
             layout.itemSize = CGSize(width: 90, height: 70)
+            
             return layout
         }()
         
@@ -133,6 +138,7 @@ class MainViewController: UIViewController {
             make.width.equalTo(248)
             make.height.equalTo(32)
         }
+        previousButton.isHidden = true
     }
     
     @IBAction func refrigeSortButtonTapped(_ sender: Any) {
@@ -174,9 +180,14 @@ class MainViewController: UIViewController {
                 
                 // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
                 let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
-                let lastIndex = IndexPath(item: item, section: 0)
-                print(lastIndex)
-                self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
+                if item >= 0 {
+                    let lastIndex = IndexPath(item: item, section: 0)
+                    
+                    self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
+                    print(lastIndex)
+                    
+                }
+                
             }
         }
         alert.addAction(action)
@@ -199,6 +210,24 @@ class MainViewController: UIViewController {
         }
         print(bookmarkItemArray)
         itemCollectionView.reloadData()
+    }
+    
+    @IBAction func previousButtonTapped(_ sender: UIButton) {
+        showSearchItem = false
+        previousButton.isHidden = true
+        bookMarkButton.isHidden = false
+        itemSortButton.isHidden = false
+        
+        itemSearhBar.resignFirstResponder()
+        itemSearhBar.text = ""
+        itemCollectionView.reloadData()
+        itemSearhBar.snp.updateConstraints { update in
+            update.width.equalTo(248)
+            update.left.equalTo(itemCollectionView.snp.left).inset(15)
+        }
+        itemCollectionView.snp.updateConstraints { make in
+            make.top.equalTo(refrigeCollectionView.snp.bottom)
+        }
     }
 }
 
@@ -410,31 +439,35 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(#function)
-        showSearchItem.toggle()
+        showSearchItem = true
         searchItems = itemArray.filter{ $0.name == textField.text }
         itemCollectionView.reloadData()
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true
-        itemCollectionView.snp.updateConstraints { make in
-            make.top.equalTo(refrigeCollectionView.snp.bottom)
-        }
+//        itemCollectionView.snp.updateConstraints { make in
+//            make.top.equalTo(refrigeCollectionView.snp.bottom)
+//        }
+//        itemSearhBar.resignFirstResponder()
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(#function)
+        previousButton.isHidden = false
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true
         itemSearhBar.snp.updateConstraints { update in
+            update.left.equalTo(40)
             update.width.equalTo(340)
         }
         itemCollectionView.snp.updateConstraints { make in
             make.top.equalTo(refrigeCollectionView.snp.bottom).inset(120)
+            
         }
     }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print(#function)
-        bookMarkButton.isHidden = false
-        itemSortButton.isHidden = false
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print(#function)
+//        bookMarkButton.isHidden = false
+//        itemSortButton.isHidden = false
+//    }
     
 }
