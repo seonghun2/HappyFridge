@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
-    
+ 
     @IBOutlet weak var refrigeCollectionView: UICollectionView!
     
     @IBOutlet weak var itemCollectionView: UICollectionView!
@@ -117,13 +117,13 @@ class MainViewController: UIViewController {
             layout.scrollDirection = .horizontal
             layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
-            layout.itemSize = CGSize(width: 90, height: 100)
+            layout.itemSize = CGSize(width: 90, height: 70)
             return layout
         }()
         
         itemCollectionView.collectionViewLayout = flowLayout
         itemCollectionView.showsHorizontalScrollIndicator = false
-        itemCollectionView.backgroundColor = .systemGray4
+        itemCollectionView.backgroundColor = .systemGray5
         itemCollectionView.isPagingEnabled = true
         
         itemCollectionView.addSubview(itemSearhBar)
@@ -191,11 +191,11 @@ class MainViewController: UIViewController {
         print(#function, showOnlyBookmark)
         if showOnlyBookmark {
             showOnlyBookmark = false
-            bookMarkButton.setImage(UIImage(systemName: "star"), for: .normal)
+            bookMarkButton.setImage(UIImage(named: "star_empty"), for: .normal)
         } else {
             bookmarkItemArray = itemArray.filter { $0.isBookmarked == true }
             showOnlyBookmark = true
-            bookMarkButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            bookMarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
         }
         print(bookmarkItemArray)
         itemCollectionView.reloadData()
@@ -244,8 +244,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
                 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
-            cell.backgroundColor = .green
-            cell.layer.cornerRadius = 10
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 4
             cell.index = indexPath.row
             // 즐겨찾기품목
             if showOnlyBookmark {
@@ -280,11 +280,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cell.bookmarkButton.isHidden = false
                         
                         cell.itemNameLabel.text = itemArray[indexPath.row - 1].name
-                        cell.eventClosure = { index, toggle in
-                            self.itemArray[index - 1].isBookmarked = toggle
-                            print(index - 1, toggle)
-                            print(self.itemArray[index - 1])
-                            print(self.itemArray)
+                        if showSearchItem {
+                            cell.eventClosure = { index, toggle in
+                                self.searchItems?[index].isBookmarked = toggle
+                            }
+                        } else {
+                            cell.eventClosure = { index, toggle in
+                                self.itemArray[index - 1].isBookmarked = toggle
+                                print(index - 1, toggle)
+                                print(self.itemArray[index - 1])
+                                print(self.itemArray)
+                            }
                         }
                     }
                 }
@@ -320,7 +326,8 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
     
     //드랍할때 호출. 전역변수에 저장되어있는 item을 드랍하는 냉장고의 items배열에 append해줌
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-         
+        
+        if draggingItem?.name == "" { return }
         print(#function,coordinator.destinationIndexPath)
         
         guard let destinationIndexPath = coordinator.destinationIndexPath?[1] else {return}
@@ -375,7 +382,11 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         if showOnlyBookmark {
             item = bookmarkItemArray[indexPath.row].name
         } else {
-            item = itemArray[indexPath.row].name
+//            if indexPath.row == 0 {
+//                return [UIDragItem(itemProvider: NSItemProvider()]
+//            } else {
+                item = itemArray[indexPath.row].name
+//            }
         }
         
         let itemProvider = NSItemProvider(object: item! as NSString)
@@ -386,9 +397,12 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         if showOnlyBookmark {
             draggingItem = bookmarkItemArray[indexPath.row]
         } else {
-            draggingItem = itemArray[indexPath.row - 1]
+            if indexPath.row == 0 {
+                draggingItem = Item(name: "")
+            } else {
+                draggingItem = itemArray[indexPath.row - 1]
+            }
         }
-        
         return [dragItem]
     }
 }
@@ -422,8 +436,5 @@ extension MainViewController: UITextFieldDelegate {
         bookMarkButton.isHidden = false
         itemSortButton.isHidden = false
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(#function)
-        itemSearhBar.resignFirstResponder()
-    }
+    
 }
