@@ -9,22 +9,29 @@ import UIKit
 import FirebaseFirestore
 
 class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
-     
+    
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noticeContentLabel: UILabel!
     
     var fridgesInfoArray: [Fridges] = []
+    var foodInfoArray: [Food] = []
     
     lazy var db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
         getInfoTest()
+        
+        let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")
+        
     }
-
+    
     @IBAction func filterAction(_ sender: Any) {}
     
     
@@ -46,12 +53,16 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                         }else {
                             print("냉장고있음")
                             let dic = try document.data(as: Fridges.self)
+                            print(dic)
                             
                             self.fridgesInfoArray.append(dic)
-                            print(try document.data(as: Fridges.self).fridge)
+                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].fridge[0].food)
+                            self.tableView.reloadData()
+                            
+                            self.noticeContentLabel.text = self.fridgesInfoArray[0].fridge[0].notice
                             
                             print("냉장고")
-                            print(self.fridgesInfoArray[0].fridge[0].food)
+                            print(self.fridgesInfoArray[0].fridge[0].food[0].foodName)
                             
                         }
                         
@@ -70,23 +81,32 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
 
 extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fridgesInfoArray.count
+        print("array count : \(fridgesInfoArray.count)")
+        
+        //return fridgesInfoArray.count
+        return foodInfoArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FridgeDetailCellTableViewCell", for: indexPath) as? FridgeDetailCellTableViewCell {
             
-            cell.foodName.text = fridgesInfoArray[indexPath.row].fridge[0].food[0].foodName
+            cell.foodName.text = foodInfoArray[indexPath.row].foodName
+            cell.foodCountLabel.text = String(foodInfoArray[indexPath.row].count)
+            print(foodInfoArray[indexPath.row].expirationDate)
+            
+            let date = foodInfoArray[indexPath.row].expirationDate
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yy.MM.dd"
+            let stringDate = formatter.string(from: date)
+            print(stringDate)
+            cell.expirationDateLabel.text = "\(stringDate)까지"
             
             return cell
         }
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
-    }
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 72 }
     
 }
