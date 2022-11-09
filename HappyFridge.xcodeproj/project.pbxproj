@@ -57,6 +57,9 @@
 		CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB02917818E003971DE /* Refrigerator.swift */; };
 		CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */; };
 		CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A3CB9291781FC003971DE /* SnapKit */; };
+		CE8E00CB291BA1B000D50838 /* 경기천년제목_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E00C9291B998300D50838 /* 경기천년제목_Bold.ttf */; };
+		CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */; };
+		CE8E00CE291BB75100D50838 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E00CD291BB75100D50838 /* Extension.swift */; };
 		CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */; };
 		CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */; };
 		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
@@ -112,6 +115,9 @@
 		CE4A3CAF2917818E003971DE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE4A3CB02917818E003971DE /* Refrigerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refrigerator.swift; sourceTree = "<group>"; };
 		CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchTextField.swift; sourceTree = "<group>"; };
+		CE8E00C9291B998300D50838 /* 경기천년제목_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "경기천년제목_Bold.ttf"; sourceTree = "<group>"; };
+		CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "경기천년제목_Light.ttf"; sourceTree = "<group>"; };
+		CE8E00CD291BB75100D50838 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 		86384760291693DB0042033B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E00C9291B998300D50838 /* 경기천년제목_Bold.ttf */,
+				CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */,
 				86384763291694600042033B /* Pretendard-Black.otf */,
 				86384764291694600042033B /* Pretendard-Bold.otf */,
 				86384766291694610042033B /* Pretendard-ExtraBold.otf */,
@@ -293,6 +301,7 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E00CD291BB75100D50838 /* Extension.swift */,
 				8674D2CB2918D78C00FC3A46 /* FridgeDetail */,
 				866084062917A33B00F108DD /* Comman */,
 				CE4A3CB7291781A5003971DE /* Main */,
@@ -399,6 +408,8 @@
 				8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */,
 				CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */,
 				CEFDD0E8291A232B00E4FDBA /* SharedFridgeViewController.xib in Resources */,
+				CE8E00CB291BA1B000D50838 /* 경기천년제목_Bold.ttf in Resources */,
+				CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */,
 				CE4A3CA429178161003971DE /* ItemCell.xib in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
 				CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */,
@@ -437,6 +448,7 @@
 				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
 				CE4A3CA629178161003971DE /* ItemCell.swift in Sources */,
 				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
+				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
 				CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */,
 				CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */,
@@ -591,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2AZY55F5Z9;
+				DEVELOPMENT_TEAM = C494SWBQZZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -618,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2AZY55F5Z9;
+				DEVELOPMENT_TEAM = C494SWBQZZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
