@@ -19,7 +19,7 @@ class RefrigeSmallCell: UICollectionViewCell {
     func setItemListTableView() {
         itemListTableView.dataSource = self
         itemListTableView.register(UINib(nibName: "RefrigeItemListCell", bundle: nil), forCellReuseIdentifier: "RefrigeItemListCell")
-        itemListTableView.rowHeight = 25
+        itemListTableView.rowHeight = 30
         itemListTableView.backgroundColor = .clear
         itemListTableView.separatorColor = .clear
         itemListTableView.isScrollEnabled = false
@@ -42,6 +42,10 @@ class RefrigeSmallCell: UICollectionViewCell {
         }
         return 999
     }
+    
+    @IBAction func fridgeSettingButtonTapped(_ sender: UIButton) {
+    }
+    
 }
 
 extension RefrigeSmallCell: UITableViewDataSource {
@@ -55,7 +59,7 @@ extension RefrigeSmallCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListCell", for: indexPath) as! RefrigeItemListCell
-        print(indexPath.row,itemList)
+        
         
         cell.itemNameLabel.text = itemList[indexPath.row].name
         

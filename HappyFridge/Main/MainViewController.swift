@@ -7,9 +7,11 @@
 
 import UIKit
 import SnapKit
+import FirebaseFirestore
 
 class MainViewController: UIViewController {
- 
+    var db = Firestore.firestore()
+    
     @IBOutlet weak var refrigeCollectionView: UICollectionView!
     
     @IBOutlet weak var itemCollectionView: UICollectionView!
@@ -29,7 +31,7 @@ class MainViewController: UIViewController {
     var showSmall: Bool = true
     
     var refrigeArray: [Refrigerator] = [r1,r2,r3,r4,r5,r6,r7,r8,r9]
-    
+    var test: [Fridges] = []
     var itemArray: [Item] = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10]
     
     var bookmarkItemArray: [Item] = []
@@ -43,30 +45,43 @@ class MainViewController: UIViewController {
 
         super.viewDidLoad()
         
+        let docRef = db.collection("fridge").document("횡성훈2")
+        docRef.getDocument { document, error in
+            if let error = error as NSError? {
+                print("Error getting document: \(error.localizedDescription)")
+            }else {
+                if let document = document {
+                    do {
+                        print("do")
+
+                        if document.data()?.count == nil {
+                            print("냉장고없음")
+
+                        }else {
+                            print("냉장고있음",document.data(),document.data()?.count)
+                            print(type(of: document.data()))
+
+                            let dic = try document.data(as: Fridges.self)
+                        
+                            self.test.append(dic)
+                            print(try document.data(as: Fridges.self).fridge)
+
+                            print("냉장고")
+                            print(self.test[0].fridge[0].food)
+                        }
+                    }
+                    catch {
+                        print("catch")
+                        print(error)
+                    }
+                }
+            }
+        }
         setRefrigeCollectionView()
         setItemCollectionView()
         itemSearhBar.delegate = self
-        itemSearhBar.returnKeyType = .done
-//        self.itemSearhBar.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
-//    @objc func textFieldDidChange(_ sender: Any?) {
-//        if itemSearhBar.text == "" {
-//            if showSearchItem == true {
-//                showSearchItem.toggle()
-//                itemCollectionView.reloadData()
-//                bookMarkButton.isHidden = false
-//                itemSortButton.isHidden = false
-//                itemSearhBar.snp.updateConstraints { update in
-//                    update.width.equalTo(248)
-//                }
-//                itemCollectionView.snp.updateConstraints { make in
-//                    make.top.equalTo(refrigeCollectionView.snp.bottom)
-//                }
-//            }
-//            print(#function)
-//        }
-//    }
-    
+
     
     func setRefrigeCollectionView() {
         refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
@@ -93,7 +108,6 @@ class MainViewController: UIViewController {
         
         refrigeCollectionView.collectionViewLayout = flowLayout
         refrigeCollectionView.showsHorizontalScrollIndicator = false
-        
         refrigeCollectionView.isPagingEnabled = true
         
         // 냉장고가 없을때 이미지 표시
@@ -121,7 +135,7 @@ class MainViewController: UIViewController {
             layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
             
-            layout.itemSize = CGSize(width: 90, height: 70)
+            layout.itemSize = CGSize(width: 110, height: 90)
             
             return layout
         }()
@@ -177,6 +191,14 @@ class MainViewController: UIViewController {
                 
                 self.refrigeCollectionView.backgroundView?.isHidden = true
                 self.refrigeCollectionView.reloadData()
+                
+                let date = Date()
+                self.db.collection("fridge").document("횡성훈2")
+                    .setData(["fridge": FieldValue.arrayUnion([["fridgeName" : name,
+                                                                "owner": "횡성훈2",
+                                                                "createDate": date,
+                                                                "notice": "",
+                                                                "food":["a","b"]]])],merge: true)
                 
                 // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
                 let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
@@ -262,10 +284,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             //****
             cell.itemListTableView.reloadData()
             if refrigeArray[indexPath.row].isShared {
-                cell.layer.borderColor = UIColor.systemGray5.cgColor
+                cell.layer.borderColor = UIColor(hexString: "#DFF4C5").cgColor
                 cell.layer.borderWidth = 2
             } else{
-                cell.layer.borderColor = UIColor.black.cgColor
+                cell.layer.borderColor = UIColor.systemGray5.cgColor
                 cell.layer.borderWidth = 2
             }
             return cell
@@ -330,7 +352,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == itemCollectionView && indexPath.row == 0 {
-            print("아이템추가 팝업")
             let itemAddAlert = UIAlertController(title: "품목추가", message: nil, preferredStyle: .alert)
             itemAddAlert.addTextField()
             let addAction = UIAlertAction(title: "추가", style: .default) { _ in
@@ -414,7 +435,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
 //            if indexPath.row == 0 {
 //                return [UIDragItem(itemProvider: NSItemProvider()]
 //            } else {
-                item = itemArray[indexPath.row].name
+                item = itemArray[indexPath.row - 1].name
 //            }
         }
         

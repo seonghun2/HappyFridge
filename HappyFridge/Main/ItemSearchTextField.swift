@@ -12,9 +12,10 @@ class ItemSearchTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        
         layer.cornerRadius = 15
         placeholder = "검색어를 입력하세요"
-        
+        returnKeyType = .search
         leftView = UIImageView(image: UIImage(named: "search"))
         leftViewMode = .always
 //        rightView = UIImageView(image: UIImage(named: "search"))
