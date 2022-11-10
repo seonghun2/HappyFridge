@@ -15,10 +15,6 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var expirationDateLabel: UILabel!
     
-    weak var delegate: TableViewCellDelegate?
-    var index: Int?
-    var food: Food?
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,25 +29,4 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setFoodInfo(food: Food) {
-        foodName.text = food.foodName
-        foodCountLabel.text = String(food.count)
-        print(food.expirationDate)
-        
-        let date = food.expirationDate
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yy.MM.dd"
-        let stringDate = formatter.string(from: date)
-        print(stringDate)
-        expirationDateLabel.text = "\(stringDate)까지"
-    }
-    @IBAction func deleteFoodAction(_ sender: Any) {
-        print("x버튼 클릭 cell")
-        self.delegate?.deleteButton(index: index,food: food)
-    }
-    
-}
-
-protocol TableViewCellDelegate: AnyObject {
-    func deleteButton(index: Int?,food: Food?)
 }
