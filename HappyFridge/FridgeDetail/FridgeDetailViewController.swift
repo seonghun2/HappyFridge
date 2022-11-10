@@ -83,7 +83,6 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("array count : \(fridgesInfoArray.count)")
         
-        //return fridgesInfoArray.count
         return foodInfoArray.count
     }
     
@@ -91,22 +90,46 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FridgeDetailCellTableViewCell", for: indexPath) as? FridgeDetailCellTableViewCell {
             
-            cell.foodName.text = foodInfoArray[indexPath.row].foodName
-            cell.foodCountLabel.text = String(foodInfoArray[indexPath.row].count)
-            print(foodInfoArray[indexPath.row].expirationDate)
             
-            let date = foodInfoArray[indexPath.row].expirationDate
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yy.MM.dd"
-            let stringDate = formatter.string(from: date)
-            print(stringDate)
-            cell.expirationDateLabel.text = "\(stringDate)까지"
             
+            let foods = foodInfoArray[indexPath.row]
+            cell.setFoodInfo(food: foods)
+            cell.index = indexPath.row
+            cell.food = foodInfoArray[indexPath.row]
+            
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 72 }
+    
+}
+
+extension FridgeDetailViewController: TableViewCellDelegate {
+    func deleteButton(index: Int?,food: Food?) {
+        print("x버튼 클릭 vc ")
+        print(index)
+        guard (index != nil) else {
+            return
+        }
+        
+        let sheet = UIAlertController(title: "물품삭제", message: "\(foodInfoArray[index!].foodName)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
+        sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
+            print("삭제 클릭")
+        }))
+       
+        sheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in print("취소 클릭") }))
+        present(sheet, animated: true)
+        
+        tableView.reloadData()
+        
+    }
+    
+    func aa() {
+      //  db.collection("fridge").document("횡성훈").updateData(["fridge" :])
+
+    }
     
 }
