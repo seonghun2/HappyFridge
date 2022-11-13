@@ -58,6 +58,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="24" height="75"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="updateFoodCountAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pJr-Ap-Pvm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

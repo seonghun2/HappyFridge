@@ -31,17 +31,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKD-Dv-rl1">
-                        <rect key="frame" x="143" y="10" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKD-Dv-rl1">
+                        <rect key="frame" x="140" y="23" width="17" height="6"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="5kJ-Kz-3Nn"/>
-                            <constraint firstAttribute="width" constant="30" id="hWK-To-Q6W"/>
+                            <constraint firstAttribute="width" constant="17" id="1fC-7N-eHd"/>
+                            <constraint firstAttribute="height" constant="6" id="QSW-wO-fGP"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Button" image="3dot"/>
+                        <connections>
+                            <action selector="fridgeSettingButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Nxb-JL-lUq"/>
+                        </connections>
                     </button>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKs-bl-2Zs">
-                        <rect key="frame" x="5" y="49" width="168" height="113"/>
+                        <rect key="frame" x="0.0" y="49" width="178" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
                 </subviews>
@@ -49,11 +52,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="SKD-Dv-rl1" secondAttribute="trailing" constant="5" id="DFe-CX-8MU"/>
-                <constraint firstItem="SKD-Dv-rl1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="DY6-Fr-MOR"/>
-                <constraint firstAttribute="trailing" secondItem="dKs-bl-2Zs" secondAttribute="trailing" constant="5" id="JfA-hT-A4C"/>
-                <constraint firstItem="dKs-bl-2Zs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="L7m-gf-rUJ"/>
-                <constraint firstAttribute="bottom" secondItem="dKs-bl-2Zs" secondAttribute="bottom" constant="5" id="MrN-Kc-ry8"/>
+                <constraint firstItem="SKD-Dv-rl1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="23" id="2Mu-Aj-euY"/>
+                <constraint firstAttribute="trailing" secondItem="SKD-Dv-rl1" secondAttribute="trailing" constant="21" id="EWf-D2-BQR"/>
+                <constraint firstAttribute="trailing" secondItem="dKs-bl-2Zs" secondAttribute="trailing" id="JfA-hT-A4C"/>
+                <constraint firstItem="dKs-bl-2Zs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="L7m-gf-rUJ"/>
+                <constraint firstAttribute="bottom" secondItem="dKs-bl-2Zs" secondAttribute="bottom" id="MrN-Kc-ry8"/>
                 <constraint firstItem="4tU-Sa-XWg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="cFY-ru-rDz"/>
                 <constraint firstItem="dKs-bl-2Zs" firstAttribute="top" secondItem="4tU-Sa-XWg" secondAttribute="bottom" constant="5" id="hOe-O7-rra"/>
                 <constraint firstItem="4tU-Sa-XWg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="zhN-1r-mtd"/>
@@ -68,7 +71,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="3dot" width="16" height="4"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

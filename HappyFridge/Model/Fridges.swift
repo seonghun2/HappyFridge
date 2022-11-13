@@ -8,7 +8,7 @@
 import Foundation
 
 struct Fridges: Codable {
-    let fridge: [Fridge]
+    var fridge: [Fridge]
 }
 
 struct Fridge: Codable {
@@ -16,11 +16,11 @@ struct Fridge: Codable {
     let fridgeName: String
     let owner: String
     let notice: String
-    let food: [Food]
+    var food: [Food]
 }
 
 struct Food: Codable {
-    let foodName: String
-    let count: Int
+    var foodName: String
+    var count: Int
     let expirationDate: Date
 }
