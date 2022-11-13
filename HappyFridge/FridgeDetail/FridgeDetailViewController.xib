@@ -64,7 +64,7 @@
                         <action selector="filterAction:" destination="-1" eventType="touchUpInside" id="6kH-Gu-Ia4"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="rxG-Fg-onO">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="rxG-Fg-onO">
                     <rect key="frame" x="355" y="114" width="20" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="gsv-V4-9E5"/>

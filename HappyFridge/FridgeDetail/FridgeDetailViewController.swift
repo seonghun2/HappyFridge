@@ -14,8 +14,9 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noticeContentLabel: UILabel!
     
-    var fridgesInfoArray: [Fridges] = []
+    var fridgesInfoArray: [Fridge] = []
     var foodInfoArray: [Food] = []
+    
     
     lazy var db = Firestore.firestore()
     
@@ -25,6 +26,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        
         getInfoTest()
         
         let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
@@ -32,12 +34,47 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         
     }
     
+    // 정렬 버튼
     @IBAction func filterAction(_ sender: Any) {}
     
     
+    //냉장고 물품 삭제
+    func deleteFood(foodIndex:Int) {
+        self.foodInfoArray.remove(at: foodIndex)
+        print("foodInfoArray")
+        print(foodInfoArray)
+        self.fridgesInfoArray[0].food.removeAll()
+        self.fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
+        
+        let frid = Fridges(fridge: self.fridgesInfoArray)
+        do {
+            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            tableView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+    
+    //냉장고안에 물품 수량 조절
+    func updateFood(foodIndex: Int,foodCount: Int) {
+        print("foodInfoArray")
+        print(foodInfoArray)
+        self.foodInfoArray[foodIndex].count = foodCount
+        self.fridgesInfoArray[0].food.removeAll()
+        self.fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
+        
+        let frid = Fridges(fridge: self.fridgesInfoArray)
+        do {
+            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            tableView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+    
     // 냉장고 정보 가져오기 테스트
     func getInfoTest() {
-        let docRef = db.collection("fridge").document("횡성훈")
+        let docRef = db.collection("fridge").document("이청우1")
         docRef.getDocument { document, error in
             if let error = error as NSError? {
                 print("Error getting document: \(error.localizedDescription)")
@@ -55,14 +92,14 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             let dic = try document.data(as: Fridges.self)
                             print(dic)
                             
-                            self.fridgesInfoArray.append(dic)
-                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].fridge[0].food)
+                            self.fridgesInfoArray.append(contentsOf: dic.fridge)
+                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].food)
                             self.tableView.reloadData()
                             
-                            self.noticeContentLabel.text = self.fridgesInfoArray[0].fridge[0].notice
+                            self.noticeContentLabel.text = self.fridgesInfoArray[0].notice
                             
                             print("냉장고")
-                            print(self.fridgesInfoArray[0].fridge[0].food[0].foodName)
+                            print(self.fridgesInfoArray[0].food[0].foodName)
                             
                         }
                         
@@ -90,14 +127,13 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FridgeDetailCellTableViewCell", for: indexPath) as? FridgeDetailCellTableViewCell {
             
-            
-            
             let foods = foodInfoArray[indexPath.row]
             cell.setFoodInfo(food: foods)
             cell.index = indexPath.row
             cell.food = foodInfoArray[indexPath.row]
-            
+            cell.count = foods.count
             cell.delegate = self
+            
             return cell
         }
         return UITableViewCell()
@@ -108,9 +144,9 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
 }
 
 extension FridgeDetailViewController: TableViewCellDelegate {
+    
     func deleteButton(index: Int?,food: Food?) {
         print("x버튼 클릭 vc ")
-        print(index)
         guard (index != nil) else {
             return
         }
@@ -118,18 +154,48 @@ extension FridgeDetailViewController: TableViewCellDelegate {
         let sheet = UIAlertController(title: "물품삭제", message: "\(foodInfoArray[index!].foodName)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
             print("삭제 클릭")
+            self.deleteFood(foodIndex: index!)
         }))
-       
+        
         sheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in print("취소 클릭") }))
         present(sheet, animated: true)
         
-        tableView.reloadData()
-        
     }
     
-    func aa() {
-      //  db.collection("fridge").document("횡성훈").updateData(["fridge" :])
-
+    func showFoodCountPopUp(index: Int?, count: Int?) {
+        guard (count != nil) else {
+            return
+        }
+        
+        let popup = PopUpFoodCountUpdate(nibName: "PopUpFoodCountUpdate", bundle: nil)
+        popup.modalPresentationStyle = .overCurrentContext
+        popup.delegate = self
+        popup.foodCount = count
+        popup.foodIndex = index
+        self.present(popup, animated: false)
+        if let ccount = count {
+            popup.countTextField.text = String(ccount)
+        }
     }
+    
     
 }
+
+extension FridgeDetailViewController: PopUpFoodCountDelegate {
+    func confirmButton(foodIndex:Int?, count: Int?) {
+        print("저장클릭 뷰컨")
+        dismiss(animated: false) {
+            if let foodCount = count {
+                if let index = foodIndex {
+                    self.updateFood(foodIndex:index,foodCount: foodCount)
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        }
+    }
+}
+
+
+
