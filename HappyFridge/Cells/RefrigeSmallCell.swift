@@ -63,7 +63,7 @@ extension RefrigeSmallCell: UITableViewDataSource {
         
         cell.itemNameLabel.text = itemList[indexPath.row].name
         
-        let dayLeft = getDdayInt(date: itemList[indexPath.row].expirationDate)
+        let dayLeft = getDdayInt(date: itemList[indexPath.row].expirationDate ?? Date())
         if dayLeft > 7 {
             cell.DdayLabel.backgroundColor = UIColor(hexString: "#DFF4C5")
             cell.DdayLabel.text = "d-\(dayLeft)"
