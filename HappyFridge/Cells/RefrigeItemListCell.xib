@@ -22,31 +22,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOM-Vb-mdj">
-                        <rect key="frame" x="5" y="0.0" width="90" height="44"/>
+                        <rect key="frame" x="16" y="12" width="90" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="nrW-lw-6Vq"/>
+                            <constraint firstAttribute="height" constant="20" id="rpv-M8-auD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOP-ab-fsw">
-                        <rect key="frame" x="238" y="9" width="72" height="26"/>
+                        <rect key="frame" x="260" y="14" width="44" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="26" id="N3c-m7-lwd"/>
-                            <constraint firstAttribute="width" constant="72" id="xEV-ip-6jN"/>
+                            <constraint firstAttribute="height" constant="16" id="N3c-m7-lwd"/>
+                            <constraint firstAttribute="width" constant="44" id="xEV-ip-6jN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="tOM-Vb-mdj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="52h-2V-UpE"/>
-                    <constraint firstItem="tOM-Vb-mdj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WTG-mF-diY"/>
-                    <constraint firstAttribute="trailing" secondItem="zOP-ab-fsw" secondAttribute="trailing" constant="10" id="gCl-AI-h4g"/>
-                    <constraint firstAttribute="bottom" secondItem="tOM-Vb-mdj" secondAttribute="bottom" id="iIT-Fn-1bv"/>
+                    <constraint firstItem="tOM-Vb-mdj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="52h-2V-UpE"/>
+                    <constraint firstAttribute="trailing" secondItem="zOP-ab-fsw" secondAttribute="trailing" constant="16" id="gCl-AI-h4g"/>
+                    <constraint firstItem="tOM-Vb-mdj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kq5-Ia-WsV"/>
                     <constraint firstItem="zOP-ab-fsw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pB8-ge-tQ6"/>
                 </constraints>
             </tableViewCellContentView>

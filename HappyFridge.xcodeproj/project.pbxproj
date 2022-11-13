@@ -54,12 +54,14 @@
 		CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CAC2917818E003971DE /* MainViewController.swift */; };
 		CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CAD2917818E003971DE /* MainViewController.xib */; };
 		CE4A3CB42917818E003971DE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CAF2917818E003971DE /* Item.swift */; };
-		CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB02917818E003971DE /* Refrigerator.swift */; };
+		CE4A3CB52917818E003971DE /* Refrigerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB02917818E003971DE /* Refrigerators.swift */; };
 		CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */; };
 		CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A3CB9291781FC003971DE /* SnapKit */; };
+		CE84FAA9291F902C00FFB3E5 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE84FAA8291F902C00FFB3E5 /* Items.swift */; };
 		CE8E00CB291BA1B000D50838 /* 경기천년제목_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E00C9291B998300D50838 /* 경기천년제목_Bold.ttf */; };
 		CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */; };
 		CE8E00CE291BB75100D50838 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E00CD291BB75100D50838 /* Extension.swift */; };
+		CEADD2A6292079370003EDAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADD2A5292079370003EDAF /* DataManager.swift */; };
 		CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */; };
 		CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */; };
 		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
@@ -113,11 +115,13 @@
 		CE4A3CAC2917818E003971DE /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE4A3CAD2917818E003971DE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CE4A3CAF2917818E003971DE /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		CE4A3CB02917818E003971DE /* Refrigerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refrigerator.swift; sourceTree = "<group>"; };
+		CE4A3CB02917818E003971DE /* Refrigerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refrigerators.swift; sourceTree = "<group>"; };
 		CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchTextField.swift; sourceTree = "<group>"; };
+		CE84FAA8291F902C00FFB3E5 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		CE8E00C9291B998300D50838 /* 경기천년제목_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "경기천년제목_Bold.ttf"; sourceTree = "<group>"; };
 		CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "경기천년제목_Light.ttf"; sourceTree = "<group>"; };
 		CE8E00CD291BB75100D50838 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CEADD2A5292079370003EDAF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -258,8 +262,10 @@
 			isa = PBXGroup;
 			children = (
 				CE4A3CAF2917818E003971DE /* Item.swift */,
-				CE4A3CB02917818E003971DE /* Refrigerator.swift */,
+				CE84FAA8291F902C00FFB3E5 /* Items.swift */,
+				CE4A3CB02917818E003971DE /* Refrigerators.swift */,
 				866084092917ADF700F108DD /* DefaultFood.swift */,
+				CEADD2A5292079370003EDAF /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */,
 				866799C229161AB4004BB7B2 /* Users.swift in Sources */,
 				86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */,
+				CE84FAA9291F902C00FFB3E5 /* Items.swift in Sources */,
 				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
 				CEFDD0EB291A24EB00E4FDBA /* TabBarController.swift in Sources */,
 				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
@@ -452,9 +459,10 @@
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
 				CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */,
 				CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */,
-				CE4A3CB52917818E003971DE /* Refrigerator.swift in Sources */,
+				CE4A3CB52917818E003971DE /* Refrigerators.swift in Sources */,
 				8638475F291664520042033B /* Fridges.swift in Sources */,
 				8674D2CE2918D7B200FC3A46 /* FridgeDetailViewController.swift in Sources */,
+				CEADD2A6292079370003EDAF /* DataManager.swift in Sources */,
 				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
