@@ -14,6 +14,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noticeContentLabel: UILabel!
     
+    @IBOutlet weak var addFoodButton: UIButton!
     var fridgesInfoArray: [Fridge] = []
     var foodInfoArray: [Food] = []
     
@@ -26,6 +27,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        addFoodButton.layer.cornerRadius = 10
         
         getInfoTest()
         
