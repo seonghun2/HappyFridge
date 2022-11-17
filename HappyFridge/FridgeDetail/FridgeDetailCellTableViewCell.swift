@@ -18,13 +18,14 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
     weak var delegate: TableViewCellDelegate?
     var index: Int?
     var food: Food?
+    var count: Int?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        foodCountLabel.layer.cornerRadius = 4
-        expirationDateLabel.layer.cornerRadius = 16
+        self.foodCountLabel.layer.cornerRadius = 4
+        self.expirationDateLabel.layer.cornerRadius = 16
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,8 +51,13 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
         self.delegate?.deleteButton(index: index,food: food)
     }
     
+    @IBAction func updateFoodCountAction(_ sender: Any) {
+        print("물품 클릭 cell")
+        self.delegate?.showFoodCountPopUp(index: index,count: count)
+    }
 }
 
 protocol TableViewCellDelegate: AnyObject {
     func deleteButton(index: Int?,food: Food?)
+    func showFoodCountPopUp(index: Int?, count: Int?)
 }
