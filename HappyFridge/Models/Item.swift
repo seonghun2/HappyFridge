@@ -9,14 +9,14 @@ import Foundation
 
 struct Item: Codable{
     var name: String
-    //var isBookmarked: Bool = false
-    //var performAlert: Bool = true
+    var isBookmarked: Bool?
+    var performAlert: Bool?
     
     var expirationDate: Date?
-    
     var count: Int?
-    var isBookmarked: Bool?
-    //var alertDay: Int = 0
+
+    var createDate: Date?
+    var alertDay: Int?
 }
 
 //var i0 = Item(name: "")
