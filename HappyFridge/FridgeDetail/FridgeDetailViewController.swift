@@ -23,7 +23,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -36,9 +36,27 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        //getInfoTest()
+    }
+    
     // 정렬 버튼
     @IBAction func filterAction(_ sender: Any) {}
     
+    // 물품추가 버튼 (화면이동)
+    @IBAction func addFoodAction(_ sender: Any) {
+        let vc = AddFoodViewController(nibName:"AddFoodViewController", bundle: nil)
+        vc.modalPresentationStyle = .fullScreen
+        vc.fridgesInfoArray = fridgesInfoArray
+        vc.foodInfoArray = foodInfoArray
+        vc.dataSendClosure = { data in
+            print("클로저")
+            print(data)
+            self.getInfoTest()
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
     
     //냉장고 물품 삭제
     func deleteFood(foodIndex:Int) {
@@ -93,13 +111,13 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             print("냉장고있음")
                             let dic = try document.data(as: Fridges.self)
                             print(dic)
-                            
+                            self.fridgesInfoArray.removeAll()
+                            self.foodInfoArray.removeAll()
                             self.fridgesInfoArray.append(contentsOf: dic.fridge)
                             self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].food)
-                            self.tableView.reloadData()
-                            
                             self.noticeContentLabel.text = self.fridgesInfoArray[0].notice
-                            
+                            self.tableView.reloadData()
+
                             print("냉장고")
                             print(self.fridgesInfoArray[0].food[0].foodName)
                             

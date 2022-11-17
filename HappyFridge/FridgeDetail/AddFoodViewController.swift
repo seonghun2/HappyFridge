@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AddFoodViewController: UIViewController {
 
@@ -14,8 +15,16 @@ class AddFoodViewController: UIViewController {
     @IBOutlet weak var alarmDayTextField: UITextField!
 
     @IBOutlet weak var addButton: UIButton!
-
+    @IBOutlet weak var alarmSwitch: UISwitch!
+    
     var foodCount = 0
+    var fridgesInfoArray: [Fridge] = []
+    var foodInfoArray: [Food] = []
+    
+    lazy var db = Firestore.firestore()
+    
+    // 데이터 전달 클로저
+    var dataSendClosure: ((_ data: String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +34,10 @@ class AddFoodViewController: UIViewController {
         alarmDayTextField.layer.cornerRadius = 4
         foodCountTextField.text = String(foodCount)
 
-        startButtonActivate(activate: false)
+        addButtonActivate(activate: true)
+        
+        print("foodinfoarray")
+        print(foodInfoArray)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,17 +60,41 @@ class AddFoodViewController: UIViewController {
         foodCountTextField.text = String(foodCount)
     }
     @IBAction func addAction(_ sender: Any) {
-
+        addFood()
     }
 
-    func startButtonActivate(activate:Bool) {
+    func addButtonActivate(activate:Bool) {
         if activate {
-            self.addButton.isEnabled = true
-            self.addButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
+            addButton.isEnabled = true
+            addButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
 
         } else {
-            self.addButton.isEnabled = false
-            self.addButton.backgroundColor = .gray
+            addButton.isEnabled = false
+            addButton.backgroundColor = .gray
+        }
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    //냉장고안에 물품 추가
+    func addFood() {
+        print("foodInfoArray")
+        print(foodInfoArray)
+        let date = Date()
+        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: date)
+        foodInfoArray.append(fd)
+        fridgesInfoArray[0].food.removeAll()
+        fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
+
+        let frid = Fridges(fridge: self.fridgesInfoArray)
+        do {
+            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            self.dataSendClosure?("물품추가")
+            dismiss(animated: true)
+        } catch {
+            print(error)
         }
     }
 

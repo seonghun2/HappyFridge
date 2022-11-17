@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="addButton" destination="js6-7y-TVR" id="9fe-IP-Fwh"/>
                 <outlet property="alarmDayTextField" destination="HGG-pR-Ilp" id="Odv-rz-QAJ"/>
+                <outlet property="alarmSwitch" destination="57M-6p-ILJ" id="635-Qt-Az5"/>
                 <outlet property="foodCountTextField" destination="42w-pZ-sd3" id="c8B-Dw-TCr"/>
                 <outlet property="foodNameTextField" destination="S0K-46-1PG" id="u1X-FR-1mM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -38,7 +39,11 @@
                     </constraints>
                     <items>
                         <navigationItem title="물품추가" id="BbU-us-1ZG">
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" style="plain" id="5mV-9a-14s"/>
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" style="plain" id="5mV-9a-14s">
+                                <connections>
+                                    <action selector="backAction:" destination="-1" id="cFx-kq-FVb"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                     <navigationBarAppearance key="standardAppearance">
@@ -120,7 +125,7 @@
                     </connections>
                 </button>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="RpI-Nb-g7v">
-                    <rect key="frame" x="137.33333333333334" y="248.00000000000003" width="100" height="34.333333333333343"/>
+                    <rect key="frame" x="137" y="248" width="100" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="yr5-Je-yXk"/>
                     </constraints>
