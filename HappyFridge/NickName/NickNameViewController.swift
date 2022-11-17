@@ -17,7 +17,7 @@ class NickNameViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var nickNameCheckButton: UIButton!
-   
+    
     var kakaoUserId:String = ""
     lazy var db = Firestore.firestore()
     
@@ -25,16 +25,12 @@ class NickNameViewController: UIViewController {
         super.viewDidLoad()
         
         print("kakaoid: \(kakaoUserId)")
-    
+        
         nickNameCheckButton.layer.cornerRadius = 16
         startButton.layer.cornerRadius = 8
         
         self.nickNameTextField.addTarget(self, action: #selector(self.nickNameDidChanged(_:)), for: .editingChanged)
         startButtonActivate(activate: false)
-        
-        //getTest()
-        getInfoTest()
-        //getFood()
     }
     
     // MARK: 닉네임 중복체크
@@ -69,12 +65,12 @@ class NickNameViewController: UIViewController {
     
     func startButtonActivate(activate:Bool) {
         if activate {
-            self.startButton.isEnabled = true
-            self.startButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
+            startButton.isEnabled = true
+            startButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
             
         } else {
-            self.startButton.isEnabled = false
-            self.startButton.backgroundColor = .gray
+            startButton.isEnabled = false
+            startButton.backgroundColor = .gray
         }
     }
     
@@ -104,7 +100,6 @@ class NickNameViewController: UIViewController {
     }
     
     
-    
     @IBAction func nickNameCheckAction(_ sender: Any) {
         view.endEditing(true)
         nickNameCheck(nickName: nickNameTextField.text ?? "")
@@ -113,55 +108,5 @@ class NickNameViewController: UIViewController {
         insertUserInfo()
     }
     
-    // 냉장고 정보 가져오기 테스트
-    func getInfoTest() {
-        //let docRef = db.collection("fridge").document(Constant.nickName!)
-        let docRef = db.collection("fridge").document("횡성훈")
-        docRef.getDocument { document, error in
-            if let error = error as NSError? {
-                print("Error getting document: \(error.localizedDescription)")
-            }else {
-                if let document = document {
-                    do {
-                        print("do")
-                        
-                        if document.data()?.count == nil {
-                            print("냉장고없음")
-                            
-                            
-                        }else {
-                            print("냉장고있음")
-                            print(try document.data(as: Fridges.self).fridge)
-                        }
-                        
-                        
-                    }
-                    catch {
-                        print("catch")
-                        print(error)
-                    }
-                }
-            }
-        }
-    }
-    
-    // 냉장고 생성 하기 테스트
-    func getTest() {
-        let date = Date()
-        db.collection("fridge").document("횡성훈")
-            .setData(["fridge": FieldValue.arrayUnion([["fridgeName" : "냉장고",
-                                                        "owner": "횡성훈",
-                                                        "createDate": date]])],merge: true)
-        
-    }
-    
-    //기본 물품 조회 테스트
-//    func getFood() {
-//        db.collection("defaultFood").document("SgahXQM6joSLFc0sxgDM").getDocument { (snapshot, error) in
-//                    if error == nil && snapshot != nil && snapshot!.data() != nil {
-//                        print(snapshot!.data())
-//                    }
-//                }
-//    }
 }
 
