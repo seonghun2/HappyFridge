@@ -12,7 +12,8 @@ import FirebaseFirestore
 class DataManager {
     var db = Firestore.firestore()
     lazy var docRef = db.collection("fridge").document("횡성훈2")
-//    var fridges: [Refrigerator] = []
+    lazy var fridges: [Refrigerator] = []
+    lazy var foods: [Item] = []
     
 //    func getFridgeData() {
 //
@@ -48,7 +49,7 @@ class DataManager {
                         print("do")
                         print("냉장고있음",document.data(),document.data()?.count)
                         let fridges = try document.data(as: Refrigerators.self).fridges
-                        //fridgeArray = fridges
+                        // self.fridges = fridges
                         completion(fridges)
                     }
                     catch {
@@ -72,6 +73,7 @@ class DataManager {
                         print("do")
                         print("냉장고있음",document.data(),document.data()?.count)
                         let foods = try document.data(as: Items.self).foods
+                        self.foods = foods
                         completion(foods)
                     }
                     catch {
@@ -96,9 +98,8 @@ class DataManager {
     func addFood(foodName: String) {
         self.db.collection("fridge").document("횡성훈2")
             .setData(["foods": FieldValue.arrayUnion([["name": foodName,
-                                                        "count": nil,
-                                                        "expirationDate": nil,
-                                                        "isBookmarked": false]])],merge: true)
+                                                       "createDate": Date(),
+                                                       "isBookmarked": false]])],merge: true)
     }
     
     func removeFridge() {
@@ -114,7 +115,7 @@ class DataManager {
     }
     
     //냉장고안에 음식 넣을때
-    func dropFoodInFridge() {
+    func dropFoodInFridge(food: Item, to: Refrigerator) {
         
     }
     //        test[0].fridgeName = "changeTest"
@@ -127,3 +128,4 @@ class DataManager {
     //            print(error)
     //        }
 }
+// 파이어스토어에서 불러와서 메인뷰컨 배열에 넣어서 가공후 다시 파이어스토어로 넣어주기

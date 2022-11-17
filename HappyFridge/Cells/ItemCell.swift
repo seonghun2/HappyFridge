@@ -17,7 +17,7 @@ class ItemCell: UICollectionViewCell {
     var index: Int?
     var isBookmarked: Bool = false
     
-    var eventClosure: ((Int, Bool) -> Void)?
+    var eventClosure: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,17 +41,17 @@ class ItemCell: UICollectionViewCell {
     }
     
 
-    
     @IBAction func bookmarkButtonTapped(_ sender: UIButton) {
         if isBookmarked {
             bookmarkButton.setImage(UIImage(named: "star_empty"), for: .normal)
             isBookmarked = false
-            eventClosure!(index!, isBookmarked)
+            eventClosure!(isBookmarked)
            
         } else {
             bookmarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
             isBookmarked = true
-            eventClosure!(index!, isBookmarked)
+            eventClosure!(isBookmarked)
         }
     }
 }
+
