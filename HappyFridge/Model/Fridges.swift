@@ -23,5 +23,5 @@ struct Food: Codable {
     var foodName: String
     var count: Int
     let expirationDate: Date
-    let addDate: Date?
+    let createDate: Date?
 }

@@ -88,7 +88,7 @@ class AddFoodViewController: UIViewController {
     //냉장고안에 물품 추가
     func addFood() {
         let nowDate = Date()
-        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, addDate: nowDate)
+        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate)
         foodInfoArray.append(fd)
         fridgesInfoArray[0].food.removeAll()
         fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
