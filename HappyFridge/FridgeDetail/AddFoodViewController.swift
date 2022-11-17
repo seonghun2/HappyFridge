@@ -20,6 +20,7 @@ class AddFoodViewController: UIViewController {
     var foodCount = 0
     var fridgesInfoArray: [Fridge] = []
     var foodInfoArray: [Food] = []
+    var expirationDate: Date?
     
     lazy var db = Firestore.firestore()
     
@@ -74,16 +75,20 @@ class AddFoodViewController: UIViewController {
         }
     }
     
+    @IBAction func datePicker(_ sender: UIDatePicker) {
+        print("날짜선택")
+        print(sender.date)
+        expirationDate = sender.date
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true)
     }
     
     //냉장고안에 물품 추가
     func addFood() {
-        print("foodInfoArray")
-        print(foodInfoArray)
-        let date = Date()
-        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: date)
+        let nowDate = Date()
+        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate)
         foodInfoArray.append(fd)
         fridgesInfoArray[0].food.removeAll()
         fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
