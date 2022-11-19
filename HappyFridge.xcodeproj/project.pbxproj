@@ -44,9 +44,6 @@
 		86E59707290E4D01008EA5B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E59705290E4D01008EA5B0 /* LoginViewController.xib */; };
 		86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E59709290E5F42008EA5B0 /* NickNameViewController.swift */; };
 		86E5970C290E5F42008EA5B0 /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E5970A290E5F42008EA5B0 /* NickNameViewController.xib */; };
-		86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E5970D290E7993008EA5B0 /* GoogleService-Info.plist */; };
-		86E59711290E7AB1008EA5B0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E59710290E7AB1008EA5B0 /* FirebaseFirestore */; };
-		86E59713290E7AB1008EA5B0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E59712290E7AB1008EA5B0 /* FirebaseFirestoreSwift */; };
 		CE4A3CA429178161003971DE /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9C29178161003971DE /* ItemCell.xib */; };
 		CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */; };
 		CE4A3CA629178161003971DE /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9E29178161003971DE /* ItemCell.swift */; };
@@ -79,6 +76,18 @@
 		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
 		D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D4290DFA06009EEA55 /* Assets.xcassets */; };
 		D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */; };
+		D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BCE8352928991D008586F8 /* GoogleService-Info.plist */; };
+		D1BCE8552928A362008586F8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8542928A362008586F8 /* FirebaseAnalytics */; };
+		D1BCE8572928A362008586F8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8562928A362008586F8 /* FirebaseAnalyticsSwift */; };
+		D1BCE8592928A362008586F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8582928A362008586F8 /* FirebaseAuth */; };
+		D1BCE85B2928A362008586F8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE85A2928A362008586F8 /* FirebaseCrashlytics */; };
+		D1BCE85D2928A362008586F8 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE85C2928A362008586F8 /* FirebaseDatabase */; };
+		D1BCE85F2928A362008586F8 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE85E2928A362008586F8 /* FirebaseDatabaseSwift */; };
+		D1BCE8612928A362008586F8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8602928A362008586F8 /* FirebaseFirestore */; };
+		D1BCE8632928A362008586F8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8622928A362008586F8 /* FirebaseFirestoreSwift */; };
+		D1BCE8652928A362008586F8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8642928A362008586F8 /* FirebaseMessaging */; };
+		D1BCE8672928A362008586F8 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8662928A362008586F8 /* FirebaseRemoteConfig */; };
+		D1BCE8692928A362008586F8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8682928A362008586F8 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +120,6 @@
 		86E59705290E4D01008EA5B0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		86E59709290E5F42008EA5B0 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		86E5970A290E5F42008EA5B0 /* NickNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
-		86E5970D290E7993008EA5B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE4A3C9C29178161003971DE /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeSmallCell.xib; sourceTree = "<group>"; };
 		CE4A3C9E29178161003971DE /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 		CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedFridgeViewController.xib; sourceTree = "<group>"; };
 		CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarController.xib; sourceTree = "<group>"; };
+		D109A6302928B51E005DB80A /* HappyFridge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HappyFridge.entitlements; sourceTree = "<group>"; };
 		D1B889C8290DFA04009EEA55 /* HappyFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +154,7 @@
 		D1B889D4290DFA06009EEA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1B889D7290DFA06009EEA55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1B889D9290DFA06009EEA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1BCE8352928991D008586F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,16 +162,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BCE8652928A362008586F8 /* FirebaseMessaging in Frameworks */,
+				D1BCE85F2928A362008586F8 /* FirebaseDatabaseSwift in Frameworks */,
+				D1BCE8632928A362008586F8 /* FirebaseFirestoreSwift in Frameworks */,
 				86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */,
 				86E596F7290E3B85008EA5B0 /* KakaoSDKShare in Frameworks */,
 				86E596FD290E3B85008EA5B0 /* KakaoSDKTemplate in Frameworks */,
+				D1BCE8572928A362008586F8 /* FirebaseAnalyticsSwift in Frameworks */,
+				D1BCE8612928A362008586F8 /* FirebaseFirestore in Frameworks */,
 				86E596F1290E3B85008EA5B0 /* KakaoSDKAuth in Frameworks */,
 				86E596FF290E3B85008EA5B0 /* KakaoSDKUser in Frameworks */,
-				86E59713290E7AB1008EA5B0 /* FirebaseFirestoreSwift in Frameworks */,
-				86E59711290E7AB1008EA5B0 /* FirebaseFirestore in Frameworks */,
+				D1BCE8672928A362008586F8 /* FirebaseRemoteConfig in Frameworks */,
 				86E596FB290E3B85008EA5B0 /* KakaoSDKTalk in Frameworks */,
+				D1BCE8592928A362008586F8 /* FirebaseAuth in Frameworks */,
+				D1BCE8692928A362008586F8 /* FirebaseStorage in Frameworks */,
 				86E596F9290E3B85008EA5B0 /* KakaoSDKStory in Frameworks */,
+				D1BCE85B2928A362008586F8 /* FirebaseCrashlytics in Frameworks */,
 				86E596F5290E3B85008EA5B0 /* KakaoSDKCommonCore in Frameworks */,
+				D1BCE8552928A362008586F8 /* FirebaseAnalytics in Frameworks */,
+				D1BCE85D2928A362008586F8 /* FirebaseDatabase in Frameworks */,
 				CE4A3CBA291781FC003971DE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +338,7 @@
 		D1B889CA290DFA04009EEA55 /* HappyFridge */ = {
 			isa = PBXGroup;
 			children = (
+				D109A6302928B51E005DB80A /* HappyFridge.entitlements */,
 				CE8E00CD291BB75100D50838 /* Extension.swift */,
 				8674D2CB2918D78C00FC3A46 /* FridgeDetail */,
 				866084062917A33B00F108DD /* Comman */,
@@ -337,7 +357,7 @@
 				D1B889D4290DFA06009EEA55 /* Assets.xcassets */,
 				D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */,
 				D1B889D9290DFA06009EEA55 /* Info.plist */,
-				86E5970D290E7993008EA5B0 /* GoogleService-Info.plist */,
+				D1BCE8352928991D008586F8 /* GoogleService-Info.plist */,
 			);
 			path = HappyFridge;
 			sourceTree = "<group>";
@@ -367,9 +387,18 @@
 				86E596FA290E3B85008EA5B0 /* KakaoSDKTalk */,
 				86E596FC290E3B85008EA5B0 /* KakaoSDKTemplate */,
 				86E596FE290E3B85008EA5B0 /* KakaoSDKUser */,
-				86E59710290E7AB1008EA5B0 /* FirebaseFirestore */,
-				86E59712290E7AB1008EA5B0 /* FirebaseFirestoreSwift */,
 				CE4A3CB9291781FC003971DE /* SnapKit */,
+				D1BCE8542928A362008586F8 /* FirebaseAnalytics */,
+				D1BCE8562928A362008586F8 /* FirebaseAnalyticsSwift */,
+				D1BCE8582928A362008586F8 /* FirebaseAuth */,
+				D1BCE85A2928A362008586F8 /* FirebaseCrashlytics */,
+				D1BCE85C2928A362008586F8 /* FirebaseDatabase */,
+				D1BCE85E2928A362008586F8 /* FirebaseDatabaseSwift */,
+				D1BCE8602928A362008586F8 /* FirebaseFirestore */,
+				D1BCE8622928A362008586F8 /* FirebaseFirestoreSwift */,
+				D1BCE8642928A362008586F8 /* FirebaseMessaging */,
+				D1BCE8662928A362008586F8 /* FirebaseRemoteConfig */,
+				D1BCE8682928A362008586F8 /* FirebaseStorage */,
 			);
 			productName = HappyFridge;
 			productReference = D1B889C8290DFA04009EEA55 /* HappyFridge.app */;
@@ -401,8 +430,8 @@
 			mainGroup = D1B889BF290DFA04009EEA55;
 			packageReferences = (
 				86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D1B889C9290DFA04009EEA55 /* Products */;
 			projectDirPath = "";
@@ -433,11 +462,11 @@
 				86ADE0992923D4ED005254F4 /* AddFoodViewController.xib in Resources */,
 				CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
+				D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
 				CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */,
 				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
 				CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */,
-				86E5970E290E7993008EA5B0 /* GoogleService-Info.plist in Resources */,
 				CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */,
 				D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */,
 				8638476F291694610042033B /* Pretendard-ExtraBold.otf in Resources */,
@@ -625,22 +654,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = HappyFridge/HappyFridge.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C494SWBQZZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9SY2YSK7KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.HappyFridge.test;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.fridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,22 +686,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = HappyFridge/HappyFridge.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C494SWBQZZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9SY2YSK7KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.HappyFridge.test;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.fridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -706,19 +745,19 @@
 				kind = branch;
 			};
 		};
-		86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				branch = develop;
+				kind = branch;
+			};
+		};
+		D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -765,20 +804,65 @@
 			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
 		};
-		86E59710290E7AB1008EA5B0 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		86E59712290E7AB1008EA5B0 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86E5970F290E7AB1008EA5B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
 		CE4A3CB9291781FC003971DE /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D1BCE8542928A362008586F8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D1BCE8562928A362008586F8 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		D1BCE8582928A362008586F8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D1BCE85A2928A362008586F8 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		D1BCE85C2928A362008586F8 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		D1BCE85E2928A362008586F8 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		D1BCE8602928A362008586F8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D1BCE8622928A362008586F8 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		D1BCE8642928A362008586F8 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		D1BCE8662928A362008586F8 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		D1BCE8682928A362008586F8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

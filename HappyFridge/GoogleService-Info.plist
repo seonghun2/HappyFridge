@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1014482425207-hsc148pe6vpqml5oq0bo4c6cpj4jqv8d.apps.googleusercontent.com</string>
+	<string>1014482425207-cpph6v1vaatuoo507rd0s4ndclkkkndj.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1014482425207-hsc148pe6vpqml5oq0bo4c6cpj4jqv8d</string>
+	<string>com.googleusercontent.apps.1014482425207-cpph6v1vaatuoo507rd0s4ndclkkkndj</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBJ1eWKGSQqJbO_STZB9OIvwRtb0GBhu7s</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>kr.happysmile.HappyFridge.test</string>
+	<string>kr.happysmile.fridge</string>
 	<key>PROJECT_ID</key>
 	<string>happyfridge-224d8</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1014482425207:ios:bf36c0ea784371b0fffd72</string>
+	<string>1:1014482425207:ios:de39bab042d33007fffd72</string>
 </dict>
 </plist>
