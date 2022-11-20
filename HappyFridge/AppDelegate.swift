@@ -57,8 +57,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    // 앱 foreground 상태에서 Push 온 경우 처리
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("\(#function)")
+        
+        print(#function)
+        // Push 왔을 때 alert, badge, sound 표시
+        // .banner .list: App이 켜져 있든 꺼져 있든, 상단 배너에도 뜨고, Notification Center(잠금 화면)에도 뜸
+        completionHandler([.banner, .list, .badge, .sound])
+    }
+    
+    // push 탭한 경우 처리
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+                
+        // deep link 처리 시 사용(딥링크: 특정 주소 혹은 값으로 앱 내 특정 화면으로 이동시키는 기능)
+        let url = response.notification.request.content.userInfo
+        print("url = \(url)")
+
     }
 }
 
