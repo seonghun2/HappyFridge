@@ -39,10 +39,25 @@
                             <action selector="bookmarkButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SJJ-oy-uId"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIG-Z5-9gG">
+                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="FWV-Ep-WvE"/>
+                            <constraint firstAttribute="height" constant="30" id="Klg-X1-xVC"/>
+                        </constraints>
+                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                        <connections>
+                            <action selector="deleteButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zxn-Wh-cti"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="bIG-Z5-9gG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="90o-H8-L0L"/>
+                <constraint firstItem="bIG-Z5-9gG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="A0U-e9-FX1"/>
                 <constraint firstItem="M6Q-iC-Xow" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="P1I-eh-Fgh"/>
                 <constraint firstItem="0Rx-uc-acS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Vz1-aP-Keo"/>
                 <constraint firstItem="0Rx-uc-acS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Xka-CY-BlI"/>
@@ -51,6 +66,7 @@
             <size key="customSize" width="105" height="112"/>
             <connections>
                 <outlet property="bookmarkButton" destination="M6Q-iC-Xow" id="feO-xV-7UK"/>
+                <outlet property="deleteButton" destination="bIG-Z5-9gG" id="R4W-j0-zsq"/>
                 <outlet property="itemNameLabel" destination="0Rx-uc-acS" id="6J0-AY-PJ5"/>
             </connections>
             <point key="canvasLocation" x="56.153846153846153" y="9.9526066350710902"/>
@@ -58,5 +74,6 @@
     </objects>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
     </resources>
 </document>

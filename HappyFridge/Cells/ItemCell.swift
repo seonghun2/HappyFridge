@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 class ItemCell: UICollectionViewCell {
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBOutlet weak var itemNameLabel: UILabel!
@@ -18,6 +19,8 @@ class ItemCell: UICollectionViewCell {
     var isBookmarked: Bool = false
     
     var eventClosure: ((Bool) -> Void)?
+    
+    var deleteEventClosure: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,13 +48,17 @@ class ItemCell: UICollectionViewCell {
         if isBookmarked {
             bookmarkButton.setImage(UIImage(named: "star_empty"), for: .normal)
             isBookmarked = false
-            eventClosure!(isBookmarked)
+            eventClosure?(isBookmarked)
            
         } else {
             bookmarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
             isBookmarked = true
-            eventClosure!(isBookmarked)
+            eventClosure?(isBookmarked)
         }
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        deleteEventClosure?()
     }
 }
 
