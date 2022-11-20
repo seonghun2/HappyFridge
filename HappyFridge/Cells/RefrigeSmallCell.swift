@@ -7,11 +7,12 @@
 
 import UIKit
 protocol AlertViewDelegete {
- 
+    
 }
 class RefrigeSmallCell: UICollectionViewCell {
     
     var eventClosure: (() -> ())?
+    var tapEventClosure: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,8 +49,13 @@ class RefrigeSmallCell: UICollectionViewCell {
     
     @IBAction func fridgeSettingButtonTapped(_ sender: UIButton) {
         print(#function)
-        eventClosure!()
+        eventClosure?()
     }
+    
+    @IBAction func cellTapped(_ sender: UIButton) {
+        tapEventClosure?()
+    }
+    
 }
 
 extension RefrigeSmallCell: UITableViewDataSource {

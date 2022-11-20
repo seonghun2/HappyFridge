@@ -63,8 +63,11 @@
 		CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */; };
 		CE8E00CE291BB75100D50838 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E00CD291BB75100D50838 /* Extension.swift */; };
 		CEADD2A6292079370003EDAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADD2A5292079370003EDAF /* DataManager.swift */; };
-		CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */; };
-		CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */; };
+		CEBEE79B292A654A00E92FAE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEE797292A654A00E92FAE /* SettingViewController.swift */; };
+		CEBEE79C292A654A00E92FAE /* SettingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEE798292A654A00E92FAE /* SettingListCell.swift */; };
+		CEBEE79D292A654A00E92FAE /* SettingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBEE799292A654A00E92FAE /* SettingListCell.xib */; };
+		CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */; };
+		CEBEE7A2292A656900E92FAE /* InsertFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */; };
 		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
 		CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */; };
 		CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */; };
@@ -138,6 +141,12 @@
 		CE8E00CA291B998300D50838 /* 경기천년제목_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "경기천년제목_Light.ttf"; sourceTree = "<group>"; };
 		CE8E00CD291BB75100D50838 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CEADD2A5292079370003EDAF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CEBEE797292A654A00E92FAE /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CEBEE798292A654A00E92FAE /* SettingListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingListCell.swift; sourceTree = "<group>"; };
+		CEBEE799292A654A00E92FAE /* SettingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingListCell.xib; sourceTree = "<group>"; };
+		CEBEE79A292A654A00E92FAE /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsertFoodViewController.xib; sourceTree = "<group>"; };
+		CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertFoodViewController.swift; sourceTree = "<group>"; };
 		CEFDD0D9291A1FF000E4FDBA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +313,9 @@
 		CE4A3CB7291781A5003971DE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */,
+				CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */,
+				CEBEE796292A654A00E92FAE /* Setting */,
 				CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */,
 				CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */,
 				CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */,
@@ -317,6 +329,17 @@
 				CEFDD0DA291A1FF000E4FDBA /* SettingViewController.xib */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		CEBEE796292A654A00E92FAE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEE797292A654A00E92FAE /* SettingViewController.swift */,
+				CEBEE798292A654A00E92FAE /* SettingListCell.swift */,
+				CEBEE799292A654A00E92FAE /* SettingListCell.xib */,
+				CEBEE79A292A654A00E92FAE /* SettingViewController.xib */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		D1B889BF290DFA04009EEA55 = {
@@ -459,8 +482,8 @@
 				CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */,
 				CE4A3CA429178161003971DE /* ItemCell.xib in Resources */,
 				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
+				CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */,
 				86ADE0992923D4ED005254F4 /* AddFoodViewController.xib in Resources */,
-				CEFDD0DC291A1FF000E4FDBA /* SettingViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
 				D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
@@ -477,6 +500,7 @@
 				8638476B291694610042033B /* Pretendard-Light.otf in Resources */,
 				86C490D9291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib in Resources */,
 				CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */,
+				CEBEE79D292A654A00E92FAE /* SettingListCell.xib in Resources */,
 				8638476E291694610042033B /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +522,7 @@
 				CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */,
 				CE4A3CA629178161003971DE /* ItemCell.swift in Sources */,
 				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
+				CEBEE79C292A654A00E92FAE /* SettingListCell.swift in Sources */,
 				86ADE0982923D4ED005254F4 /* AddFoodViewController.swift in Sources */,
 				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,
 				86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */,
@@ -511,9 +536,10 @@
 				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
-				CEFDD0DB291A1FF000E4FDBA /* SettingViewController.swift in Sources */,
 				CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
+				CEBEE79B292A654A00E92FAE /* SettingViewController.swift in Sources */,
+				CEBEE7A2292A656900E92FAE /* InsertFoodViewController.swift in Sources */,
 				D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */,
 				CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */,
 				CE4A3CB62917818E003971DE /* ItemSearchTextField.swift in Sources */,
