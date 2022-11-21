@@ -28,7 +28,11 @@
                     <items>
                         <navigationItem id="oIP-Rs-axi">
                             <nil key="title"/>
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="SNk-p2-gnp"/>
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="SNk-p2-gnp">
+                                <connections>
+                                    <action selector="backAction:" destination="-1" id="JvY-I0-bTN"/>
+                                </connections>
+                            </barButtonItem>
                             <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력해주세요" textAlignment="natural" minimumFontSize="17" id="IZo-ge-RzC">
                                 <rect key="frame" x="117" y="5" width="156" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

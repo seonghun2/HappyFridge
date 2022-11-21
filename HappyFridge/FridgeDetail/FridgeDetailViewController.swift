@@ -40,6 +40,12 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         let vc = SearchViewController(nibName:"SearchViewController", bundle: nil)
         vc.modalPresentationStyle = .fullScreen
         vc.searchFoodInfoArray = foodInfoArray
+        vc.searchFridgesInfoArray = fridgesInfoArray
+        vc.searchClosure = { [weak self] data  in
+            print("클로저")
+            print(data)
+            self?.getFridgeInfo()
+        }
         self.present(vc, animated: true, completion: nil)
     }
     
