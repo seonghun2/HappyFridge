@@ -34,16 +34,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH9-Jp-Dtg">
-                    <rect key="frame" x="0.0" y="3" width="390" height="48"/>
+                    <rect key="frame" x="0.0" y="50" width="390" height="48"/>
                     <color key="backgroundColor" red="0.99894839530000001" green="0.83261996510000003" blue="0.23202377560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="Sr0-ou-oBa"/>
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="1vz-aN-kQh">
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" style="plain" id="KnY-UI-Fe1"/>
-                            <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="42U-cb-Yhf">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="KnY-UI-Fe1"/>
+                            <barButtonItem key="rightBarButtonItem" systemItem="search" id="42U-cb-Yhf">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="-1" id="QAt-fV-smT"/>
+                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>
@@ -55,7 +58,7 @@
                     </navigationBarAppearance>
                 </navigationBar>
                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr8-Dq-bkM">
-                    <rect key="frame" x="15" y="64" width="80" height="19"/>
+                    <rect key="frame" x="15" y="111" width="80" height="20"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="유통기한순" image="arrowDown">
@@ -66,40 +69,40 @@
                     </connections>
                 </button>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member" translatesAutoresizingMaskIntoConstraints="NO" id="rxG-Fg-onO">
-                    <rect key="frame" x="355" y="67" width="20" height="17"/>
+                    <rect key="frame" x="355" y="114" width="20" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="gsv-V4-9E5"/>
                         <constraint firstAttribute="height" constant="17" id="s9W-z1-OIM"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-B2-6qz">
-                    <rect key="frame" x="0.0" y="96" width="390" height="1"/>
+                    <rect key="frame" x="0.0" y="144" width="390" height="1"/>
                     <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="PzB-O6-QyH"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSv-06-IST">
-                    <rect key="frame" x="20.000000000000004" y="113" width="55.333333333333343" height="19.333333333333343"/>
+                    <rect key="frame" x="20.000000000000004" y="161" width="55.333333333333343" height="19.333333333333343"/>
                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유 유통기한이 얼마 남지 않았으니 빨리 먹기!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0a-Jd-xV5">
-                    <rect key="frame" x="20" y="136.33333333333334" width="294" height="18.666666666666657"/>
+                    <rect key="frame" x="20" y="184.33333333333334" width="290" height="18.666666666666657"/>
                     <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-ts-159">
-                    <rect key="frame" x="0.0" y="171" width="390" height="1"/>
+                    <rect key="frame" x="0.0" y="219" width="390" height="1"/>
                     <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="LVZ-vS-XXs"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="drR-Ss-FlC">
-                    <rect key="frame" x="0.0" y="182" width="390" height="662"/>
+                    <rect key="frame" x="0.0" y="230" width="390" height="580"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-qN-P5Z">
                     <rect key="frame" x="317" y="722" width="40" height="30"/>
