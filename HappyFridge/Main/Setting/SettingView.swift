@@ -1,20 +1,20 @@
 //
-//  SettingViewController.swift
+//  SettingView.swift
 //  HappyFridge
 //
-//  Created by user on 2022/11/08.
+//  Created by user on 2022/11/21.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingView: UIViewController {
 
     @IBOutlet weak var settingList: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupList()
+        //print(settingList)
     }
     
     func setupList() {
@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
     }
 }
 
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
