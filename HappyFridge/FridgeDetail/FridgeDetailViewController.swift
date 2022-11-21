@@ -35,12 +35,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         tableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
-        //getInfoTest()
-    }
-    
+
     // 정렬 버튼
     @IBAction func filterAction(_ sender: Any) {}
     
@@ -50,10 +45,10 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         vc.modalPresentationStyle = .fullScreen
         vc.fridgesInfoArray = fridgesInfoArray
         vc.foodInfoArray = foodInfoArray
-        vc.dataSendClosure = { data in
+        vc.dataSendClosure = { [weak self] data  in
             print("클로저")
             print(data)
-            self.getInfoTest()
+            self?.getInfoTest()
         }
         self.present(vc, animated: true, completion: nil)
     }
