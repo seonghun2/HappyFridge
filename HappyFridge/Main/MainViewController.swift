@@ -124,6 +124,7 @@ class MainViewController: UIViewController {
         refrigeCollectionView.delegate = self
         refrigeCollectionView.dataSource = self
         refrigeCollectionView.dropDelegate = self
+        refrigeCollectionView.allowsSelection = false
         
         let flowLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
@@ -170,7 +171,7 @@ class MainViewController: UIViewController {
             layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
             
-            layout.itemSize = CGSize(width: 110, height: 90)
+            layout.itemSize = CGSize(width: 95, height: 80)
             
             return layout
         }()
@@ -367,6 +368,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.layer.borderWidth = 2
             }
             
+            //냉장고셀 터치시 상세화면 띄움
+            cell.tapEventClosure = {
+                let VC = FridgeDetailViewController()
+                print(indexPath.row)
+                //VC.foodInfoArray = foods[indexPath.row]
+                //VC.fridgesInfoArray = test[indexPath.row]
+                self.present(VC, animated: true)
+            }
+            
             //냉장고이름 변경
             cell.eventClosure = {
                 let bottomSheet = UIAlertController(title: "편집", message: nil, preferredStyle: .actionSheet)
@@ -431,9 +441,25 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.plusImage.isHidden = true
                 cell.itemNameLabel.isHidden = false
                 cell.bookmarkButton.isHidden = false
+                cell.deleteButton.isHidden = false
                 cell.itemNameLabel.text = bookmarkItemArray[indexPath.row].name
                 cell.isBookmarked = bookmarkItemArray[indexPath.row].isBookmarked!
                 cell.setBookmarkButton()
+                cell.deleteEventClosure = {
+                    for i in 0...self.foods.count - 1 {
+                        if self.foods[i].name == self.bookmarkItemArray[indexPath.row].name {
+                            self.foods.remove(at: i)
+                            self.bookmarkItemArray.remove(at: indexPath.row)
+                            break
+                        }
+                    }
+                    do {
+                        try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                    } catch {
+                        print(error)
+                    }
+                    self.itemCollectionView.reloadData()
+                }
                 cell.eventClosure = { toggle in
                     for i in 0...self.foods.count - 1 {
                         if self.foods[i].name == self.bookmarkItemArray[indexPath.row].name {
@@ -459,8 +485,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     cell.plusImage.isHidden = true
                     cell.itemNameLabel.isHidden = false
                     cell.bookmarkButton.isHidden = false
+                    cell.deleteButton.isHidden = false
                     cell.itemNameLabel.text = searchItems![indexPath.row].name
                     cell.isBookmarked = searchItems![indexPath.row].isBookmarked!
+                    cell.deleteEventClosure = {
+                        for i in 0...self.foods.count - 1 {
+                            if self.foods[i].name == self.searchItems?[indexPath.row].name {
+                                self.searchItems?.remove(at: indexPath.row)
+                                self.foods.remove(at: i)
+                                break
+                            }
+                        }
+                        do {
+                            try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                        } catch {
+                            print(error)
+                        }
+                        self.itemCollectionView.reloadData()
+                    }
                     cell.eventClosure = { toggle in
                         for i in 0...self.foods.count - 1 {
                             if self.foods[i].name == self.searchItems![indexPath.row].name {
@@ -480,6 +522,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cell.plusImage.isHidden = false
                         cell.itemNameLabel.isHidden = true
                         cell.bookmarkButton.isHidden = true
+                        cell.deleteButton.isHidden = true
                         return cell
                         // 나머지셀
                     } else {
@@ -488,8 +531,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cell.plusImage.isHidden = true
                         cell.itemNameLabel.isHidden = false
                         cell.bookmarkButton.isHidden = false
+                        cell.deleteButton.isHidden = false
                         
                         cell.itemNameLabel.text = foods[indexPath.row - 1].name
+                        cell.deleteEventClosure = {
+                            self.foods.remove(at: indexPath.row - 1)
+                            
+                            do {
+                                try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                            } catch {
+                                print(error)
+                            }
+                            self.itemCollectionView.reloadData()
+                        }
                         cell.eventClosure = { toggle in
                             self.foods[indexPath.row - 1].isBookmarked = toggle
                             
@@ -562,7 +616,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
     //드랍할때 호출. 전역변수에 저장되어있는 item을 드랍하는 냉장고의 items배열에 append해줌
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         
-        if draggingItem?.name == "" { return }
+        if draggingItem == nil { return }
         print(#function,coordinator.destinationIndexPath)
         
         guard let destinationIndexPath = coordinator.destinationIndexPath?[1] else {return}
@@ -582,7 +636,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     make.left.equalTo(20)
                 }
                 
-                dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .cancel) { _ in
+                dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default) { _ in
                     print(datePicker.date)
                     self.draggingItem?.expirationDate = datePicker.date
                     
@@ -616,7 +670,33 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 
                 dateChooserAlert.view.addConstraint(height)
                 
-                present(dateChooserAlert, animated: true)
+                //present(dateChooserAlert, animated: true)
+                
+                
+                let VC = InsertFoodViewController()
+                //VC.foodnameLabel.text = draggingItem?.name
+                VC.dragedFood = draggingItem
+                VC.destinationFridge = test[destinationIndexPath]
+                VC.addEventClosure = { foodCount, expirationDate ,isAlert, alertDay in
+                    self.draggingItem?.count = foodCount
+                    self.draggingItem?.expirationDate = expirationDate
+                    self.draggingItem?.performAlert = isAlert
+                    self.draggingItem?.alertDay = alertDay
+                    self.test[destinationIndexPath].food?.append(self.draggingItem!)
+
+                    let frid = Refrigerators(fridges: self.test)
+                    do {
+                        try self.db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
+                    } catch {
+                        print(error)
+                    }
+                    self.draggingItem = nil
+                    
+                    let indexPath = IndexPath(item: destinationIndexPath, section: 0)
+                    self.refrigeCollectionView.reloadItems(at: [indexPath])
+                }
+                present(VC, animated: true)
+                
             }
         }
     }
@@ -631,11 +711,11 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
             if showOnlyBookmark {
                 item = bookmarkItemArray[indexPath.row].name
             } else {
-                //            if indexPath.row == 0 {
-                //                return [UIDragItem(itemProvider: NSItemProvider()]
-                //            } else {
-                item = foods[indexPath.row - 1].name
-                //            }
+                if indexPath.row == 0 {
+                    item = ""
+                } else {
+                    item = foods[indexPath.row - 1].name
+                }
             }
         }
         
@@ -658,9 +738,9 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 }
             }
         }
+        print(draggingItem?.name)
         return [dragItem]
     }
-        
 }
 
 extension MainViewController: UITextFieldDelegate {
