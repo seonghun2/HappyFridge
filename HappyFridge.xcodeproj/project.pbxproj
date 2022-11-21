@@ -69,6 +69,7 @@
 		CEBEE7A2292A656900E92FAE /* InsertFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */; };
 		CEC217E5292B59760088E8E6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC217E3292B59760088E8E6 /* SettingView.swift */; };
 		CEC217E6292B59760088E8E6 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC217E4292B59760088E8E6 /* SettingView.xib */; };
+		CEC217EB292B65B20088E8E6 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = CEC217EA292B65B20088E8E6 /* Toast */; };
 		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
 		CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */; };
 		CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */; };
@@ -182,6 +183,7 @@
 				86E596FF290E3B85008EA5B0 /* KakaoSDKUser in Frameworks */,
 				D1BCE8672928A362008586F8 /* FirebaseRemoteConfig in Frameworks */,
 				86E596FB290E3B85008EA5B0 /* KakaoSDKTalk in Frameworks */,
+				CEC217EB292B65B20088E8E6 /* Toast in Frameworks */,
 				D1BCE8592928A362008586F8 /* FirebaseAuth in Frameworks */,
 				D1BCE8692928A362008586F8 /* FirebaseStorage in Frameworks */,
 				86E596F9290E3B85008EA5B0 /* KakaoSDKStory in Frameworks */,
@@ -419,6 +421,7 @@
 				D1BCE8642928A362008586F8 /* FirebaseMessaging */,
 				D1BCE8662928A362008586F8 /* FirebaseRemoteConfig */,
 				D1BCE8682928A362008586F8 /* FirebaseStorage */,
+				CEC217EA292B65B20088E8E6 /* Toast */,
 			);
 			productName = HappyFridge;
 			productReference = D1B889C8290DFA04009EEA55 /* HappyFridge.app */;
@@ -452,6 +455,7 @@
 				86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CEC217E9292B65B10088E8E6 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = D1B889C9290DFA04009EEA55 /* Products */;
 			projectDirPath = "";
@@ -777,6 +781,14 @@
 				kind = branch;
 			};
 		};
+		CEC217E9292B65B10088E8E6 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -832,6 +844,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CEC217EA292B65B20088E8E6 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC217E9292B65B10088E8E6 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		D1BCE8542928A362008586F8 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

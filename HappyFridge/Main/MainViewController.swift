@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import FirebaseFirestore
-
+import Toast
 class MainViewController: UIViewController {
     var db = Firestore.firestore()
     var dataManager = DataManager()
@@ -150,7 +150,7 @@ class MainViewController: UIViewController {
         refrigeCollectionView.backgroundView = UIImageView(image: UIImage(systemName: "sunrise"))
         refrigeCollectionView.backgroundView?.isHidden = true
         
-//        if refrigeArray.isEmpty {
+//        if test.isEmpty {
 //            refrigeCollectionView.backgroundView?.isHidden = false
 //        }
     }
@@ -227,33 +227,37 @@ class MainViewController: UIViewController {
 //        updateData()
 //        return
         
-        let alert = UIAlertController(title: "장소 추가", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "냉장고 추가", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
-        
+        alert.textFields?[0].placeholder = "추가하실 냉장고 이름을 입력해주세요."
         let action = UIAlertAction(title: "추가", style: .default) {_ in
             if let name = alert.textFields?[0].text {
                 //let newRefrige = Refrigerator(name: name, items: [])
                 //self.refrigeArray.append(newRefrige)
                 
-                self.refrigeCollectionView.backgroundView?.isHidden = true
-                
-                self.dataManager.addFridge(fridgeName: name)
-                self.dataManager.getFridgeData { fridges in
-                    self.test = fridges
+                if !self.test.map{ $0.fridgeName }.contains(name) {
+                    self.refrigeCollectionView.backgroundView?.isHidden = true
+                    
+                    self.dataManager.addFridge(fridgeName: name)
+                    self.dataManager.getFridgeData { fridges in
+                        self.test = fridges
+                        self.refrigeCollectionView.reloadData()
+                    }
+                    
                     self.refrigeCollectionView.reloadData()
-                }
-                
-                self.refrigeCollectionView.reloadData()
-                //self.getData()
-                // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
-                let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
-                if item >= 0 {
-                    let lastIndex = IndexPath(item: item, section: 0)
-                    
-                    self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
-                    print(lastIndex)
-                    
+                    self.view.makeToast("\(name)이(가) 추가 되었습니다")
+                    // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
+                    let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
+                    if item >= 0 {
+                        let lastIndex = IndexPath(item: item, section: 0)
+                        
+                        self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
+                        print(lastIndex)
+                    }
+                } else {
+                    self.present(alert,animated: true)
+                    self.view.makeToast("같은이름의 냉장고가 존재합니다.")
                 }
             }
         }
@@ -584,19 +588,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 itemAddAlert.addTextField()
                 let addAction = UIAlertAction(title: "추가", style: .default) { _ in
                     if let name = itemAddAlert.textFields?[0].text {
-                        //                    let newItem = Item(name: name)
-                        //                    self.db.collection("fridge").document("횡성훈2")
-                        //                        .setData(["foods": FieldValue.arrayUnion([["name": name,
-                        //                                                                    "count": nil,
-                        //                                                                    "expirationDate": nil,
-                        //                                                                    "isBookmarked": false]])],merge: true)
-                        //                    self.foods.append(newItem)
-                        self.dataManager.addFood(foodName: name)
-                        self.dataManager.getFoodData { foods in
-                            self.foods = foods
+                        if !self.foods.map{ $0.name }.contains(name) {
+                            
+                            self.dataManager.addFood(foodName: name)
+                            self.dataManager.getFoodData { foods in
+                                self.foods = foods
+                                self.itemCollectionView.reloadData()
+                            }
                             self.itemCollectionView.reloadData()
+                            self.view.makeToast("\(name)이(가) 추가 되었습니다.")
+                        } else {
+                            self.present(itemAddAlert, animated: true)
+                            self.view.makeToast("같은이름의 식품이 존재합니다.")
                         }
-                        self.itemCollectionView.reloadData()
                     }
                 }
                 itemAddAlert.addAction(addAction)

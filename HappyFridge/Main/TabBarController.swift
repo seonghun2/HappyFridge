@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
         let view3 = AlertViewController()
         let view4 = SettingView()
         
-        setViewControllers([view1, view2, view3, view4], animated: true)
+        setViewControllers([view1,  view3, view4], animated: true)
         
         view1.tabBarItem = UITabBarItem(title: "나의냉장고", image: UIImage(named: "myfridge"), tag: 0)
         view2.tabBarItem = UITabBarItem(title: "공유냉장고", image: UIImage(named: "sharedfridge"), tag: 1)
