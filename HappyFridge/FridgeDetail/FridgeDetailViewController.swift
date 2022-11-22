@@ -29,36 +29,73 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         
         addFoodButton.layer.cornerRadius = 10
         
-        getInfoTest()
+        getFridgeInfo()
         
         let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")
         
     }
+    //MARK: 검색버튼 클릭
+    @IBAction func searchAction(_ sender: Any) {
+        let vc = SearchViewController(nibName:"SearchViewController", bundle: nil)
+        vc.modalPresentationStyle = .fullScreen
+        vc.searchFoodInfoArray = foodInfoArray
+        vc.searchFridgesInfoArray = fridgesInfoArray
+        vc.searchClosure = { [weak self] data  in
+            print("클로저")
+            print(data)
+            self?.getFridgeInfo()
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
-        //getInfoTest()
+    //MARK: 냉장고물품 정렬
+    func filter() {
+        let bottomSheet = UIAlertController(title: "정렬", message: nil, preferredStyle: .actionSheet)
+        
+        let expirationDate = UIAlertAction(title:"유통기한순", style: .default) {data in
+            self.filterButton.setTitle(data.title, for: .normal)
+            self.foodInfoArray.sort(by: { $0.expirationDate < $1.expirationDate})
+            self.tableView.reloadData()
+        }
+        let foodCount = UIAlertAction(title:"남은수량순", style: .default) {data in
+            self.filterButton.setTitle(data.title, for: .normal)
+            self.foodInfoArray.sort(by: { $0.count < $1.count})
+            self.tableView.reloadData()
+        }
+        let addDate = UIAlertAction(title:"최근추가순", style: .default) {data in
+            self.filterButton.setTitle(data.title, for: .normal)
+            self.foodInfoArray.sort(by: { $0.createDate > $1.createDate})
+            self.tableView.reloadData()
+        }
+        
+        bottomSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+        bottomSheet.addAction(expirationDate)
+        bottomSheet.addAction(foodCount)
+        bottomSheet.addAction(addDate)
+        self.present(bottomSheet,animated: true)
     }
     
     // 정렬 버튼
-    @IBAction func filterAction(_ sender: Any) {}
+    @IBAction func filterAction(_ sender: Any) {
+        filter()
+    }
     
-    // 물품추가 버튼 (화면이동)
+    //MARK: 물품추가 버튼 (화면이동)
     @IBAction func addFoodAction(_ sender: Any) {
         let vc = AddFoodViewController(nibName:"AddFoodViewController", bundle: nil)
         vc.modalPresentationStyle = .fullScreen
         vc.fridgesInfoArray = fridgesInfoArray
         vc.foodInfoArray = foodInfoArray
-        vc.dataSendClosure = { data in
+        vc.dataSendClosure = { [weak self] data  in
             print("클로저")
             print(data)
-            self.getInfoTest()
+            self?.getFridgeInfo()
         }
         self.present(vc, animated: true, completion: nil)
     }
     
-    //냉장고 물품 삭제
+    //MARK: 냉장고 물품 삭제
     func deleteFood(foodIndex:Int) {
         self.foodInfoArray.remove(at: foodIndex)
         print("foodInfoArray")
@@ -75,7 +112,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         }
     }
     
-    //냉장고안에 물품 수량 조절
+    //MARK: 냉장고안에 물품 수량 조절
     func updateFood(foodIndex: Int,foodCount: Int) {
         print("foodInfoArray")
         print(foodInfoArray)
@@ -92,8 +129,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         }
     }
     
-    // 냉장고 정보 가져오기 테스트
-    func getInfoTest() {
+    //MARK: 냉장고 정보 가져오기
+    func getFridgeInfo() {
         let docRef = db.collection("fridge").document("이청우1")
         docRef.getDocument { document, error in
             if let error = error as NSError? {
@@ -117,7 +154,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].food)
                             self.noticeContentLabel.text = self.fridgesInfoArray[0].notice
                             self.tableView.reloadData()
-
+                            
                             print("냉장고")
                             print(self.fridgesInfoArray[0].food[0].foodName)
                             

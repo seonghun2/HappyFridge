@@ -26,6 +26,8 @@
 		866799C229161AB4004BB7B2 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866799C129161AB4004BB7B2 /* Users.swift */; };
 		8674D2CE2918D7B200FC3A46 /* FridgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8674D2CC2918D7B200FC3A46 /* FridgeDetailViewController.swift */; };
 		8674D2CF2918D7B200FC3A46 /* FridgeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8674D2CD2918D7B200FC3A46 /* FridgeDetailViewController.xib */; };
+		8685D241292B5DA90075281D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685D23F292B5DA90075281D /* SearchViewController.swift */; };
+		8685D242292B5DA90075281D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8685D240292B5DA90075281D /* SearchViewController.xib */; };
 		86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADE092292219FE005254F4 /* PopUpFoodCountUpdate.swift */; };
 		86ADE095292219FE005254F4 /* PopUpFoodCountUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86ADE093292219FE005254F4 /* PopUpFoodCountUpdate.xib */; };
 		86ADE0982923D4ED005254F4 /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADE0962923D4ED005254F4 /* AddFoodViewController.swift */; };
@@ -117,6 +119,8 @@
 		866799C129161AB4004BB7B2 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		8674D2CC2918D7B200FC3A46 /* FridgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeDetailViewController.swift; sourceTree = "<group>"; };
 		8674D2CD2918D7B200FC3A46 /* FridgeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FridgeDetailViewController.xib; sourceTree = "<group>"; };
+		8685D23F292B5DA90075281D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8685D240292B5DA90075281D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		86ADE092292219FE005254F4 /* PopUpFoodCountUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpFoodCountUpdate.swift; sourceTree = "<group>"; };
 		86ADE093292219FE005254F4 /* PopUpFoodCountUpdate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpFoodCountUpdate.xib; sourceTree = "<group>"; };
 		86ADE0962923D4ED005254F4 /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				86ADE093292219FE005254F4 /* PopUpFoodCountUpdate.xib */,
 				86ADE0962923D4ED005254F4 /* AddFoodViewController.swift */,
 				86ADE0972923D4ED005254F4 /* AddFoodViewController.xib */,
+				8685D23F292B5DA90075281D /* SearchViewController.swift */,
+				8685D240292B5DA90075281D /* SearchViewController.xib */,
 			);
 			path = FridgeDetail;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				86384771291694610042033B /* Pretendard-SemiBold.otf in Resources */,
 				8638476B291694610042033B /* Pretendard-Light.otf in Resources */,
 				86C490D9291A2F2F00802C50 /* FridgeDetailCellTableViewCell.xib in Resources */,
+				8685D242292B5DA90075281D /* SearchViewController.xib in Resources */,
 				CE4A3CB32917818E003971DE /* MainViewController.xib in Resources */,
 				CEBEE79D292A654A00E92FAE /* SettingListCell.xib in Resources */,
 				8638476E291694610042033B /* Pretendard-Medium.otf in Resources */,
@@ -533,6 +540,7 @@
 				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
 				CEBEE79C292A654A00E92FAE /* SettingListCell.swift in Sources */,
 				86ADE0982923D4ED005254F4 /* AddFoodViewController.swift in Sources */,
+				8685D241292B5DA90075281D /* SearchViewController.swift in Sources */,
 				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,
 				86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
