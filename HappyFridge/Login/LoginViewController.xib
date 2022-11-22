@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
+                <outlet property="appleLoginButton" destination="aoh-xB-ADe" id="Ouw-jj-pTT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,6 +46,12 @@
                         <constraint firstAttribute="width" constant="220" id="kOU-5Y-deK"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-xB-ADe" customClass="ASAuthorizationAppleIDButton">
+                    <rect key="frame" x="85" y="553" width="224" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="appleid_button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,6 +66,7 @@
         </view>
     </objects>
     <resources>
+        <image name="appleid_button" width="200" height="32"/>
         <image name="kakao_login_medium_wide" width="300" height="45"/>
         <image name="logo" width="220" height="220"/>
         <systemColor name="systemBackgroundColor">

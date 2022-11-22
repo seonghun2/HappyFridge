@@ -29,8 +29,11 @@ class CopyLaunchViewController: UIViewController {
     func nextViewSetting() {
        
         let loginValue = UserDefaults.standard.bool(forKey: "Login")
+        let nickNameValue = UserDefaults.standard.string(forKey: "nickName")
         
+        print("로그인이력확인")
         print(loginValue)
+        print(nickNameValue)
         
         if loginValue {
             //로그인 이력 있음

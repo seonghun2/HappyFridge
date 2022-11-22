@@ -18,13 +18,13 @@ class NickNameViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var nickNameCheckButton: UIButton!
     
-    var kakaoUserId:String = ""
+    var userLoginToken:String = ""
     lazy var db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("kakaoid: \(kakaoUserId)")
+        print("kakaoid: \(userLoginToken)")
         
         nickNameCheckButton.layer.cornerRadius = 16
         startButton.layer.cornerRadius = 8
@@ -79,7 +79,7 @@ class NickNameViewController: UIViewController {
         let registerDate = Date()
         print(registerDate)
         
-        db.collection("users").document(nickNameTextField.text!).setData(["nickName" : nickNameTextField.text!,"token":kakaoUserId,"registerDate":registerDate])
+        db.collection("users").document(nickNameTextField.text!).setData(["nickName" : nickNameTextField.text!,"token":userLoginToken,"registerDate":registerDate])
         
         //로그인 했다는 이력 저장
         UserDefaults.standard.set(true, forKey: "Login")
