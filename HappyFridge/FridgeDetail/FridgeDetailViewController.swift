@@ -15,6 +15,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var noticeContentLabel: UILabel!
     
     @IBOutlet weak var addFoodButton: UIButton!
+    var fridgesIndex = 0
     var fridgesInfoArray: [Fridge] = []
     var foodInfoArray: [Food] = []
     
@@ -100,12 +101,12 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         self.foodInfoArray.remove(at: foodIndex)
         print("foodInfoArray")
         print(foodInfoArray)
-        self.fridgesInfoArray[0].food.removeAll()
-        self.fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
+        self.fridgesInfoArray[fridgesIndex].food.removeAll()
+        self.fridgesInfoArray[fridgesIndex].food.append(contentsOf: self.foodInfoArray)
         
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             tableView.reloadData()
         } catch {
             print(error)
@@ -117,12 +118,12 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         print("foodInfoArray")
         print(foodInfoArray)
         self.foodInfoArray[foodIndex].count = foodCount
-        self.fridgesInfoArray[0].food.removeAll()
-        self.fridgesInfoArray[0].food.append(contentsOf: self.foodInfoArray)
+        self.fridgesInfoArray[fridgesIndex].food.removeAll()
+        self.fridgesInfoArray[fridgesIndex].food.append(contentsOf: self.foodInfoArray)
         
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             tableView.reloadData()
         } catch {
             print(error)
@@ -131,7 +132,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     //MARK: 냉장고 정보 가져오기
     func getFridgeInfo() {
-        let docRef = db.collection("fridge").document("이청우1")
+        let docRef = db.collection("fridge").document(Constant.nickName!)
         docRef.getDocument { document, error in
             if let error = error as NSError? {
                 print("Error getting document: \(error.localizedDescription)")
@@ -151,12 +152,12 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             self.fridgesInfoArray.removeAll()
                             self.foodInfoArray.removeAll()
                             self.fridgesInfoArray.append(contentsOf: dic.fridge)
-                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[0].food)
-                            self.noticeContentLabel.text = self.fridgesInfoArray[0].notice
+                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[self.fridgesIndex].food)
+                            self.noticeContentLabel.text = self.fridgesInfoArray[self.fridgesIndex].notice
                             self.tableView.reloadData()
                             
                             print("냉장고")
-                            print(self.fridgesInfoArray[0].food[0].foodName)
+                            print(self.fridgesInfoArray[self.fridgesIndex].food[0].foodName)
                             
                         }
                         

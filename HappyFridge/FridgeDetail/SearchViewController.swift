@@ -64,7 +64,7 @@ class SearchViewController: UIViewController {
         
         let frid = Fridges(fridge: searchFridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
         } catch {
             print(error)
@@ -82,7 +82,7 @@ class SearchViewController: UIViewController {
         
         let frid = Fridges(fridge: self.searchFridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
         } catch {
             print(error)
