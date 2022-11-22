@@ -64,19 +64,37 @@ class LoginViewController: UIViewController {
         kakaoLogin()
     }
     
+    //로그인 했을때 소셜로그인 토큰값 DB조회 후 신규 or 기존 유저인지 분기처리
     func moveNextView(token:String) {
-        let query = db.collection("users").whereField("token", isEqualTo: token+"a")
-                query.getDocuments { (snapshot, error) in
-                    let docs = snapshot!.documents
-                    for doc in docs {
-                        print("디비조회!")
-                        print(doc.documentID)
-                    }
+        let query = db.collection("users").whereField("token", isEqualTo: token)
+        query.getDocuments { (snapshot, error) in
+            let docs = snapshot!.documents
+            
+            if docs == [] {
+                print("디비조회x")
+                //닉네임 설정 화면으로 이동
+                let vc = NickNameViewController(nibName:"NickNameViewController", bundle: nil)
+                vc.userLoginToken = token
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                
+            }else {
+                var getNickName:String?
+                for doc in docs {
+                    print("디비조회o")
+                    getNickName = doc.documentID
+                    
                 }
-        let vc = NickNameViewController(nibName:"NickNameViewController", bundle: nil)
-        vc.userLoginToken = token
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+                //나의 냉장고 화면으로 이동
+                print(getNickName)
+                Constant.nickName = getNickName
+                UserDefaults.standard.set(true, forKey: "Login")
+                UserDefaults.standard.set(getNickName, forKey: "nickName")
+                let vc = MainViewController(nibName:"MainViewController", bundle: nil)
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
 }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct Constant {
-   static let nickName = UserDefaults.standard.string(forKey: "nickName")
+    static var nickName = UserDefaults.standard.string(forKey: "nickName")
     private init() {}
 }

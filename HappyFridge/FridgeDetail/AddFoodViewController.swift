@@ -95,7 +95,7 @@ class AddFoodViewController: UIViewController {
 
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             self.dataSendClosure?("물품추가")
             dismiss(animated: true)
         } catch {
