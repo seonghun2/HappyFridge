@@ -24,30 +24,26 @@ class MainViewController: UIViewController {
     @IBOutlet weak var previousButton: UIButton!
     
     var itemSearhBar = ItemSearchTextField()
-
-    var searchItems: [Item]?
+    
+    var bookmarkedFoods: [Item] = []
+    var searchedFoods: [Item]?
     var showSearchItem: Bool = false
+    var showBookmark: Bool = false
     
     // 냉장고 크게/작게보기 결정할 변수
     var showSmall: Bool = true
     
-    var refrigeArray: [Refrigerator] = []
-    var test: [Refrigerator] = []
+    var refrigerators: [Refrigerator] = []
     var foods: [Item] = []
-    var itemArray: [Item] = []
-    
-    var bookmarkItemArray: [Item] = []
-    
-    var showOnlyBookmark: Bool = false
     
     // 드래그한 셀을 저장할 변수, 냉장고 셀에 드랍할때 사용
-    var draggingItem: Item?
+    var draggingFood: Item?
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
         dataManager.getFridgeData { fridges in
-            self.test = fridges
+            self.refrigerators = fridges
             self.refrigeCollectionView.reloadData()
         }
         
@@ -60,63 +56,7 @@ class MainViewController: UIViewController {
         setItemCollectionView()
         
         itemSearhBar.delegate = self
-        //updateData()
-
     }
-    
-//    func updateData() {
-//        self.test[0].fridgeName = "changeTest"
-//        self.test[1].food?.append(foods[0])
-//        self.test.remove(at: test.count-1)
-//        let frid = Refrigerators(fridges: test)
-//        do {
-//            try db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
-//        } catch {
-//            print(error)
-//        }
-//        refrigeCollectionView.reloadData()
-//    }
-
-//    func getData() {
-//        let docRef = db.collection("fridge").document("횡성훈2")
-//        docRef.getDocument { document, error in
-//            if let error = error as NSError? {
-//                print("Error getting document: \(error.localizedDescription)")
-//            } else {
-//                if let document = document {
-//                    do {
-//                        print("do")
-//
-//                        if document.data()?.count == nil {
-//                            print("냉장고없음")
-//
-//                        } else {
-//                            print("냉장고있음",document.data(),document.data()?.count)
-//                            print(type(of: document.data()))
-//
-//                            let dic = try document.data(as: Refrigerators.self)
-//                            let fooddic = try document.data(as: Items.self)
-//
-//                            self.foods = fooddic.foods
-//                            self.test = dic.fridges
-//
-//                            self.refrigeCollectionView.reloadData()
-//                            self.itemCollectionView.reloadData()
-//
-//                            print(try document.data(as: Refrigerators.self).fridges)
-//
-//                            print("냉장고")
-//                        }
-//                    }
-//                    catch {
-//                        print("catch")
-//                        print(error)
-//                    }
-//                }
-//            }
-//            self.refrigeCollectionView.reloadData()
-//        }
-//    }
     
     func setRefrigeCollectionView() {
         refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
@@ -195,9 +135,9 @@ class MainViewController: UIViewController {
         let alert = UIAlertController(title: "정렬방식 선택", message: nil, preferredStyle: .actionSheet)
         
         let action = UIAlertAction(title: "이름순", style: .default) {_ in
-            self.test.sort { $0.fridgeName < $1.fridgeName }
+            self.refrigerators.sort { $0.fridgeName < $1.fridgeName }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.test), merge: true)
+                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
             } catch {
                 print(error)
             }
@@ -206,9 +146,9 @@ class MainViewController: UIViewController {
         alert.addAction(action)
         
         let action2 = UIAlertAction(title: "추가순", style: .default) {_ in
-            self.test.sort { $0.createDate < $1.createDate }
+            self.refrigerators.sort { $0.createDate < $1.createDate }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.test), merge: true)
+                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
             } catch {
                 print(error)
             }
@@ -233,15 +173,13 @@ class MainViewController: UIViewController {
         alert.textFields?[0].placeholder = "추가하실 냉장고 이름을 입력해주세요."
         let action = UIAlertAction(title: "추가", style: .default) {_ in
             if let name = alert.textFields?[0].text {
-                //let newRefrige = Refrigerator(name: name, items: [])
-                //self.refrigeArray.append(newRefrige)
                 
-                if !self.test.map{ $0.fridgeName }.contains(name) {
+                if !self.refrigerators.map{ $0.fridgeName }.contains(name) {
                     self.refrigeCollectionView.backgroundView?.isHidden = true
                     
                     self.dataManager.addFridge(fridgeName: name)
                     self.dataManager.getFridgeData { fridges in
-                        self.test = fridges
+                        self.refrigerators = fridges
                         self.refrigeCollectionView.reloadData()
                     }
                     
@@ -270,16 +208,16 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func bookMarkButtonTapped(_ sender: UIButton) {
-        print(#function, showOnlyBookmark)
-        if showOnlyBookmark {
-            showOnlyBookmark = false
+        print(#function, showBookmark)
+        if showBookmark {
+            showBookmark = false
             bookMarkButton.setImage(UIImage(named: "star_empty"), for: .normal)
         } else {
-            bookmarkItemArray = foods.filter { $0.isBookmarked == true }
-            showOnlyBookmark = true
+            bookmarkedFoods = foods.filter { $0.isBookmarked == true }
+            showBookmark = true
             bookMarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
         }
-        print(bookmarkItemArray)
+        print(bookmarkedFoods)
         itemCollectionView.reloadData()
     }
     
@@ -338,13 +276,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == refrigeCollectionView{
-            return test.count
+            return refrigerators.count
         } else {
-            if showOnlyBookmark {
-                return bookmarkItemArray.count
+            if showBookmark {
+                return bookmarkedFoods.count
             } else {
                 if showSearchItem {
-                    return searchItems!.count
+                    return searchedFoods!.count
                 } else {
                     return foods.count + 1
                 }
@@ -357,14 +295,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == refrigeCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeSmallCell", for: indexPath) as! RefrigeSmallCell
             
-            cell.refrigeNameLabel.text = test[indexPath.row].fridgeName
-            cell.itemList = test[indexPath.row].food ?? []
+            cell.refrigeNameLabel.text = refrigerators[indexPath.row].fridgeName
+            cell.itemList = refrigerators[indexPath.row].food ?? []
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 20
             //****
             cell.itemListTableView.reloadData()
-            if test[indexPath.row].isShared {
+            if refrigerators[indexPath.row].isShared {
                 cell.layer.borderColor = UIColor(hexString: "#DFF4C5").cgColor
                 cell.layer.borderWidth = 2
             } else{
@@ -388,12 +326,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let changeFridgeName = UIAlertAction(title:"이름변경", style: .default) {_ in
                     let alert = UIAlertController(title: "이름변경", message: nil, preferredStyle: .alert)
                     alert.addTextField()
-                    alert.textFields![0].placeholder = self.test[indexPath.row].fridgeName
+                    alert.textFields![0].placeholder = self.refrigerators[indexPath.row].fridgeName
                     let action = UIAlertAction(title: "변경", style: .default) {_ in
                         if let name = alert.textFields?[0].text {
-                            self.test[indexPath.row].fridgeName = name
+                            self.refrigerators[indexPath.row].fridgeName = name
                             do {
-                                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.test), merge: true)
+                                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
                             } catch {
                                 print(error)
                             }
@@ -410,9 +348,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let deleteFridge = UIAlertAction(title: "장소삭제", style: .destructive) {_ in
                     let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
                     let action = UIAlertAction(title: "삭제", style: .default) {_ in
-                        self.test.remove(at: indexPath.row)
+                        self.refrigerators.remove(at: indexPath.row)
                         do {
-                            try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.test), merge: true)
+                            try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
                         } catch {
                             print(error)
                         }
@@ -441,19 +379,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.cornerRadius = 4
             cell.index = indexPath.row
             // 즐겨찾기품목
-            if showOnlyBookmark {
+            if showBookmark {
                 cell.plusImage.isHidden = true
                 cell.itemNameLabel.isHidden = false
                 cell.bookmarkButton.isHidden = false
                 cell.deleteButton.isHidden = false
-                cell.itemNameLabel.text = bookmarkItemArray[indexPath.row].name
-                cell.isBookmarked = bookmarkItemArray[indexPath.row].isBookmarked!
+                cell.itemNameLabel.text = bookmarkedFoods[indexPath.row].name
+                cell.isBookmarked = bookmarkedFoods[indexPath.row].isBookmarked!
                 cell.setBookmarkButton()
                 cell.deleteEventClosure = {
                     for i in 0...self.foods.count - 1 {
-                        if self.foods[i].name == self.bookmarkItemArray[indexPath.row].name {
+                        if self.foods[i].name == self.bookmarkedFoods[indexPath.row].name {
                             self.foods.remove(at: i)
-                            self.bookmarkItemArray.remove(at: indexPath.row)
+                            self.bookmarkedFoods.remove(at: indexPath.row)
                             break
                         }
                     }
@@ -466,7 +404,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
                 cell.eventClosure = { toggle in
                     for i in 0...self.foods.count - 1 {
-                        if self.foods[i].name == self.bookmarkItemArray[indexPath.row].name {
+                        if self.foods[i].name == self.bookmarkedFoods[indexPath.row].name {
                             self.foods[i].isBookmarked = toggle
                         }
                     }
@@ -490,12 +428,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     cell.itemNameLabel.isHidden = false
                     cell.bookmarkButton.isHidden = false
                     cell.deleteButton.isHidden = false
-                    cell.itemNameLabel.text = searchItems![indexPath.row].name
-                    cell.isBookmarked = searchItems![indexPath.row].isBookmarked!
+                    cell.itemNameLabel.text = searchedFoods![indexPath.row].name
+                    cell.isBookmarked = searchedFoods![indexPath.row].isBookmarked!
                     cell.deleteEventClosure = {
                         for i in 0...self.foods.count - 1 {
-                            if self.foods[i].name == self.searchItems?[indexPath.row].name {
-                                self.searchItems?.remove(at: indexPath.row)
+                            if self.foods[i].name == self.searchedFoods?[indexPath.row].name {
+                                self.searchedFoods?.remove(at: indexPath.row)
                                 self.foods.remove(at: i)
                                 break
                             }
@@ -509,7 +447,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     }
                     cell.eventClosure = { toggle in
                         for i in 0...self.foods.count - 1 {
-                            if self.foods[i].name == self.searchItems![indexPath.row].name {
+                            if self.foods[i].name == self.searchedFoods![indexPath.row].name {
                                 self.foods[i].isBookmarked = toggle
                             }
                         }
@@ -583,7 +521,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == itemCollectionView && indexPath.row == 0 {
-            if !showSearchItem && !showOnlyBookmark {
+            if !showSearchItem && !showBookmark {
                 let itemAddAlert = UIAlertController(title: "품목추가", message: nil, preferredStyle: .alert)
                 itemAddAlert.addTextField()
                 let addAction = UIAlertAction(title: "추가", style: .default) { _ in
@@ -620,7 +558,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
     //드랍할때 호출. 전역변수에 저장되어있는 item을 드랍하는 냉장고의 items배열에 append해줌
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         
-        if draggingItem == nil { return }
+        if draggingFood == nil { return }
         print(#function,coordinator.destinationIndexPath)
         
         guard let destinationIndexPath = coordinator.destinationIndexPath?[1] else {return}
@@ -642,16 +580,16 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 
                 dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default) { _ in
                     print(datePicker.date)
-                    self.draggingItem?.expirationDate = datePicker.date
+                    self.draggingFood?.expirationDate = datePicker.date
                     
-                    self.draggingItem?.count = 2
-                    self.draggingItem?.performAlert = true
-                    self.draggingItem?.alertDay = 3
+                    self.draggingFood?.count = 2
+                    self.draggingFood?.performAlert = true
+                    self.draggingFood?.alertDay = 3
                     //self.refrigeArray[destinationIndexPath].items.append(self.draggingItem!)
                     
-                    self.test[destinationIndexPath].food?.append(self.draggingItem!)
+                    self.refrigerators[destinationIndexPath].food?.append(self.draggingFood!)
 
-                    let frid = Refrigerators(fridges: self.test)
+                    let frid = Refrigerators(fridges: self.refrigerators)
                     do {
                         try self.db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
                     } catch {
@@ -659,7 +597,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     }
                     
                     
-                    self.draggingItem = nil
+                    self.draggingFood = nil
                     print(destinationIndexPath)
                     
                     //전체컬렉션뷰 리로드
@@ -675,29 +613,33 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 dateChooserAlert.view.addConstraint(height)
                 
                 //present(dateChooserAlert, animated: true)
-                
-                
+                08
                 let VC = InsertFoodViewController()
                 //VC.foodnameLabel.text = draggingItem?.name
-                VC.dragedFood = draggingItem
-                VC.destinationFridge = test[destinationIndexPath]
+                //VC.foodnameLabel.text = "\(draggingFood?.name) -> \(refrigerators[destinationIndexPath].fridgeName)"
+                VC.foodnameLabel.text = "123"
+                VC.destinationFridge = refrigerators[destinationIndexPath]
                 VC.addEventClosure = { foodCount, expirationDate ,isAlert, alertDay in
-                    self.draggingItem?.count = foodCount
-                    self.draggingItem?.expirationDate = expirationDate
-                    self.draggingItem?.performAlert = isAlert
-                    self.draggingItem?.alertDay = alertDay
-                    self.test[destinationIndexPath].food?.append(self.draggingItem!)
+                    self.draggingFood?.count = foodCount
+                    self.draggingFood?.expirationDate = expirationDate
+                    self.draggingFood?.performAlert = isAlert
+                    self.draggingFood?.alertDay = alertDay
+                    self.refrigerators[destinationIndexPath].food?.append(self.draggingFood!)
 
-                    let frid = Refrigerators(fridges: self.test)
+                    let frid = Refrigerators(fridges: self.refrigerators)
                     do {
                         try self.db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
                     } catch {
                         print(error)
                     }
-                    self.draggingItem = nil
+                    print(self.draggingFood?.expirationDate)
+                    print(Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!))
+                    
+                    self.draggingFood = nil
                     
                     let indexPath = IndexPath(item: destinationIndexPath, section: 0)
                     self.refrigeCollectionView.reloadItems(at: [indexPath])
+                    
                 }
                 present(VC, animated: true)
                 
@@ -710,10 +652,10 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         
         let item: String?
         if showSearchItem {
-            item = searchItems![indexPath.row].name
+            item = searchedFoods![indexPath.row].name
         } else {
-            if showOnlyBookmark {
-                item = bookmarkItemArray[indexPath.row].name
+            if showBookmark {
+                item = bookmarkedFoods[indexPath.row].name
             } else {
                 if indexPath.row == 0 {
                     item = ""
@@ -729,20 +671,20 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         
         print(#function, itemProvider, dragItem)
         if showSearchItem {
-            draggingItem = searchItems![indexPath.row]
+            draggingFood = searchedFoods![indexPath.row]
         }
         else {
-            if showOnlyBookmark {
-                draggingItem = bookmarkItemArray[indexPath.row]
+            if showBookmark {
+                draggingFood = bookmarkedFoods[indexPath.row]
             } else {
                 if indexPath.row == 0 {
-                    draggingItem = nil
+                    draggingFood = nil
                 } else {
-                    draggingItem = foods[indexPath.row - 1]
+                    draggingFood = foods[indexPath.row - 1]
                 }
             }
         }
-        print(draggingItem?.name)
+        print(draggingFood?.name)
         return [dragItem]
     }
 }
@@ -751,7 +693,7 @@ extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(#function)
         showSearchItem = true
-        searchItems = foods.filter{ $0.name == textField.text }
+        searchedFoods = foods.filter{ $0.name == textField.text }
         itemCollectionView.reloadData()
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true

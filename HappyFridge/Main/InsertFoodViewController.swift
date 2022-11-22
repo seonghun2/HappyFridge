@@ -9,7 +9,7 @@ import UIKit
 
 class InsertFoodViewController: UIViewController {
     
-    var dragedFood: Item?
+    //var dragedFood: Item?
     
     var destinationFridge: Refrigerator?
 
@@ -32,6 +32,7 @@ class InsertFoodViewController: UIViewController {
     @IBOutlet weak var alertDayTextField: UITextField!
     
     @IBOutlet weak var alertDayLabel: UILabel!
+    
     @IBAction func switchTapped(_ sender: Any) {
         if alertSwitch.isOn {
             alertSwitch.setOn(true, animated: true)
@@ -79,6 +80,6 @@ class InsertFoodViewController: UIViewController {
         alertDayTextField.keyboardType = .numberPad
         foodCountTextField.text = "\(foodCount)"
         
-        foodnameLabel.text = "\((dragedFood?.name)!) -> \((destinationFridge?.fridgeName)!)"
+        //foodnameLabel.text = "\((dragedFood?.name)!) -> \((destinationFridge?.fridgeName)!)"
     }
 }
