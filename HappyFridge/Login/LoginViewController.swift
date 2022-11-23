@@ -15,19 +15,23 @@ class LoginViewController: UIViewController {
     
     lazy var db = Firestore.firestore()
     
-    @IBOutlet weak var appleLoginButton: ASAuthorizationAppleIDButton!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        
-        appleLoginButton.addTarget(self, action: #selector(LoginViewController.appleLoginButtonTapped), for: .touchDown)
+        setupLoginView()
+    }
+    
+    func setupLoginView() {
+        let button = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
+        button.addTarget(self, action: #selector(LoginViewController.appleLoginButtonTapped), for: .touchDown)
+        self.stackView.addArrangedSubview(button)
     }
     
     @objc func appleLoginButtonTapped() {
         let authorizationProvider = ASAuthorizationAppleIDProvider()
         let request = authorizationProvider.createRequest()
-        request.requestedScopes = [.email,.fullName]
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
