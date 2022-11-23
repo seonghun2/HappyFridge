@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105E1FBC292E5D00006DFF41 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 105E1FBB292E5D00006DFF41 /* RxCocoa */; };
+		105E1FBE292E5D00006DFF41 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 105E1FBD292E5D00006DFF41 /* RxSwift */; };
 		8638475F291664520042033B /* Fridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8638475E291664520042033B /* Fridges.swift */; };
 		8638476A291694610042033B /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384761291694600042033B /* Pretendard-ExtraLight.otf */; };
 		8638476B291694610042033B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86384762291694600042033B /* Pretendard-Light.otf */; };
@@ -180,7 +182,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1BCE8652928A362008586F8 /* FirebaseMessaging in Frameworks */,
+				105E1FBE292E5D00006DFF41 /* RxSwift in Frameworks */,
 				D1BCE85F2928A362008586F8 /* FirebaseDatabaseSwift in Frameworks */,
+				105E1FBC292E5D00006DFF41 /* RxCocoa in Frameworks */,
 				D1BCE8632928A362008586F8 /* FirebaseFirestoreSwift in Frameworks */,
 				86E596F3290E3B85008EA5B0 /* KakaoSDKCommon in Frameworks */,
 				86E596F7290E3B85008EA5B0 /* KakaoSDKShare in Frameworks */,
@@ -434,6 +438,8 @@
 				D1BCE8662928A362008586F8 /* FirebaseRemoteConfig */,
 				D1BCE8682928A362008586F8 /* FirebaseStorage */,
 				CEC217EA292B65B20088E8E6 /* Toast */,
+				105E1FBB292E5D00006DFF41 /* RxCocoa */,
+				105E1FBD292E5D00006DFF41 /* RxSwift */,
 			);
 			productName = HappyFridge;
 			productReference = D1B889C8290DFA04009EEA55 /* HappyFridge.app */;
@@ -468,6 +474,7 @@
 				CE4A3CB8291781FC003971DE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D1BCE8532928A362008586F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CEC217E9292B65B10088E8E6 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				105E1FBA292E5D00006DFF41 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = D1B889C9290DFA04009EEA55 /* Products */;
 			projectDirPath = "";
@@ -781,6 +788,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		105E1FBA292E5D00006DFF41 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -816,6 +831,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		105E1FBB292E5D00006DFF41 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 105E1FBA292E5D00006DFF41 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		105E1FBD292E5D00006DFF41 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 105E1FBA292E5D00006DFF41 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		86E596F0290E3B85008EA5B0 /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 86E596EF290E3B85008EA5B0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
