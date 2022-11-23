@@ -24,4 +24,6 @@ struct Food: Codable {
     var count: Int
     let expirationDate: Date
     let createDate: Date
+    var performAlert: Bool = false
+    var alertDay: Int = 0
 }
