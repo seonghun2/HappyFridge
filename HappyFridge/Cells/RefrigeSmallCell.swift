@@ -41,10 +41,20 @@ class RefrigeSmallCell: UICollectionViewCell {
     @IBOutlet weak var refrigeSettingButtton: UIButton!
     
     func getDdayInt(date: Date) -> Int {
-        if let dayDiff = Calendar.current.dateComponents([.day], from: Date(), to: date).day {
-            return dayDiff
-        }
-        return 999
+        //let timeDiff = date.timeIntervalSince(Date())
+        //let dayDiff = timeDiff / 3600 / 24
+        
+        let date1 = Calendar.current.dateComponents([.year,.month,.day], from: date)
+        let date2 = Calendar.current.dateComponents([.year,.month,.day], from: Date())
+        
+        let daydiff = Calendar.current.dateComponents([.day], from: date2, to: date1).day
+        return daydiff ?? 0
+//        if let dayDiff = Calendar.current.dateComponents([.day], from: Date(), to: date).day {
+//
+//            return dayDiff
+//         /// 24
+//        }
+        //return 999
     }
     
     @IBAction func fridgeSettingButtonTapped(_ sender: UIButton) {
