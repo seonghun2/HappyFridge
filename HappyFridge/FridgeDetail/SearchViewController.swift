@@ -16,6 +16,7 @@ class SearchViewController: UIViewController {
     var searchFoodInfoArray: [Food] = []
     var searchFoodInfoArray2: [Food] = []
     var searchIndex = 0
+    var fridgeIndex = 0
     
     // 데이터 전달 클로저
     var searchClosure: ((_ data: String) -> Void)?
@@ -59,8 +60,8 @@ class SearchViewController: UIViewController {
         searchFoodInfoArray.remove(at: searchIndex)
         print("searchFridgesInfoArray")
         print(searchFridgesInfoArray)
-        searchFridgesInfoArray[0].food.removeAll()
-        searchFridgesInfoArray[0].food.append(contentsOf: searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food.append(contentsOf: searchFoodInfoArray)
         
         let frid = Fridges(fridge: searchFridgesInfoArray)
         do {
@@ -77,8 +78,8 @@ class SearchViewController: UIViewController {
         print(searchFoodInfoArray)
         searchFoodInfoArray2[foodIndex].count = foodCount
         searchFoodInfoArray[searchIndex].count = foodCount
-        searchFridgesInfoArray[0].food.removeAll()
-        searchFridgesInfoArray[0].food.append(contentsOf: self.searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food.append(contentsOf: self.searchFoodInfoArray)
         
         let frid = Fridges(fridge: self.searchFridgesInfoArray)
         do {

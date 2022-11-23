@@ -19,7 +19,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFoodViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="js6-7y-TVR" id="9fe-IP-Fwh"/>
-                <outlet property="alarmDayTextField" destination="HGG-pR-Ilp" id="Odv-rz-QAJ"/>
+                <outlet property="alarmDayTextField" destination="HGG-pR-Ilp" id="rJp-NO-5k8"/>
                 <outlet property="alarmSwitch" destination="57M-6p-ILJ" id="635-Qt-Az5"/>
                 <outlet property="foodCountTextField" destination="42w-pZ-sd3" id="c8B-Dw-TCr"/>
                 <outlet property="foodNameTextField" destination="S0K-46-1PG" id="u1X-FR-1mM"/>
@@ -78,16 +78,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js6-7y-TVR">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js6-7y-TVR">
                     <rect key="frame" x="45" y="660" width="300" height="50"/>
                     <color key="backgroundColor" red="0.1019607843" green="0.42352941179999998" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="71Q-wW-xad"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="시작하기"/>
+                    <state key="normal" title="추가하기"/>
                     <connections>
                         <action selector="addAction:" destination="-1" eventType="touchUpInside" id="CRw-SM-rgj"/>
                     </connections>
@@ -136,6 +135,9 @@
                 </datePicker>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="57M-6p-ILJ">
                     <rect key="frame" x="107.33333333333331" y="315" width="51" height="31"/>
+                    <connections>
+                        <action selector="alarmCheck:" destination="-1" eventType="valueChanged" id="DDM-An-3fK"/>
+                    </connections>
                 </switch>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGG-pR-Ilp">
                     <rect key="frame" x="186.33333333333334" y="315.33333333333331" width="48" height="30"/>

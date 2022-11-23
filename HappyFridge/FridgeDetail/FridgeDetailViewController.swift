@@ -42,6 +42,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         vc.modalPresentationStyle = .fullScreen
         vc.searchFoodInfoArray = foodInfoArray
         vc.searchFridgesInfoArray = fridgesInfoArray
+        vc.fridgeIndex = fridgesIndex
         vc.searchClosure = { [weak self] data  in
             print("클로저")
             print(data)
@@ -86,6 +87,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     @IBAction func addFoodAction(_ sender: Any) {
         let vc = AddFoodViewController(nibName:"AddFoodViewController", bundle: nil)
         vc.modalPresentationStyle = .fullScreen
+        vc.index = fridgesIndex
         vc.fridgesInfoArray = fridgesInfoArray
         vc.foodInfoArray = foodInfoArray
         vc.dataSendClosure = { [weak self] data  in
