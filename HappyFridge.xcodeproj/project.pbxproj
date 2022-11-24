@@ -69,11 +69,12 @@
 		CEBEE79D292A654A00E92FAE /* SettingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBEE799292A654A00E92FAE /* SettingListCell.xib */; };
 		CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */; };
 		CEBEE7A2292A656900E92FAE /* InsertFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */; };
-		CEC217E5292B59760088E8E6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC217E3292B59760088E8E6 /* SettingView.swift */; };
-		CEC217E6292B59760088E8E6 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC217E4292B59760088E8E6 /* SettingView.xib */; };
+		CEC217E5292B59760088E8E6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC217E3292B59760088E8E6 /* SettingViewController.swift */; };
+		CEC217E6292B59760088E8E6 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC217E4292B59760088E8E6 /* SettingViewController.xib */; };
 		CEC217EB292B65B20088E8E6 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = CEC217EA292B65B20088E8E6 /* Toast */; };
 		CED8B138292CA7CE00CE6CAE /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8B136292CA7CE00CE6CAE /* AlertCell.swift */; };
 		CED8B139292CA7CE00CE6CAE /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8B137292CA7CE00CE6CAE /* AlertCell.xib */; };
+		CED8B13B292D150000CE6CAE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8B13A292D150000CE6CAE /* Alert.swift */; };
 		CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */; };
 		CEFDD0E0291A200300E4FDBA /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */; };
 		CEFDD0E7291A232B00E4FDBA /* SharedFridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */; };
@@ -153,10 +154,11 @@
 		CEBEE799292A654A00E92FAE /* SettingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingListCell.xib; sourceTree = "<group>"; };
 		CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsertFoodViewController.xib; sourceTree = "<group>"; };
 		CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertFoodViewController.swift; sourceTree = "<group>"; };
-		CEC217E3292B59760088E8E6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		CEC217E4292B59760088E8E6 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		CEC217E3292B59760088E8E6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CEC217E4292B59760088E8E6 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		CED8B136292CA7CE00CE6CAE /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
 		CED8B137292CA7CE00CE6CAE /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
+		CED8B13A292D150000CE6CAE /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFridgeViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */,
 				CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */,
 				CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */,
+				CED8B13A292D150000CE6CAE /* Alert.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -347,8 +350,8 @@
 			children = (
 				CEBEE798292A654A00E92FAE /* SettingListCell.swift */,
 				CEBEE799292A654A00E92FAE /* SettingListCell.xib */,
-				CEC217E3292B59760088E8E6 /* SettingView.swift */,
-				CEC217E4292B59760088E8E6 /* SettingView.xib */,
+				CEC217E3292B59760088E8E6 /* SettingViewController.swift */,
+				CEC217E4292B59760088E8E6 /* SettingViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -483,7 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC217E6292B59760088E8E6 /* SettingView.xib in Resources */,
+				CEC217E6292B59760088E8E6 /* SettingViewController.xib in Resources */,
 				8638476D291694610042033B /* Pretendard-Bold.otf in Resources */,
 				866799BC2914E39F004BB7B2 /* PermissionViewController.xib in Resources */,
 				86E5970C290E5F42008EA5B0 /* NickNameViewController.xib in Resources */,
@@ -541,6 +544,7 @@
 				CEBEE79C292A654A00E92FAE /* SettingListCell.swift in Sources */,
 				86ADE0982923D4ED005254F4 /* AddFoodViewController.swift in Sources */,
 				8685D241292B5DA90075281D /* SearchViewController.swift in Sources */,
+				CED8B13B292D150000CE6CAE /* Alert.swift in Sources */,
 				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,
 				86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
@@ -551,7 +555,7 @@
 				8638475F291664520042033B /* Fridges.swift in Sources */,
 				8674D2CE2918D7B200FC3A46 /* FridgeDetailViewController.swift in Sources */,
 				CEADD2A6292079370003EDAF /* DataManager.swift in Sources */,
-				CEC217E5292B59760088E8E6 /* SettingView.swift in Sources */,
+				CEC217E5292B59760088E8E6 /* SettingViewController.swift in Sources */,
 				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
 				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,

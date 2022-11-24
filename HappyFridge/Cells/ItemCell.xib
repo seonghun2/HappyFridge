@@ -28,26 +28,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6Q-iC-Xow">
-                        <rect key="frame" x="82" y="7" width="16.666666666666671" height="16"/>
+                        <rect key="frame" x="4" y="4" width="16.666666666666668" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="6qe-pq-vdg"/>
                             <constraint firstAttribute="width" constant="16.75" id="vbm-zo-omW"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="star_empty"/>
                         <connections>
                             <action selector="bookmarkButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SJJ-oy-uId"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIG-Z5-9gG">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                        <rect key="frame" x="89" y="8" width="8" height="8"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="FWV-Ep-WvE"/>
-                            <constraint firstAttribute="height" constant="30" id="Klg-X1-xVC"/>
+                            <constraint firstAttribute="height" constant="8" id="Klg-X1-xVC"/>
+                            <constraint firstAttribute="width" constant="8" id="xfa-eR-0Oz"/>
                         </constraints>
                         <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="delete"/>
                         <connections>
                             <action selector="deleteButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zxn-Wh-cti"/>
                         </connections>
@@ -56,12 +56,12 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="bIG-Z5-9gG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="90o-H8-L0L"/>
-                <constraint firstItem="bIG-Z5-9gG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="A0U-e9-FX1"/>
-                <constraint firstItem="M6Q-iC-Xow" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="P1I-eh-Fgh"/>
+                <constraint firstAttribute="trailing" secondItem="bIG-Z5-9gG" secondAttribute="trailing" constant="8" id="1zp-0J-Yge"/>
+                <constraint firstItem="bIG-Z5-9gG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="A0U-e9-FX1"/>
+                <constraint firstItem="M6Q-iC-Xow" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="P1I-eh-Fgh"/>
                 <constraint firstItem="0Rx-uc-acS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Vz1-aP-Keo"/>
                 <constraint firstItem="0Rx-uc-acS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Xka-CY-BlI"/>
-                <constraint firstAttribute="trailing" secondItem="M6Q-iC-Xow" secondAttribute="trailing" constant="6.25" id="hbq-b3-G8u"/>
+                <constraint firstItem="M6Q-iC-Xow" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="cdY-ru-ot1"/>
             </constraints>
             <size key="customSize" width="105" height="112"/>
             <connections>
@@ -73,7 +73,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
-        <image name="trash" catalog="system" width="117" height="128"/>
+        <image name="delete" width="9" height="9"/>
+        <image name="star_empty" width="17" height="16"/>
     </resources>
 </document>

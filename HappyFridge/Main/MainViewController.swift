@@ -167,35 +167,39 @@ class MainViewController: UIViewController {
 //        updateData()
 //        return
         
-        let alert = UIAlertController(title: "냉장고 추가", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "장소 추가", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
-        alert.textFields?[0].placeholder = "추가하실 냉장고 이름을 입력해주세요."
-        let action = UIAlertAction(title: "추가", style: .default) {_ in
+        alert.textFields?[0].placeholder = "장소명을 입력해주세요."
+        let action = UIAlertAction(title: "저장", style: .default) {_ in
             if let name = alert.textFields?[0].text {
-                
-                if !self.refrigerators.map{ $0.fridgeName }.contains(name) {
-                    self.refrigeCollectionView.backgroundView?.isHidden = true
-                    
-                    self.dataManager.addFridge(fridgeName: name)
-                    self.dataManager.getFridgeData { fridges in
-                        self.refrigerators = fridges
-                        self.refrigeCollectionView.reloadData()
-                    }
-                    
-                    self.refrigeCollectionView.reloadData()
-                    self.view.makeToast("\(name)이(가) 추가 되었습니다")
-                    // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
-                    let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
-                    if item >= 0 {
-                        let lastIndex = IndexPath(item: item, section: 0)
-                        
-                        self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
-                        print(lastIndex)
-                    }
+                if name == "" {
+                    self.present(alert, animated: true)
+                    self.view.makeToast("이름을 입력해주세요.")
                 } else {
-                    self.present(alert,animated: true)
-                    self.view.makeToast("같은이름의 냉장고가 존재합니다.")
+                    if !self.refrigerators.map{ $0.fridgeName }.contains(name) {
+                        self.refrigeCollectionView.backgroundView?.isHidden = true
+                        
+                        self.dataManager.addFridge(fridgeName: name)
+                        self.dataManager.getFridgeData { fridges in
+                            self.refrigerators = fridges
+                            self.refrigeCollectionView.reloadData()
+                        }
+                        
+                        self.refrigeCollectionView.reloadData()
+                        self.view.makeToast("\(name)이(가) 추가 되었습니다")
+                        // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
+                        let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
+                        if item >= 0 {
+                            let lastIndex = IndexPath(item: item, section: 0)
+                            
+                            self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
+                            print(lastIndex)
+                        }
+                    } else {
+                        self.present(alert,animated: true)
+                        self.view.makeToast("같은이름의 냉장고가 존재합니다.")
+                    }
                 }
             }
         }
@@ -526,18 +530,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 itemAddAlert.addTextField()
                 let addAction = UIAlertAction(title: "추가", style: .default) { _ in
                     if let name = itemAddAlert.textFields?[0].text {
-                        if !self.foods.map{ $0.name }.contains(name) {
-                            
-                            self.dataManager.addFood(foodName: name)
-                            self.dataManager.getFoodData { foods in
-                                self.foods = foods
-                                self.itemCollectionView.reloadData()
-                            }
-                            self.itemCollectionView.reloadData()
-                            self.view.makeToast("\(name)이(가) 추가 되었습니다.")
-                        } else {
+                        if name == "" {
                             self.present(itemAddAlert, animated: true)
-                            self.view.makeToast("같은이름의 식품이 존재합니다.")
+                            self.view.makeToast("이름을 입력해주세요.")
+                        } else {
+                            if !self.foods.map{ $0.name }.contains(name) {
+                                
+                                self.dataManager.addFood(foodName: name)
+                                self.dataManager.getFoodData { foods in
+                                    self.foods = foods
+                                    self.itemCollectionView.reloadData()
+                                }
+                                self.itemCollectionView.reloadData()
+                                self.view.makeToast("\(name)이(가) 추가 되었습니다.")
+                            } else {
+                                self.present(itemAddAlert, animated: true)
+                                self.view.makeToast("같은이름의 식품이 존재합니다.")
+                            }
                         }
                     }
                 }
@@ -613,11 +622,11 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 dateChooserAlert.view.addConstraint(height)
                 
                 //present(dateChooserAlert, animated: true)
-                08
+                
                 let VC = InsertFoodViewController()
                 //VC.foodnameLabel.text = draggingItem?.name
                 //VC.foodnameLabel.text = "\(draggingFood?.name) -> \(refrigerators[destinationIndexPath].fridgeName)"
-                VC.foodnameLabel.text = "123"
+                //VC.foodnameLabel.text = "123"
                 VC.destinationFridge = refrigerators[destinationIndexPath]
                 VC.addEventClosure = { foodCount, expirationDate ,isAlert, alertDay in
                     self.draggingFood?.count = foodCount
@@ -636,6 +645,9 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     print(Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!))
                     
                     self.draggingFood = nil
+                    
+                    let alert = Alert(alertTitle: "testTitle", alertMessage: "testMessage", alertTime: alertDay)
+                    alert.generateAlert()
                     
                     let indexPath = IndexPath(item: destinationIndexPath, section: 0)
                     self.refrigeCollectionView.reloadItems(at: [indexPath])
