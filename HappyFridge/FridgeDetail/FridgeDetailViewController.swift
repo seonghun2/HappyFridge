@@ -9,15 +9,19 @@ import UIKit
 import FirebaseFirestore
 
 class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
+    @IBOutlet weak var noticeTitleLabel: NSLayoutConstraint!
     
+    @IBOutlet weak var noticeContentLabel: NSLayoutConstraint!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var noticeContentLabel: UILabel!
+
     
     @IBOutlet weak var addFoodButton: UIButton!
     var fridgesIndex = 0
     var fridgesInfoArray: [Fridge] = []
     var foodInfoArray: [Food] = []
+    var fridgeName: String?
     
     
     lazy var db = Firestore.firestore()
@@ -27,13 +31,24 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
-        
+       
         addFoodButton.layer.cornerRadius = 10
         
         getFridgeInfo()
         
         let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")
+        
+        print("fridgesIndex")
+        print(fridgesIndex)
+        print("Constant.nickName!")
+        print(Constant.nickName!)
+        if let name = fridgeName {
+            navigationBar.title = name
+        }
+        
+        noticeTitleLabel.constant = 0
+        noticeContentLabel.constant = 0
         
     }
     //MARK: 검색버튼 클릭
@@ -103,8 +118,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         self.foodInfoArray.remove(at: foodIndex)
         print("foodInfoArray")
         print(foodInfoArray)
-        self.fridgesInfoArray[fridgesIndex].food.removeAll()
-        self.fridgesInfoArray[fridgesIndex].food.append(contentsOf: self.foodInfoArray)
+        self.fridgesInfoArray[fridgesIndex].food?.removeAll()
+        self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
         
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {
@@ -120,8 +135,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         print("foodInfoArray")
         print(foodInfoArray)
         self.foodInfoArray[foodIndex].count = foodCount
-        self.fridgesInfoArray[fridgesIndex].food.removeAll()
-        self.fridgesInfoArray[fridgesIndex].food.append(contentsOf: self.foodInfoArray)
+        self.fridgesInfoArray[fridgesIndex].food?.removeAll()
+        self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
         
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {
@@ -154,12 +169,18 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             self.fridgesInfoArray.removeAll()
                             self.foodInfoArray.removeAll()
                             self.fridgesInfoArray.append(contentsOf: dic.fridge)
-                            self.foodInfoArray.append(contentsOf: self.fridgesInfoArray[self.fridgesIndex].food)
-                            self.noticeContentLabel.text = self.fridgesInfoArray[self.fridgesIndex].notice
+                            print("푸드데이터췍")
+                            print(self.fridgesInfoArray[self.fridgesIndex])
+                            
+                            if let aa = self.fridgesInfoArray[self.fridgesIndex].food {
+                                self.foodInfoArray.append(contentsOf: aa)
+                            }
+                           
+//                            self.noticeContentLabel.text = self.fridgesInfoArray[self.fridgesIndex].notice
                             self.tableView.reloadData()
                             
                             print("냉장고")
-                            print(self.fridgesInfoArray[self.fridgesIndex].food[0].foodName)
+                            print(self.fridgesInfoArray[self.fridgesIndex].food?[0].foodName)
                             
                         }
                         

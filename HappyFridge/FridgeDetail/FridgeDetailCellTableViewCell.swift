@@ -45,7 +45,29 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
         let stringDate = formatter.string(from: date)
         print(stringDate)
         expirationDateLabel.text = "\(stringDate)까지"
+      
+        let dayLeft = getDdayInt(date: food.expirationDate)
+        if dayLeft > 7 {
+            d_dayLabel.backgroundColor = UIColor(hexString: "#DFF4C5")
+            d_dayLabel.text = "\(dayLeft)일 남음"
+        } else if dayLeft < 0{
+            d_dayLabel.backgroundColor = UIColor(hexString: "#FFDAD1")
+            d_dayLabel.text = "\(dayLeft * -1)일 지남"
+        } else {
+            d_dayLabel.backgroundColor = UIColor(hexString: "#FFE4C3")
+            d_dayLabel.text = "\(dayLeft)일 남음"
+        }
     }
+    
+    //D-day 계산
+    func getDdayInt(date: Date) -> Int {
+        let date1 = Calendar.current.dateComponents([.year,.month,.day], from: date)
+             let date2 = Calendar.current.dateComponents([.year,.month,.day], from: Date())
+             
+             let daydiff = Calendar.current.dateComponents([.day], from: date2, to: date1).day
+             return daydiff ?? 0
+    }
+    
     @IBAction func deleteFoodAction(_ sender: Any) {
         print("x버튼 클릭 cell")
         self.delegate?.deleteButton(index: index,food: food)

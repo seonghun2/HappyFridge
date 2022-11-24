@@ -35,6 +35,9 @@ class PopUpFoodCountUpdate: UIViewController {
     
     @IBAction func countMinusAction(_ sender: Any) {
         print("-버튼 popup")
+        if foodCount == 0 {
+            return
+        }
         if var fc = foodCount {
             fc -= 1
             foodCount = fc

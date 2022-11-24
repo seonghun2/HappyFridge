@@ -317,6 +317,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 //VC.foodInfoArray = foods[indexPath.row]
                 //VC.fridgesInfoArray = test[indexPath.row]
                 VC.fridgesIndex = indexPath.row
+                VC.fridgeName = self.refrigerators[indexPath.row].fridgeName
                 self.present(VC, animated: true)
             }
             

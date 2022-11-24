@@ -52,8 +52,8 @@ class AddFoodViewController: UIViewController {
         Observable.combineLatest(foodNameTextField.rx.text, foodCountTextField.rx.text)
             .map { foodName, count -> Bool in
                 print("map")
-                print(foodName)
-                print(count)
+               // print(foodName)
+                //print(count)
                 return foodName != "" && count != "0"
             }
             .subscribe(onNext: { s in
@@ -100,9 +100,6 @@ class AddFoodViewController: UIViewController {
     
     func addButtonActivate(activate:Bool) {
         
-      
-        
-        
         if activate {
             addButton.isEnabled = true
             addButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
@@ -127,10 +124,10 @@ class AddFoodViewController: UIViewController {
     func addFood() {
         let nowDate = Date()
         let alertDayValue = Int(alarmDayTextField.text ?? "0")
-        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate, performAlert: alarmCheck , alertDay: alertDayValue!)
+        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate, performAlert: alarmCheck , alertDay: alertDayValue ?? 0)
         foodInfoArray.append(fd)
-        fridgesInfoArray[index].food.removeAll()
-        fridgesInfoArray[index].food.append(contentsOf: self.foodInfoArray)
+        fridgesInfoArray[index].food?.removeAll()
+        fridgesInfoArray[index].food?.append(contentsOf: self.foodInfoArray)
         
         let frid = Fridges(fridge: self.fridgesInfoArray)
         do {

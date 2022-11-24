@@ -33,7 +33,7 @@ class CopyLaunchViewController: UIViewController {
     
         if loginValue {
             //로그인 이력 있음
-            //나의 냉장고 화면으로 이동
+            //나의 냉장고 화면으로 이!동
             let vc = MainViewController(nibName:"MainViewController", bundle: nil)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
