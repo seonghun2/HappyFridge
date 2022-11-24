@@ -21,6 +21,7 @@
                 <outlet property="addButton" destination="js6-7y-TVR" id="9fe-IP-Fwh"/>
                 <outlet property="alarmDayTextField" destination="HGG-pR-Ilp" id="rJp-NO-5k8"/>
                 <outlet property="alarmSwitch" destination="57M-6p-ILJ" id="635-Qt-Az5"/>
+                <outlet property="datePicker" destination="RpI-Nb-g7v" id="HXW-VI-VKL"/>
                 <outlet property="foodCountTextField" destination="42w-pZ-sd3" id="c8B-Dw-TCr"/>
                 <outlet property="foodNameTextField" destination="S0K-46-1PG" id="u1X-FR-1mM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -61,19 +62,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수량(개)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wj-AT-xr9">
-                    <rect key="frame" x="31.999999999999996" y="183.66666666666666" width="52.666666666666657" height="18.666666666666657"/>
+                    <rect key="frame" x="31.999999999999996" y="183.66666666666666" width="52.666666666666657" height="19"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유통기한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLc-Kd-sdQ">
-                    <rect key="frame" x="32" y="252.33333333333334" width="55.333333333333343" height="18.666666666666657"/>
+                    <rect key="frame" x="32" y="252.66666666666666" width="55.333333333333343" height="18.666666666666657"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림받기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOZ-uA-MuY">
-                    <rect key="frame" x="32" y="321" width="55.333333333333343" height="18.666666666666686"/>
+                    <rect key="frame" x="32" y="321.33333333333331" width="55.333333333333343" height="18.666666666666686"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -106,7 +107,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="3" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42w-pZ-sd3">
-                    <rect key="frame" x="175.66666666666666" y="178" width="48" height="30"/>
+                    <rect key="frame" x="175.66666666666666" y="178.33333333333334" width="48" height="30"/>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="48" id="9J0-zG-vgo"/>
@@ -116,31 +117,28 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udB-eU-C8x">
-                    <rect key="frame" x="243.66666666666663" y="178" width="40" height="30"/>
+                    <rect key="frame" x="243.66666666666663" y="178.33333333333334" width="40" height="30"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="plus"/>
                     <connections>
                         <action selector="plusAction:" destination="-1" eventType="touchUpInside" id="7Oq-VN-zPf"/>
                     </connections>
                 </button>
-                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="RpI-Nb-g7v">
-                    <rect key="frame" x="137" y="245" width="175" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="yr5-Je-yXk"/>
-                    </constraints>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="RpI-Nb-g7v">
+                    <rect key="frame" x="137.33333333333337" y="245.00000000000003" width="242.66666666666663" height="34.333333333333343"/>
                     <locale key="locale" localeIdentifier="ko"/>
                     <connections>
                         <action selector="datePicker:" destination="-1" eventType="valueChanged" id="2jc-iO-osG"/>
                     </connections>
                 </datePicker>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="57M-6p-ILJ">
-                    <rect key="frame" x="107.33333333333331" y="315" width="51" height="31"/>
+                    <rect key="frame" x="107.33333333333331" y="315.33333333333331" width="51" height="31"/>
                     <connections>
                         <action selector="alarmCheck:" destination="-1" eventType="valueChanged" id="DDM-An-3fK"/>
                     </connections>
                 </switch>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGG-pR-Ilp">
-                    <rect key="frame" x="186.33333333333334" y="315.33333333333331" width="48" height="30"/>
+                    <rect key="frame" x="186.33333333333334" y="315.66666666666669" width="48" height="30"/>
                     <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="4ZT-aX-JBT"/>
@@ -150,7 +148,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일 전 알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPo-Ro-Wnd">
-                    <rect key="frame" x="244.33333333333334" y="320" width="67.666666666666657" height="21"/>
+                    <rect key="frame" x="244.33333333333334" y="320.33333333333331" width="67.666666666666657" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -190,6 +188,7 @@
                 <constraint firstItem="4tD-GF-5yu" firstAttribute="leading" secondItem="6Wj-AT-xr9" secondAttribute="trailing" constant="30" id="uHe-qm-Pyp"/>
                 <constraint firstItem="4tD-GF-5yu" firstAttribute="centerY" secondItem="6Wj-AT-xr9" secondAttribute="centerY" id="vOZ-7f-uki"/>
                 <constraint firstItem="nlS-gc-G36" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wPb-5S-Fiq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RpI-Nb-g7v" secondAttribute="trailing" constant="10" id="zHp-Ox-sVt"/>
             </constraints>
             <point key="canvasLocation" x="56.92307692307692" y="-12.085308056872037"/>
         </view>

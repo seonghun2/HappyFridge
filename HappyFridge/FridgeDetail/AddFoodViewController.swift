@@ -19,6 +19,7 @@ class AddFoodViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var alarmSwitch: UISwitch!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var foodCount = 0
     var index = 0
@@ -35,6 +36,8 @@ class AddFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        datePicker.contentHorizontalAlignment = .left
         
         addButton.layer.cornerRadius = 8
         foodCountTextField.layer.cornerRadius = 4
