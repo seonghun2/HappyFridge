@@ -90,7 +90,6 @@ class LoginViewController: UIViewController {
                     
                 }
                 //나의 냉장고 화면으로 이동
-                print(getNickName)
                 Constant.nickName = getNickName
                 UserDefaults.standard.set(true, forKey: "Login")
                 UserDefaults.standard.set(getNickName, forKey: "nickName")

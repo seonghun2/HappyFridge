@@ -16,7 +16,7 @@ struct Fridge: Codable {
     let fridgeName: String
     let owner: String
     let notice: String
-    var food: [Food]
+    var food: [Food]?
 }
 
 struct Food: Codable {

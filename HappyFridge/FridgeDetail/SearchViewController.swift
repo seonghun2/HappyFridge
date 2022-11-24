@@ -60,8 +60,8 @@ class SearchViewController: UIViewController {
         searchFoodInfoArray.remove(at: searchIndex)
         print("searchFridgesInfoArray")
         print(searchFridgesInfoArray)
-        searchFridgesInfoArray[fridgeIndex].food.removeAll()
-        searchFridgesInfoArray[fridgeIndex].food.append(contentsOf: searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food?.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: searchFoodInfoArray)
         
         let frid = Fridges(fridge: searchFridgesInfoArray)
         do {
@@ -78,8 +78,8 @@ class SearchViewController: UIViewController {
         print(searchFoodInfoArray)
         searchFoodInfoArray2[foodIndex].count = foodCount
         searchFoodInfoArray[searchIndex].count = foodCount
-        searchFridgesInfoArray[fridgeIndex].food.removeAll()
-        searchFridgesInfoArray[fridgeIndex].food.append(contentsOf: self.searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food?.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: self.searchFoodInfoArray)
         
         let frid = Fridges(fridge: self.searchFridgesInfoArray)
         do {

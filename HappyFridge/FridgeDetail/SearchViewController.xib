@@ -28,7 +28,8 @@
                     <items>
                         <navigationItem id="oIP-Rs-axi">
                             <nil key="title"/>
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="SNk-p2-gnp">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" style="done" id="SNk-p2-gnp">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="backAction:" destination="-1" id="JvY-I0-bTN"/>
                                 </connections>
