@@ -16,6 +16,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var emptyImageView: UIImageView!
     
     @IBOutlet weak var addFoodButton: UIButton!
     var fridgesIndex = 0
@@ -174,13 +175,15 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             
                             if let aa = self.fridgesInfoArray[self.fridgesIndex].food {
                                 self.foodInfoArray.append(contentsOf: aa)
+                                self.emptyImageView.isHidden = true
                             }
                            
+                            if self.fridgesInfoArray[self.fridgesIndex].food?[0] == nil {
+                                self.tableView.isHidden = true
+                            }
 //                            self.noticeContentLabel.text = self.fridgesInfoArray[self.fridgesIndex].notice
                             self.tableView.reloadData()
-                            
-                            print("냉장고")
-                            print(self.fridgesInfoArray[self.fridgesIndex].food?[0].foodName)
+            
                             
                         }
                         

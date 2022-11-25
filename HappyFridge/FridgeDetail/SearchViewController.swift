@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var emptyFridgeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,24 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchAction(_ sender: Any) {
         if let keyWord = searchTextField.text {
+            
             searchFoodInfoArray2 = searchFoodInfoArray.filter {
                 $0.foodName == keyWord
             }
+            
+            if searchFoodInfoArray2.count == 0 {
+                searchTableView.isHidden = true
+                emptyFridgeImageView.isHidden = false
+                
+            }else {
+                emptyFridgeImageView.isHidden = true
+                searchTableView.isHidden = false
+            }
+            
             searchIndex = searchFoodInfoArray.firstIndex {
                 $0.foodName == keyWord
             } ?? 0
+            
             searchTableView.reloadData()
         }
     }

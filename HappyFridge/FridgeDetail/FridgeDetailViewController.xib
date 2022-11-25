@@ -22,6 +22,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FridgeDetailViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
                 <outlet property="addFoodButton" destination="lbO-qN-P5Z" id="Ups-TQ-niL"/>
+                <outlet property="emptyImageView" destination="w8J-uW-ctX" id="Hd8-0d-1fW"/>
                 <outlet property="filterButton" destination="Wr8-Dq-bkM" id="Q1F-Ns-GI3"/>
                 <outlet property="navigationBar" destination="1vz-aN-kQh" id="0Af-Xp-A3U"/>
                 <outlet property="noticeContentLabel" destination="Bjc-eg-XjR" id="njf-kA-vAz"/>
@@ -115,6 +116,9 @@
                         <action selector="addFoodAction:" destination="-1" eventType="touchUpInside" id="Ate-4T-1dH"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyFridge" translatesAutoresizingMaskIntoConstraints="NO" id="w8J-uW-ctX">
+                    <rect key="frame" x="157" y="375" width="76" height="94.333333333333314"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,9 +131,11 @@
                 <constraint firstItem="Wr8-Dq-bkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="4LH-mP-hTN"/>
                 <constraint firstItem="8Sp-B2-6qz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ZM-uO-Glk"/>
                 <constraint firstItem="r9A-ts-159" firstAttribute="top" secondItem="C0a-Jd-xV5" secondAttribute="bottom" id="Bjc-eg-XjR"/>
+                <constraint firstItem="w8J-uW-ctX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CqI-DP-UAe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="drR-Ss-FlC" secondAttribute="trailing" id="K1i-FJ-B98"/>
                 <constraint firstItem="rxG-Fg-onO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-15" id="KPS-Q3-ghV"/>
                 <constraint firstItem="C0a-Jd-xV5" firstAttribute="top" secondItem="XSv-06-IST" secondAttribute="bottom" constant="4" id="LUU-Z0-g3g"/>
+                <constraint firstItem="w8J-uW-ctX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NVM-fe-D3G"/>
                 <constraint firstAttribute="trailing" secondItem="r9A-ts-159" secondAttribute="trailing" id="XPK-qa-kH7"/>
                 <constraint firstItem="rxG-Fg-onO" firstAttribute="top" secondItem="bH9-Jp-Dtg" secondAttribute="bottom" constant="16" id="aFd-dU-QwG"/>
                 <constraint firstItem="XSv-06-IST" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bGF-uc-p9U"/>
@@ -146,6 +152,7 @@
     </objects>
     <resources>
         <image name="arrowDown" width="10" height="6"/>
+        <image name="emptyFridge" width="76" height="94.333335876464844"/>
         <image name="member" width="20" height="17"/>
         <image name="plus" width="16" height="16"/>
         <systemColor name="labelColor">
