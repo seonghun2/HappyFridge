@@ -7,8 +7,6 @@
 
 import UIKit
 import FirebaseFirestore
-import RxSwift
-import RxCocoa
 
 class AddFoodViewController: UIViewController {
     
@@ -29,14 +27,13 @@ class AddFoodViewController: UIViewController {
     private var alarmCheck = false
     
     lazy var db = Firestore.firestore()
-    private let bag = DisposeBag()
     
     // 데이터 전달 클로저
     var dataSendClosure: ((_ data: String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         datePicker.contentHorizontalAlignment = .left
         
         addButton.layer.cornerRadius = 8
@@ -49,24 +46,29 @@ class AddFoodViewController: UIViewController {
         print("foodinfoarray")
         print(foodInfoArray)
         
-        Observable.combineLatest(foodNameTextField.rx.text, foodCountTextField.rx.text)
-            .map { foodName, count -> Bool in
-                print("map")
-               // print(foodName)
-                //print(count)
-                return foodName != "" && count != "0"
-            }
-            .subscribe(onNext: { s in
-                if s == true {
-                    self.addButtonActivate(activate: true)
-                } else {
-                    self.addButtonActivate(activate: false)
-                }
-               
-                
-            })
-            .disposed(by: bag)
-            
+        self.foodNameTextField.addTarget(self, action: #selector(self.foodNameDidChanged(_:)), for: .editingChanged)
+        self.foodCountTextField.addTarget(self, action: #selector(self.foodCountDidChanged(_:)), for: .editingChanged)
+        
+    }
+    
+    @objc func foodNameDidChanged(_ sender: UITextField) {
+        print("text변경 감지 name")
+        if sender.text != "" && foodCountTextField.text != "" && foodCountTextField.text != nil && foodCountTextField.text != "0" {
+            self.addButtonActivate(activate: true)
+        }else {
+            self.addButtonActivate(activate: false)
+        }
+        
+    }
+    
+    @objc func foodCountDidChanged(_ sender: UITextField) {
+        print("text변경 감지 count")
+        if sender.text != "" && sender.text != "0" && foodNameTextField.text != "" && foodNameTextField.text != nil  {
+            self.addButtonActivate(activate: true)
+        }else {
+            self.addButtonActivate(activate: false)
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,18 +77,28 @@ class AddFoodViewController: UIViewController {
     
     
     @IBAction func minusAction(_ sender: Any) {
-        foodCount = Int(foodCountTextField.text!)!
+        foodCount = Int(foodCountTextField.text ?? "0") ?? 0
         if foodCount == 0 {
             return
         }else {
+            if foodCount == 1 {
+                addButtonActivate(activate: false)
+            }
             foodCount -= 1
             foodCountTextField.text = String(foodCount)
+            
+            if foodNameTextField.text != nil && foodCount != 0 {
+                addButtonActivate(activate: true)
+            }
         }
     }
     @IBAction func plusAction(_ sender: Any) {
-        foodCount = Int(foodCountTextField.text!)!
+        foodCount = Int(foodCountTextField.text ?? "0") ?? 0
         foodCount += 1
         foodCountTextField.text = String(foodCount)
+        if foodNameTextField.text != nil && foodNameTextField.text != "" {
+            addButtonActivate(activate: true)
+        }
     }
     @IBAction func addAction(_ sender: Any) {
         addFood()

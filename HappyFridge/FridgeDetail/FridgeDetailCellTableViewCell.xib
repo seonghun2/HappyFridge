@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="냉동닭가슴살" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXj-Nz-eRt">
-                        <rect key="frame" x="20" y="27.666666666666671" width="83" height="20"/>
+                        <rect key="frame" x="20" y="28.333333333333329" width="83" height="18.666666666666671"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="83" id="W08-r8-4MV"/>
                         </constraints>
@@ -99,7 +99,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.16까지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJV-Yb-XGT">
-                        <rect key="frame" x="232" y="49.666666666666664" width="72" height="15.666666666666664"/>
+                        <rect key="frame" x="232" y="49.666666666666664" width="67" height="15.666666666666664"/>
                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
                         <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -113,7 +113,6 @@
                     <constraint firstItem="BXj-Nz-eRt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VxR-0C-639"/>
                     <constraint firstItem="rFr-sk-2rp" firstAttribute="leading" secondItem="BXj-Nz-eRt" secondAttribute="trailing" constant="32" id="W7g-h9-lhf"/>
                     <constraint firstItem="doM-cH-IxN" firstAttribute="leading" secondItem="rFr-sk-2rp" secondAttribute="trailing" constant="52" id="YGI-yl-x1d"/>
-                    <constraint firstItem="eJV-Yb-XGT" firstAttribute="trailing" secondItem="doM-cH-IxN" secondAttribute="trailing" id="dYU-2c-dnX"/>
                     <constraint firstItem="doM-cH-IxN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eIE-Cu-VSG"/>
                     <constraint firstItem="BXj-Nz-eRt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jss-1a-oYw"/>
                     <constraint firstItem="rFr-sk-2rp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o3p-iq-eAi"/>
