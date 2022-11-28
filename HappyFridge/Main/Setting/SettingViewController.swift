@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingView: UIViewController {
+class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingList: UITableView!
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class SettingView: UIViewController {
     }
 }
 
-extension SettingView: UITableViewDelegate, UITableViewDataSource {
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6

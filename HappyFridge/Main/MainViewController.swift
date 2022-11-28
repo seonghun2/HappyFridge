@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import FirebaseFirestore
 import Toast
+
 class MainViewController: UIViewController {
     var db = Firestore.firestore()
     var dataManager = DataManager()
@@ -39,6 +40,8 @@ class MainViewController: UIViewController {
     // 드래그한 셀을 저장할 변수, 냉장고 셀에 드랍할때 사용
     var draggingFood: Item?
     
+    var alerts: [Alert]?
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -51,6 +54,10 @@ class MainViewController: UIViewController {
             self.foods = foods
             self.itemCollectionView.reloadData()
         }
+        
+//        dataManager.getAlertData { alerts in
+//            self.alerts = alerts
+//        }
         
         setRefrigeCollectionView()
         setItemCollectionView()
@@ -69,10 +76,15 @@ class MainViewController: UIViewController {
         let flowLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
+            
             if showSmall {
-                layout.sectionInset = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 20)
-                layout.minimumLineSpacing = 16
-                layout.itemSize = CGSize(width: 180, height: 180)
+                let screenWidth = UIScreen.main.bounds.size.width
+                let screenHeight = UIScreen.main.bounds.size.height
+                let width = screenWidth / 2 - 30
+                let height = (screenHeight / 2.1) / 2 - 20
+                layout.sectionInset = UIEdgeInsets(top: 20, left: 15, bottom: 40, right: 15)
+                layout.minimumLineSpacing = 30
+                layout.itemSize = CGSize(width: width , height: width)
                 return layout
             } else {
                 layout.sectionInset = UIEdgeInsets(top: 70, left: 40, bottom: 40, right: 20)
@@ -111,7 +123,11 @@ class MainViewController: UIViewController {
             layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
             layout.minimumLineSpacing = 12
             
-            layout.itemSize = CGSize(width: 95, height: 80)
+            let screenHeight = UIScreen.main.bounds.size.height
+            let height = (screenHeight * 0.28 - 48) / 2 - 25
+            let screenWidth = UIScreen.main.bounds.size.width
+            let width = screenWidth / 4.7
+            layout.itemSize = CGSize(width: width, height: width * 0.8)
             
             return layout
         }()
@@ -198,7 +214,7 @@ class MainViewController: UIViewController {
                         }
                     } else {
                         self.present(alert,animated: true)
-                        self.view.makeToast("같은이름의 냉장고가 존재합니다.")
+                        self.view.makeToast("같은 이름의 냉장고가 존재합니다.")
                     }
                 }
             }
@@ -271,7 +287,7 @@ class MainViewController: UIViewController {
             update.left.equalTo(itemCollectionView.snp.left).inset(15)
         }
         itemCollectionView.snp.updateConstraints { make in
-            make.top.equalTo(refrigeCollectionView.snp.bottom)
+            make.height.equalToSuperview().multipliedBy(1)
         }
     }
 }
@@ -545,7 +561,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                 self.view.makeToast("\(name)이(가) 추가 되었습니다.")
                             } else {
                                 self.present(itemAddAlert, animated: true)
-                                self.view.makeToast("같은이름의 식품이 존재합니다.")
+                                self.view.makeToast("같은 이름의 식품이 존재합니다.")
                             }
                         }
                     }
@@ -587,42 +603,6 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     make.left.equalTo(20)
                 }
                 
-                dateChooserAlert.addAction(UIAlertAction(title: "선택완료", style: .default) { _ in
-                    print(datePicker.date)
-                    self.draggingFood?.expirationDate = datePicker.date
-                    
-                    self.draggingFood?.count = 2
-                    self.draggingFood?.performAlert = true
-                    self.draggingFood?.alertDay = 3
-                    //self.refrigeArray[destinationIndexPath].items.append(self.draggingItem!)
-                    
-                    self.refrigerators[destinationIndexPath].food?.append(self.draggingFood!)
-
-                    let frid = Refrigerators(fridges: self.refrigerators)
-                    do {
-                        try self.db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
-                    } catch {
-                        print(error)
-                    }
-                    
-                    
-                    self.draggingFood = nil
-                    print(destinationIndexPath)
-                    
-                    //전체컬렉션뷰 리로드
-                    //self.refrigeCollectionView.reloadData()
-                    
-                    //셀 하나만 리로드
-                    let indexPath = IndexPath(item: destinationIndexPath, section: 0)
-                    self.refrigeCollectionView.reloadItems(at: [indexPath])
-                })
-                
-                let height: NSLayoutConstraint = NSLayoutConstraint(item: dateChooserAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
-                
-                dateChooserAlert.view.addConstraint(height)
-                
-                //present(dateChooserAlert, animated: true)
-                
                 let VC = InsertFoodViewController()
                 //VC.foodnameLabel.text = draggingItem?.name
                 //VC.foodnameLabel.text = "\(draggingFood?.name) -> \(refrigerators[destinationIndexPath].fridgeName)"
@@ -632,6 +612,8 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     self.draggingFood?.count = foodCount
                     self.draggingFood?.expirationDate = expirationDate
                     self.draggingFood?.performAlert = isAlert
+                    
+                    let alertDate = Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!)
                     self.draggingFood?.alertDay = alertDay
                     self.refrigerators[destinationIndexPath].food?.append(self.draggingFood!)
 
@@ -641,13 +623,24 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     } catch {
                         print(error)
                     }
+                    
+                    if isAlert {
+                        let alertMessage = "\(self.refrigerators[destinationIndexPath].fridgeName)에 있는 \(self.draggingFood?.name ?? "")의 유통기한이 \(alertDay)일 남았습니다."
+                        let alert = Alert(alertDate: alertDate!, alertMessage: alertMessage)
+                        alert.generateAlert()
+                        
+                        self.dataManager.addAlert(alert: alert)
+                        self.dataManager.getAlertData { alerts in
+                            self.alerts = alerts
+                        }
+                    }
+                    
                     print(self.draggingFood?.expirationDate)
                     print(Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!))
                     
                     self.draggingFood = nil
                     
-                    let alert = Alert(alertTitle: "testTitle", alertMessage: "testMessage", alertTime: alertDay)
-                    alert.generateAlert()
+                    
                     
                     let indexPath = IndexPath(item: destinationIndexPath, section: 0)
                     self.refrigeCollectionView.reloadItems(at: [indexPath])
@@ -725,8 +718,9 @@ extension MainViewController: UITextFieldDelegate {
             update.width.equalTo(340)
         }
         itemCollectionView.snp.updateConstraints { make in
-            make.top.equalTo(refrigeCollectionView.snp.bottom).inset(120)
+            //make.height.equalTo()
             
+            //make.top.equalTo(refrigeCollectionView.snp.bottom).inset(220)
         }
     }
 //    func textFieldDidEndEditing(_ textField: UITextField) {

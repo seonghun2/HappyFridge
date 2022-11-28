@@ -320,6 +320,7 @@
 				CE84FAA8291F902C00FFB3E5 /* Items.swift */,
 				CE4A3CB02917818E003971DE /* Refrigerators.swift */,
 				866084092917ADF700F108DD /* DefaultFood.swift */,
+				CED8B13A292D150000CE6CAE /* Alert.swift */,
 				CEADD2A5292079370003EDAF /* DataManager.swift */,
 			);
 			path = Models;
@@ -340,7 +341,6 @@
 				CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */,
 				CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */,
 				CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */,
-				CED8B13A292D150000CE6CAE /* Alert.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

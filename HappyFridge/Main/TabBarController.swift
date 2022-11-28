@@ -13,14 +13,14 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         let view1 = MainViewController()
-        let view2 = SharedFridgeViewController()
+        //let view2 = SharedFridgeViewController()
         let view3 = AlertViewController()
-        let view4 = SettingView()
+        let view4 = SettingViewController()
         
-        setViewControllers([view1,  view3, view4], animated: true)
+        setViewControllers([view1, view3, view4], animated: true)
         
         view1.tabBarItem = UITabBarItem(title: "나의냉장고", image: UIImage(named: "myfridge"), tag: 0)
-        view2.tabBarItem = UITabBarItem(title: "공유냉장고", image: UIImage(named: "sharedfridge"), tag: 1)
+        //view2.tabBarItem = UITabBarItem(title: "공유냉장고", image: UIImage(named: "sharedfridge"), tag: 1)
         view3.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: "alert"), tag: 2)
         view4.tabBarItem = UITabBarItem(title: "설정", image: UIImage(named: "setting"), tag: 3)
         

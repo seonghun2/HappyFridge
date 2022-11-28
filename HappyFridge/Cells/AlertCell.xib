@@ -16,35 +16,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="406" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김치냉장고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-yx-Mci">
-                        <rect key="frame" x="16" y="16" width="74" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김치냉장고의 배추김치 유통기한이 3일 남았어요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-q4-L3c">
-                        <rect key="frame" x="16" y="41" width="322" height="20.333333333333329"/>
+                        <rect key="frame" x="16" y="32" width="374" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 22일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-lP-IQg">
-                        <rect key="frame" x="322" y="16" width="69" height="21"/>
+                        <rect key="frame" x="332" y="5" width="69" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sfX-yx-Mci" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7x7-X0-daa"/>
+                    <constraint firstAttribute="trailing" secondItem="zUI-q4-L3c" secondAttribute="trailing" constant="16" id="BCC-Ji-q5i"/>
+                    <constraint firstItem="zUI-q4-L3c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="S8f-Em-kBF"/>
                     <constraint firstItem="zUI-q4-L3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WaW-zA-zLg"/>
-                    <constraint firstItem="zUI-q4-L3c" firstAttribute="top" secondItem="sfX-yx-Mci" secondAttribute="bottom" constant="4" id="nux-1K-KJw"/>
-                    <constraint firstItem="sfX-yx-Mci" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="slE-uk-cFL"/>
-                    <constraint firstItem="iO4-lP-IQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="vLc-Al-GNw"/>
-                    <constraint firstAttribute="trailing" secondItem="iO4-lP-IQg" secondAttribute="trailing" constant="15" id="y05-FA-PYz"/>
+                    <constraint firstItem="iO4-lP-IQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="vLc-Al-GNw"/>
+                    <constraint firstAttribute="trailing" secondItem="iO4-lP-IQg" secondAttribute="trailing" constant="5" id="y05-FA-PYz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="alertDateLabel" destination="iO4-lP-IQg" id="uF3-aY-Gh4"/>
+                <outlet property="alertMessageLabel" destination="zUI-q4-L3c" id="wk2-6L-vXj"/>
+            </connections>
             <point key="canvasLocation" x="196.92307692307691" y="2.8436018957345972"/>
         </tableViewCell>
     </objects>

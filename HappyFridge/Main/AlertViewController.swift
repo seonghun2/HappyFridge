@@ -9,47 +9,40 @@ import UIKit
 import UserNotifications
 
 class AlertViewController: UIViewController {
-
+    var alerts: [Alert] = []
+    var showingAlerts: [Alert]?
+    @IBOutlet weak var alertTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization { granted, error in
-            if !granted {
-                print("permission Denied")
-            }
+        
+        DataManager().getAlertData { [weak self] alerts in
+            self?.alerts = alerts
+            self?.showingAlerts = self?.alerts.filter { $0.alertDate.compare(Date()) == .orderedAscending }
+            self?.alertTableView.reloadData()
         }
+
+        alertTableView.dataSource = self
+        alertTableView.rowHeight = 100
         
-        // create Notification content
-        let content = UNMutableNotificationContent()
-        content.title = "Noti title"
-        content.body = "Noti body"
-        
-        // create notification trigger
-        let date = Date().addingTimeInterval(5)
-        
-        let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false )
-        
-        //create request
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
-        //register the request
-        center.add(request) { error in
-            
-        }
+        alertTableView.register(UINib(nibName: "AlertCell", bundle: nil), forCellReuseIdentifier: "AlertCell")
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension AlertViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return showingAlerts?.count ?? 0
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath) as! AlertCell
+        
+        cell.alertMessageLabel.text = showingAlerts?[indexPath.row].alertMessage
+        
+        let alertDate = showingAlerts?[indexPath.row].alertDate
+        cell.alertDateLabel.text = showingAlerts?[indexPath.row].alertDate.toString()
+        
+        return cell
+    }
+    
+    
 }

@@ -18,23 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KakaoSDK.initSDK(appKey: "a109cf78cb61d71d128dfe47692a543b")
         FirebaseApp.configure()
         
-        Messaging.messaging().delegate = self
+//        Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().delegate = self
         
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-        application.registerForRemoteNotifications()
-        
-        Messaging.messaging().token { token, error in
-          if let error = error {
-            print("Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("FCM registration token: \(token)")
-          }
-        }
+//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//        UNUserNotificationCenter.current().requestAuthorization(
+//            options: authOptions,
+//            completionHandler: {_, _ in })
+//        application.registerForRemoteNotifications()
+//        
+//        Messaging.messaging().token { token, error in
+//          if let error = error {
+//            print("Error fetching FCM registration token: \(error)")
+//          } else if let token = token {
+//            print("FCM registration token: \(token)")
+//          }
+//        }
         
         return true
     }
@@ -70,6 +70,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // push 탭한 경우 처리
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
                 
+        print(#function)
         // deep link 처리 시 사용(딥링크: 특정 주소 혹은 값으로 앱 내 특정 화면으로 이동시키는 기능)
         let url = response.notification.request.content.userInfo
         print("url = \(url)")

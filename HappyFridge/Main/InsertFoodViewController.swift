@@ -15,6 +15,7 @@ class InsertFoodViewController: UIViewController {
 
     var foodCount: Int = 1
     
+    // 수량, 유통기한, 알림여부, 알림 몇일전에 할건지
     var addEventClosure: ((Int, Date, Bool, Int) -> ())?
     
     var alertSwitchState: Bool = false
@@ -64,7 +65,9 @@ class InsertFoodViewController: UIViewController {
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        addEventClosure?(Int(foodCountTextField.text ?? "0") ?? 0, expirationDatePicker.date, alertSwitchState, Int(alertDayTextField.text ?? "0") ?? 0)
+        var expirationDay =  Calendar.current.dateComponents([.year,.month,.day], from: expirationDatePicker.date)
+        let date = Calendar.current.date(from: expirationDay) ?? Date()
+        addEventClosure?(Int(foodCountTextField.text ?? "0") ?? 0, date, alertSwitchState, Int(alertDayTextField.text ?? "0") ?? 0)
         dismiss(animated: true)
     }
     
@@ -76,6 +79,11 @@ class InsertFoodViewController: UIViewController {
         super.viewDidLoad()
 
         popupView.layer.cornerRadius = 10
+        foodCountTextField.keyboardType = .numberPad
+        expirationDatePicker.backgroundColor = .systemGray3
+        expirationDatePicker.layer.cornerRadius = 5
+        expirationDatePicker.layer.masksToBounds = true
+        alertDayLabel.textColor = .systemGray4
         alertDayTextField.isUserInteractionEnabled = false
         alertDayTextField.keyboardType = .numberPad
         foodCountTextField.text = "\(foodCount)"

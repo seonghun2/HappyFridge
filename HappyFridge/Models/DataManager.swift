@@ -12,8 +12,8 @@ import FirebaseFirestore
 class DataManager {
     var db = Firestore.firestore()
     lazy var docRef = db.collection("fridge").document("횡성훈2")
-    lazy var fridges: [Refrigerator] = []
-    lazy var foods: [Item] = []
+//    lazy var fridges: [Refrigerator] = []
+//    lazy var foods: [Item] = []
     
 //    func getFridgeData() {
 //
@@ -37,7 +37,7 @@ class DataManager {
 //        }
 //    }
     
-    func getFridgeData(completion : @escaping ([Refrigerator]) -> ()) {
+    func getFridgeData(completion : @escaping ([Refrigerator]) -> Void) {
         //var fridgeArray: [Refrigerator] = []
 
         docRef.getDocument { document, error in
@@ -73,11 +73,30 @@ class DataManager {
                         print("do")
                         print("냉장고있음",document.data(),document.data()?.count)
                         let foods = try document.data(as: Items.self).foods
-                        self.foods = foods
+                        //self.foods = foods
                         completion(foods)
                     }
                     catch {
                         print("catch")
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getAlertData(completion: @escaping ([Alert]) -> Void) {
+        docRef.getDocument { document, error in
+            if let error = error as NSError? {
+                print("Error getting document: \(error.localizedDescription)")
+            } else {
+                if let document = document {
+                    do {
+                        let alerts = try document.data(as: Alerts.self).alerts
+                        //self.foods = foods
+                        completion(alerts)
+                    }
+                    catch {
                         print(error)
                     }
                 }
@@ -100,6 +119,12 @@ class DataManager {
             .setData(["foods": FieldValue.arrayUnion([["name": foodName,
                                                        "createDate": Date(),
                                                        "isBookmarked": false]])],merge: true)
+    }
+    
+    func addAlert(alert: Alert) {
+        self.db.collection("fridge").document("횡성훈2")
+            .setData(["alerts": FieldValue.arrayUnion([["alertDate": alert.alertDate,
+                                                        "alertMessage": alert.alertMessage]])],merge: true)
     }
     
     func removeFridge() {
