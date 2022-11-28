@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
-                <outlet property="appleLoginButton" destination="aoh-xB-ADe" id="Ouw-jj-pTT"/>
+                <outlet property="stackView" destination="oKR-0g-WxJ" id="pMV-gZ-kGr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,9 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-Vb-j8j">
-                    <rect key="frame" x="34" y="601" width="324" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-Vb-j8j">
+                    <rect key="frame" x="33" y="601" width="324" height="59"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="kakao_login_medium_wide"/>
                     <connections>
@@ -46,29 +45,37 @@
                         <constraint firstAttribute="width" constant="220" id="kOU-5Y-deK"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-xB-ADe" customClass="ASAuthorizationAppleIDButton">
-                    <rect key="frame" x="85" y="553" width="224" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="appleid_button"/>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKR-0g-WxJ">
+                    <rect key="frame" x="33" y="537" width="324" height="44"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="xlI-22-jwR"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="HqD-7j-UKh" firstAttribute="top" secondItem="j1N-8X-MBQ" secondAttribute="bottom" id="Dg9-C1-SHN"/>
+                <constraint firstItem="Aff-Vb-j8j" firstAttribute="top" secondItem="oKR-0g-WxJ" secondAttribute="bottom" constant="20" id="G6H-fh-eTG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Aff-Vb-j8j" secondAttribute="bottom" constant="150" id="Sy2-3B-ZOV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j1N-8X-MBQ" secondAttribute="trailing" id="XmA-eC-TCR"/>
                 <constraint firstItem="j1N-8X-MBQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eIB-iI-RDF"/>
+                <constraint firstItem="Aff-Vb-j8j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jyK-Gy-JYP"/>
+                <constraint firstItem="oKR-0g-WxJ" firstAttribute="trailing" secondItem="Aff-Vb-j8j" secondAttribute="trailing" id="pcx-MT-I8t"/>
                 <constraint firstItem="HqD-7j-UKh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="r1z-0z-Xnf"/>
+                <constraint firstItem="oKR-0g-WxJ" firstAttribute="leading" secondItem="Aff-Vb-j8j" secondAttribute="leading" id="v44-D8-GZ9"/>
                 <constraint firstItem="j1N-8X-MBQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="140" id="vSv-cK-xxn"/>
             </constraints>
             <point key="canvasLocation" x="65" y="-11"/>
         </view>
     </objects>
     <resources>
-        <image name="appleid_button" width="200" height="32"/>
         <image name="kakao_login_medium_wide" width="300" height="45"/>
         <image name="logo" width="220" height="220"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -14,7 +14,7 @@ class CopyLaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+   
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
             self.imageViewEye.isHidden = true
             self.imageView.image = UIImage(named: "Vector")
@@ -27,17 +27,13 @@ class CopyLaunchViewController: UIViewController {
     }
     
     func nextViewSetting() {
-       
+        
         let loginValue = UserDefaults.standard.bool(forKey: "Login")
         let nickNameValue = UserDefaults.standard.string(forKey: "nickName")
-        
-        print("로그인이력확인")
-        print(loginValue)
-        print(nickNameValue)
-        
+    
         if loginValue {
             //로그인 이력 있음
-            //나의 냉장고 화면으로 이동
+            //나의 냉장고 화면으로 이!동
             let vc = MainViewController(nibName:"MainViewController", bundle: nil)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

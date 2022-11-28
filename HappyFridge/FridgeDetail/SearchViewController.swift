@@ -16,12 +16,14 @@ class SearchViewController: UIViewController {
     var searchFoodInfoArray: [Food] = []
     var searchFoodInfoArray2: [Food] = []
     var searchIndex = 0
+    var fridgeIndex = 0
     
     // 데이터 전달 클로저
     var searchClosure: ((_ data: String) -> Void)?
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var emptyFridgeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +38,24 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchAction(_ sender: Any) {
         if let keyWord = searchTextField.text {
+            
             searchFoodInfoArray2 = searchFoodInfoArray.filter {
                 $0.foodName == keyWord
             }
+            
+            if searchFoodInfoArray2.count == 0 {
+                searchTableView.isHidden = true
+                emptyFridgeImageView.isHidden = false
+                
+            }else {
+                emptyFridgeImageView.isHidden = true
+                searchTableView.isHidden = false
+            }
+            
             searchIndex = searchFoodInfoArray.firstIndex {
                 $0.foodName == keyWord
             } ?? 0
+            
             searchTableView.reloadData()
         }
     }
@@ -59,12 +73,12 @@ class SearchViewController: UIViewController {
         searchFoodInfoArray.remove(at: searchIndex)
         print("searchFridgesInfoArray")
         print(searchFridgesInfoArray)
-        searchFridgesInfoArray[0].food.removeAll()
-        searchFridgesInfoArray[0].food.append(contentsOf: searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food?.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: searchFoodInfoArray)
         
         let frid = Fridges(fridge: searchFridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
         } catch {
             print(error)
@@ -77,12 +91,12 @@ class SearchViewController: UIViewController {
         print(searchFoodInfoArray)
         searchFoodInfoArray2[foodIndex].count = foodCount
         searchFoodInfoArray[searchIndex].count = foodCount
-        searchFridgesInfoArray[0].food.removeAll()
-        searchFridgesInfoArray[0].food.append(contentsOf: self.searchFoodInfoArray)
+        searchFridgesInfoArray[fridgeIndex].food?.removeAll()
+        searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: self.searchFoodInfoArray)
         
         let frid = Fridges(fridge: self.searchFridgesInfoArray)
         do {
-            try db.collection("fridge").document("이청우1").setData(from: frid, merge: true)
+            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
         } catch {
             print(error)

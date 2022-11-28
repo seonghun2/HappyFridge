@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
+                <outlet property="emptyFridgeImageView" destination="gOH-t0-bxn" id="mdj-bK-DB0"/>
                 <outlet property="searchTableView" destination="lCk-w8-c2t" id="3IJ-QL-mq9"/>
                 <outlet property="searchTextField" destination="IZo-ge-RzC" id="9Wh-6X-Wb7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,7 +29,8 @@
                     <items>
                         <navigationItem id="oIP-Rs-axi">
                             <nil key="title"/>
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="SNk-p2-gnp">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="before" style="done" id="SNk-p2-gnp">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="backAction:" destination="-1" id="JvY-I0-bTN"/>
                                 </connections>
@@ -58,6 +60,9 @@
                     <rect key="frame" x="0.0" y="115" width="390" height="695"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyFridge" translatesAutoresizingMaskIntoConstraints="NO" id="gOH-t0-bxn">
+                    <rect key="frame" x="157" y="375" width="76" height="94.333333333333314"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,7 +72,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lCk-w8-c2t" secondAttribute="trailing" id="9KN-B9-SKr"/>
                 <constraint firstItem="9QX-4M-InI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wve-3g-sfO"/>
                 <constraint firstAttribute="trailing" secondItem="9QX-4M-InI" secondAttribute="trailing" id="d3C-Hy-0zh"/>
+                <constraint firstItem="gOH-t0-bxn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dE7-rg-wTh"/>
                 <constraint firstItem="lCk-w8-c2t" firstAttribute="top" secondItem="9QX-4M-InI" secondAttribute="bottom" constant="20" id="dd1-r3-ACK"/>
+                <constraint firstItem="gOH-t0-bxn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fTo-Vj-FlA"/>
                 <constraint firstItem="lCk-w8-c2t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vON-nl-ING"/>
             </constraints>
             <point key="canvasLocation" x="18" y="-11"/>
@@ -75,6 +82,7 @@
     </objects>
     <resources>
         <image name="before" width="8" height="14"/>
+        <image name="emptyFridge" width="76" height="94.333335876464844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

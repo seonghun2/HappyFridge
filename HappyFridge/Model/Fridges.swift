@@ -16,7 +16,7 @@ struct Fridge: Codable {
     let fridgeName: String
     let owner: String
     let notice: String
-    var food: [Food]
+    var food: [Food]?
 }
 
 struct Food: Codable {
@@ -24,4 +24,6 @@ struct Food: Codable {
     var count: Int
     let expirationDate: Date
     let createDate: Date
+    var performAlert: Bool = false
+    var alertDay: Int = 0
 }
