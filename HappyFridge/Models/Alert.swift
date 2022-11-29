@@ -27,7 +27,7 @@ struct Alert: Codable {
         
         // create Notification content
         let content = UNMutableNotificationContent()
-        //content.title = alertTitle
+        content.title = "유통기한 알림"
         content.body = alertMessage
         
         // create notification trigger

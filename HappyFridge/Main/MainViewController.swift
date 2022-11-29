@@ -287,7 +287,7 @@ class MainViewController: UIViewController {
             update.left.equalTo(itemCollectionView.snp.left).inset(15)
         }
         itemCollectionView.snp.updateConstraints { make in
-            make.height.equalToSuperview().multipliedBy(1)
+            make.bottom.equalTo(view.snp.bottom)
         }
     }
 }
@@ -399,30 +399,41 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 4
-            cell.index = indexPath.row
+            //cell.index = indexPath.row
             // 즐겨찾기품목
             if showBookmark {
                 cell.plusImage.isHidden = true
                 cell.itemNameLabel.isHidden = false
                 cell.bookmarkButton.isHidden = false
                 cell.deleteButton.isHidden = false
-                cell.itemNameLabel.text = bookmarkedFoods[indexPath.row].name
+                let name = bookmarkedFoods[indexPath.row].name
+                cell.itemNameLabel.text = name
                 cell.isBookmarked = bookmarkedFoods[indexPath.row].isBookmarked!
                 cell.setBookmarkButton()
                 cell.deleteEventClosure = {
-                    for i in 0...self.foods.count - 1 {
-                        if self.foods[i].name == self.bookmarkedFoods[indexPath.row].name {
-                            self.foods.remove(at: i)
-                            self.bookmarkedFoods.remove(at: indexPath.row)
-                            break
+                    let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {_ in
+                        for i in 0...self.foods.count - 1 {
+                            if self.foods[i].name == self.bookmarkedFoods[indexPath.row].name {
+                                self.foods.remove(at: i)
+                                self.bookmarkedFoods.remove(at: indexPath.row)
+                                break
+                            }
                         }
+                        do {
+                            try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                        } catch {
+                            print(error)
+                        }
+                        self.itemCollectionView.reloadData()
                     }
-                    do {
-                        try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
-                    } catch {
-                        print(error)
-                    }
-                    self.itemCollectionView.reloadData()
+                    let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                    
+                    let alert = UIAlertController(title: "\(name) 을(를) 삭제 하시겠습니까?", message: nil, preferredStyle: .alert)
+                    
+                    alert.addAction(deleteAction)
+                    alert.addAction(cancelAction)
+                    
+                    self.present(alert, animated: true)
                 }
                 cell.eventClosure = { toggle in
                     for i in 0...self.foods.count - 1 {
@@ -446,26 +457,40 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 // 모든품목
             } else {
                 if showSearchItem {
+                    print(searchedFoods)
+                    cell.isBookmarked = searchedFoods![indexPath.row].isBookmarked!
+                    cell.setBookmarkButton()
                     cell.plusImage.isHidden = true
                     cell.itemNameLabel.isHidden = false
                     cell.bookmarkButton.isHidden = false
                     cell.deleteButton.isHidden = false
-                    cell.itemNameLabel.text = searchedFoods![indexPath.row].name
-                    cell.isBookmarked = searchedFoods![indexPath.row].isBookmarked!
+                    let name = searchedFoods![indexPath.row].name
+                    cell.itemNameLabel.text = name
+                    
                     cell.deleteEventClosure = {
-                        for i in 0...self.foods.count - 1 {
-                            if self.foods[i].name == self.searchedFoods?[indexPath.row].name {
-                                self.searchedFoods?.remove(at: indexPath.row)
-                                self.foods.remove(at: i)
-                                break
+                        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {_ in
+                            for i in 0...self.foods.count - 1 {
+                                if self.foods[i].name == self.searchedFoods?[indexPath.row].name {
+                                    self.searchedFoods?.remove(at: indexPath.row)
+                                    self.foods.remove(at: i)
+                                    break
+                                }
                             }
+                            do {
+                                try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                            } catch {
+                                print(error)
+                            }
+                            self.itemCollectionView.reloadData()
                         }
-                        do {
-                            try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
-                        } catch {
-                            print(error)
-                        }
-                        self.itemCollectionView.reloadData()
+                        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                        
+                        let alert = UIAlertController(title: "\(name) 을(를) 삭제 하시겠습니까?", message: nil, preferredStyle: .alert)
+                        
+                        alert.addAction(deleteAction)
+                        alert.addAction(cancelAction)
+                        
+                        self.present(alert, animated: true)
                     }
                     cell.eventClosure = { toggle in
                         for i in 0...self.foods.count - 1 {
@@ -488,7 +513,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cell.bookmarkButton.isHidden = true
                         cell.deleteButton.isHidden = true
                         return cell
-                        // 나머지셀
+                    // 나머지셀
                     } else {
                         cell.isBookmarked = foods[indexPath.row - 1].isBookmarked ?? false
                         cell.setBookmarkButton()
@@ -499,14 +524,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         
                         cell.itemNameLabel.text = foods[indexPath.row - 1].name
                         cell.deleteEventClosure = {
-                            self.foods.remove(at: indexPath.row - 1)
-                            
-                            do {
-                                try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
-                            } catch {
-                                print(error)
+                            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {_ in
+                                self.foods.remove(at: indexPath.row - 1)
+                                
+                                do {
+                                    try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                                } catch {
+                                    print(error)
+                                }
+                                self.itemCollectionView.reloadData()
                             }
-                            self.itemCollectionView.reloadData()
+                            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                            
+                            let alert = UIAlertController(title: "\(self.foods[indexPath.row - 1].name) 을(를) 삭제 하시겠습니까?", message: nil, preferredStyle: .alert)
+                            
+                            alert.addAction(deleteAction)
+                            alert.addAction(cancelAction)
+                            
+                            self.present(alert, animated: true)
                         }
                         cell.eventClosure = { toggle in
                             self.foods[indexPath.row - 1].isBookmarked = toggle
@@ -627,14 +662,17 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     }
                     
                     if isAlert {
-                        let alertMessage = "\(self.refrigerators[destinationIndexPath].fridgeName)에 있는 \(self.draggingFood?.name ?? "")의 유통기한이 \(alertDay)일 남았습니다."
+                        var alertMessage = "\(self.refrigerators[destinationIndexPath].fridgeName)에 있는 \(self.draggingFood?.name ?? "")의 유통기한이 \(alertDay)일 남았습니다."
+                        if alertDay == 0 {
+                            alertMessage = "\(self.refrigerators[destinationIndexPath].fridgeName)에 있는 \(self.draggingFood?.name ?? "")의 유통기한이 오늘까지 입니다."
+                        }
                         let alert = Alert(alertDate: alertDate!, alertMessage: alertMessage)
                         alert.generateAlert()
                         
                         self.dataManager.addAlert(alert: alert)
-                        self.dataManager.getAlertData { alerts in
-                            self.alerts = alerts
-                        }
+//                        self.dataManager.getAlertData { alerts in
+//                            self.alerts = alerts
+//                        }
                     }
                     
                     print(self.draggingFood?.expirationDate)
@@ -701,12 +739,13 @@ extension MainViewController: UITextFieldDelegate {
         print(#function)
         showSearchItem = true
         searchedFoods = foods.filter{ $0.name == textField.text }
-        itemCollectionView.reloadData()
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true
-//        itemCollectionView.snp.updateConstraints { make in
-//            make.top.equalTo(refrigeCollectionView.snp.bottom)
-//        }
+        print(searchedFoods)
+        itemCollectionView.snp.updateConstraints { make in
+            make.bottom.equalTo(view.snp.bottom)
+        }
+        itemCollectionView.reloadData()
 //        itemSearhBar.resignFirstResponder()
         return true
     }
@@ -723,6 +762,7 @@ extension MainViewController: UITextFieldDelegate {
             //make.height.equalTo()
             
             //make.top.equalTo(refrigeCollectionView.snp.bottom).inset(220)
+            make.bottom.equalTo(view.snp.bottom).inset(150)
         }
     }
 //    func textFieldDidEndEditing(_ textField: UITextField) {

@@ -14,16 +14,18 @@ class AlertViewController: UIViewController {
     @IBOutlet weak var alertTableView: UITableView!
     
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         
         DataManager().getAlertData { [weak self] alerts in
             self?.alerts = alerts
-            self?.showingAlerts = self?.alerts.filter { $0.alertDate.compare(Date()) == .orderedAscending }
+            self?.showingAlerts = self?.alerts.filter { $0.alertDate.compare(Date()) == .orderedAscending }.sorted { $0.alertDate > $1.alertDate }
             self?.alertTableView.reloadData()
         }
 
         alertTableView.dataSource = self
         alertTableView.rowHeight = 100
+        alertTableView.allowsSelection = false
         
         alertTableView.register(UINib(nibName: "AlertCell", bundle: nil), forCellReuseIdentifier: "AlertCell")
     }
@@ -38,8 +40,11 @@ extension AlertViewController: UITableViewDataSource {
         
         cell.alertMessageLabel.text = showingAlerts?[indexPath.row].alertMessage
         
-        let alertDate = showingAlerts?[indexPath.row].alertDate
-        cell.alertDateLabel.text = showingAlerts?[indexPath.row].alertDate.toString()
+        let alertDate = showingAlerts?[indexPath.row].alertDate ?? Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM월 dd일"
+        var dateString = formatter.string(from: alertDate)
+        cell.alertDateLabel.text = dateString
         
         return cell
     }

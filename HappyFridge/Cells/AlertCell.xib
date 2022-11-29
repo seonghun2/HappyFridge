@@ -6,6 +6,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Light.otf">
+            <string>Pretendard-Light</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,25 +24,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="406" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김치냉장고의 배추김치 유통기한이 3일 남았어요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-q4-L3c">
-                        <rect key="frame" x="16" y="32" width="374" height="20.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김치냉장고의 배추김치 유통기한이 3일 남았습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-q4-L3c">
+                        <rect key="frame" x="16" y="32.333333333333336" width="374" height="19.333333333333336"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 22일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-lP-IQg">
-                        <rect key="frame" x="332" y="5" width="69" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 22일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-lP-IQg">
+                        <rect key="frame" x="328" y="16" width="63" height="17"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="fAC-6r-Ufn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iO4-lP-IQg" secondAttribute="trailing" constant="15" id="7Mi-Dy-8As"/>
                     <constraint firstAttribute="trailing" secondItem="zUI-q4-L3c" secondAttribute="trailing" constant="16" id="BCC-Ji-q5i"/>
                     <constraint firstItem="zUI-q4-L3c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="S8f-Em-kBF"/>
                     <constraint firstItem="zUI-q4-L3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WaW-zA-zLg"/>
-                    <constraint firstItem="iO4-lP-IQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="vLc-Al-GNw"/>
-                    <constraint firstAttribute="trailing" secondItem="iO4-lP-IQg" secondAttribute="trailing" constant="5" id="y05-FA-PYz"/>
+                    <constraint firstItem="iO4-lP-IQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="sD7-pl-D66"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
