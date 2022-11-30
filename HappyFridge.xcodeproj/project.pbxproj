@@ -48,6 +48,10 @@
 		86E59707290E4D01008EA5B0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E59705290E4D01008EA5B0 /* LoginViewController.xib */; };
 		86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E59709290E5F42008EA5B0 /* NickNameViewController.swift */; };
 		86E5970C290E5F42008EA5B0 /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E5970A290E5F42008EA5B0 /* NickNameViewController.xib */; };
+		CE428ECC29372E2F00907E1C /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE428ECA29372E2F00907E1C /* LicenseViewController.swift */; };
+		CE428ECD29372E2F00907E1C /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE428ECB29372E2F00907E1C /* LicenseViewController.xib */; };
+		CE428ED2293773BF00907E1C /* RefrigeItemListLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */; };
+		CE428ED3293773BF00907E1C /* RefrigeItemListLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */; };
 		CE4A3CA429178161003971DE /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9C29178161003971DE /* ItemCell.xib */; };
 		CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */; };
 		CE4A3CA629178161003971DE /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9E29178161003971DE /* ItemCell.swift */; };
@@ -134,6 +138,10 @@
 		86E59705290E4D01008EA5B0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		86E59709290E5F42008EA5B0 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		86E5970A290E5F42008EA5B0 /* NickNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
+		CE428ECA29372E2F00907E1C /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		CE428ECB29372E2F00907E1C /* LicenseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
+		CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeItemListLargeCell.swift; sourceTree = "<group>"; };
+		CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefrigeItemListLargeCell.xib; sourceTree = "<group>"; };
 		CE4A3C9C29178161003971DE /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeSmallCell.xib; sourceTree = "<group>"; };
 		CE4A3C9E29178161003971DE /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -309,6 +317,8 @@
 				CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */,
 				CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */,
 				CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */,
+				CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */,
+				CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */,
 				CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */,
 				CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */,
 				CED8B136292CA7CE00CE6CAE /* AlertCell.swift */,
@@ -356,6 +366,8 @@
 				CEBEE799292A654A00E92FAE /* SettingListCell.xib */,
 				CEC217E3292B59760088E8E6 /* SettingViewController.swift */,
 				CEC217E4292B59760088E8E6 /* SettingViewController.xib */,
+				CE428ECA29372E2F00907E1C /* LicenseViewController.swift */,
+				CE428ECB29372E2F00907E1C /* LicenseViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -509,9 +521,11 @@
 				CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */,
 				86ADE0992923D4ED005254F4 /* AddFoodViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
+				CE428ECD29372E2F00907E1C /* LicenseViewController.xib in Resources */,
 				D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
 				CED8B139292CA7CE00CE6CAE /* AlertCell.xib in Resources */,
+				CE428ED3293773BF00907E1C /* RefrigeItemListLargeCell.xib in Resources */,
 				CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */,
 				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
 				CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */,
@@ -542,6 +556,7 @@
 				CEFDD0DF291A200300E4FDBA /* AlertViewController.swift in Sources */,
 				866799C229161AB4004BB7B2 /* Users.swift in Sources */,
 				86E5970B290E5F42008EA5B0 /* NickNameViewController.swift in Sources */,
+				CE428ECC29372E2F00907E1C /* LicenseViewController.swift in Sources */,
 				CE84FAA9291F902C00FFB3E5 /* Items.swift in Sources */,
 				866799B52914DE3F004BB7B2 /* CopyLaunchViewController.swift in Sources */,
 				CEFDD0EB291A24EB00E4FDBA /* TabBarController.swift in Sources */,
@@ -550,6 +565,7 @@
 				8660840A2917ADF700F108DD /* DefaultFood.swift in Sources */,
 				CEBEE79C292A654A00E92FAE /* SettingListCell.swift in Sources */,
 				86ADE0982923D4ED005254F4 /* AddFoodViewController.swift in Sources */,
+				CE428ED2293773BF00907E1C /* RefrigeItemListLargeCell.swift in Sources */,
 				8685D241292B5DA90075281D /* SearchViewController.swift in Sources */,
 				CED8B13B292D150000CE6CAE /* Alert.swift in Sources */,
 				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,

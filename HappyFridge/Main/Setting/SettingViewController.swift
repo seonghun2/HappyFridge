@@ -14,7 +14,8 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         setupList()
-        //print(settingList)
+        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setupList() {
@@ -53,5 +54,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            self.navigationController?.pushViewController(LicenseViewController(), animated: true)
+        }
     }
 }

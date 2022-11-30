@@ -1,24 +1,17 @@
 //
-//  RefrigeItemListCell.swift
+//  RefrigeItemListLargeCell.swift
 //  HappyFridge
 //
-//  Created by user on 2022/11/05.
+//  Created by user on 2022/11/30.
 //
 
 import UIKit
-import SnapKit
-class RefrigeItemListCell: UITableViewCell {
 
-    @IBOutlet weak var itemNameLabel: UILabel!
-    
-    @IBOutlet weak var DdayLabel: UILabel!
-    
-    var showLarge: Bool?
-    
+class RefrigeItemListLargeCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

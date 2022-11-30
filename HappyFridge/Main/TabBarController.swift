@@ -15,7 +15,8 @@ class TabBarController: UITabBarController {
         let view1 = MainViewController()
         //let view2 = SharedFridgeViewController()
         let view3 = AlertViewController()
-        let view4 = SettingViewController()
+        let view4 = UINavigationController(rootViewController: SettingViewController())
+        
         
         setViewControllers([view1, view3, view4], animated: true)
         

@@ -44,11 +44,11 @@
                         </connections>
                     </button>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKs-bl-2Zs">
-                        <rect key="frame" x="0.0" y="49" width="178" height="118"/>
+                        <rect key="frame" x="16" y="49" width="141" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crs-Fm-Aj0">
-                        <rect key="frame" x="0.0" y="49" width="178" height="118"/>
+                        <rect key="frame" x="154" y="49" width="24" height="118"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                         <connections>
@@ -64,13 +64,12 @@
                 <constraint firstItem="Crs-Fm-Aj0" firstAttribute="top" secondItem="4tU-Sa-XWg" secondAttribute="bottom" constant="5" id="B2R-k4-zzm"/>
                 <constraint firstAttribute="trailing" secondItem="SKD-Dv-rl1" secondAttribute="trailing" constant="21" id="EWf-D2-BQR"/>
                 <constraint firstAttribute="trailing" secondItem="Crs-Fm-Aj0" secondAttribute="trailing" id="IqM-Yf-UuP"/>
-                <constraint firstAttribute="trailing" secondItem="dKs-bl-2Zs" secondAttribute="trailing" id="JfA-hT-A4C"/>
-                <constraint firstItem="dKs-bl-2Zs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="L7m-gf-rUJ"/>
                 <constraint firstAttribute="bottom" secondItem="dKs-bl-2Zs" secondAttribute="bottom" id="MrN-Kc-ry8"/>
+                <constraint firstItem="dKs-bl-2Zs" firstAttribute="leading" secondItem="4tU-Sa-XWg" secondAttribute="leading" id="OG6-Zv-YbL"/>
                 <constraint firstAttribute="bottom" secondItem="Crs-Fm-Aj0" secondAttribute="bottom" id="X3J-UR-Pfl"/>
                 <constraint firstItem="4tU-Sa-XWg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="cFY-ru-rDz"/>
                 <constraint firstItem="dKs-bl-2Zs" firstAttribute="top" secondItem="4tU-Sa-XWg" secondAttribute="bottom" constant="5" id="hOe-O7-rra"/>
-                <constraint firstItem="Crs-Fm-Aj0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p1q-vV-oJf"/>
+                <constraint firstItem="dKs-bl-2Zs" firstAttribute="trailing" secondItem="SKD-Dv-rl1" secondAttribute="trailing" id="hia-eN-cIf"/>
                 <constraint firstItem="4tU-Sa-XWg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="zhN-1r-mtd"/>
             </constraints>
             <size key="customSize" width="178" height="167"/>

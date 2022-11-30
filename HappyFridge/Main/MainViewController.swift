@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     var showBookmark: Bool = false
     
     // 냉장고 크게/작게보기 결정할 변수
-    var showSmall: Bool = true
+    var showLarge: Bool = false
     
     var refrigerators: [Refrigerator] = []
     var foods: [Item] = []
@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     var alerts: [Alert]?
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
@@ -68,6 +68,8 @@ class MainViewController: UIViewController {
     func setRefrigeCollectionView() {
         refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
         
+        refrigeCollectionView.register(UINib(nibName: "RefrigeLargeCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeLargeCell")
+        
         refrigeCollectionView.delegate = self
         refrigeCollectionView.dataSource = self
         refrigeCollectionView.dropDelegate = self
@@ -77,19 +79,22 @@ class MainViewController: UIViewController {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             
-            if showSmall {
-                let screenWidth = UIScreen.main.bounds.size.width
-                let screenHeight = UIScreen.main.bounds.size.height
-                let width = screenWidth / 2 - 30
-                let height = (screenHeight / 2.1) / 2 - 20
+            let screenWidth = UIScreen.main.bounds.size.width
+            let screenHeight = UIScreen.main.bounds.size.height
+            let height = (screenHeight / 2.1) / 2 - 20
+            
+            if !showLarge {
                 layout.sectionInset = UIEdgeInsets(top: 20, left: 15, bottom: 40, right: 15)
                 layout.minimumLineSpacing = 30
+                
+                let width = screenWidth / 2 - 30
                 layout.itemSize = CGSize(width: width , height: width)
                 return layout
             } else {
-                layout.sectionInset = UIEdgeInsets(top: 70, left: 40, bottom: 40, right: 20)
+                layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 40, right: 20)
                 layout.minimumLineSpacing = 40.0
-                layout.itemSize = CGSize(width: 300, height: 300)
+                let width = screenWidth - 40
+                layout.itemSize = CGSize(width: width, height: width * 1.15)
                 return layout
             }
         }()
@@ -313,8 +318,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 냉장고 목록
         if collectionView == refrigeCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeSmallCell", for: indexPath) as! RefrigeSmallCell
             
+            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeSmallCell", for: indexPath) as! RefrigeSmallCell
+            
+            if showLarge {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeLargeCell", for: indexPath) as! RefrigeSmallCell
+            }
+            cell.showLarge = showLarge
             cell.refrigeNameLabel.text = refrigerators[indexPath.row].fridgeName
             cell.itemList = refrigerators[indexPath.row].food ?? []
             
@@ -368,7 +378,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     self.present(alert, animated: true)
                 }
                 let deleteFridge = UIAlertAction(title: "장소삭제", style: .destructive) {_ in
-                    let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "장소 삭제", message: "\(self.refrigerators[indexPath.row].fridgeName) 장소를 삭제하시겠습니까?", preferredStyle: .alert)
                     let action = UIAlertAction(title: "삭제", style: .default) {_ in
                         self.refrigerators.remove(at: indexPath.row)
                         do {
