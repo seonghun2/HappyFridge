@@ -17,7 +17,7 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
     
     weak var delegate: TableViewCellDelegate?
     var index: Int?
-    var food: Food?
+    var food: Item?
     var count: Int?
     
     
@@ -34,19 +34,19 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setFoodInfo(food: Food) {
-        foodName.text = food.foodName
-        foodCountLabel.text = String(food.count)
+    func setFoodInfo(food: Item) {
+        foodName.text = food.name
+        foodCountLabel.text = String(food.count!)
         print(food.expirationDate)
         
         let date = food.expirationDate
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
-        let stringDate = formatter.string(from: date)
+        let stringDate = formatter.string(from: date!)
         print(stringDate)
         expirationDateLabel.text = "\(stringDate)까지"
       
-        let dayLeft = getDdayInt(date: food.expirationDate)
+        let dayLeft = getDdayInt(date: food.expirationDate!)
         if dayLeft > 7 {
             d_dayLabel.backgroundColor = UIColor(hexString: "#DFF4C5")
             d_dayLabel.text = "\(dayLeft)일 남음"
@@ -80,6 +80,6 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
 }
 
 protocol TableViewCellDelegate: AnyObject {
-    func deleteButton(index: Int?,food: Food?)
+    func deleteButton(index: Int?,food: Item?)
     func showFoodCountPopUp(index: Int?, count: Int?)
 }
