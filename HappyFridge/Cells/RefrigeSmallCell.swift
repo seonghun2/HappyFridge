@@ -30,11 +30,11 @@ class RefrigeSmallCell: UICollectionViewCell {
         itemListTableView.isScrollEnabled = false
         itemListTableView.allowsSelection = false
         
-        if showLarge {
-            itemListTableView.rowHeight = 48
-        } else {
-            itemListTableView.rowHeight = 30
-        }
+//        if showLarge {
+//            itemListTableView.rowHeight = 48
+//        } else {
+//            itemListTableView.rowHeight = 30
+//        }
         
     }
     
@@ -88,8 +88,12 @@ extension RefrigeSmallCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListCell", for: indexPath) as! RefrigeItemListCell
+        itemListTableView.rowHeight = 30
+        
         if showLarge {
             cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListLargeCell", for: indexPath) as! RefrigeItemListCell
+            
+            itemListTableView.rowHeight = 48
         }
         
         cell.itemNameLabel.text = itemList[indexPath.row].name

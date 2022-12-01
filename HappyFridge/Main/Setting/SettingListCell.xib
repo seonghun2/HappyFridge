@@ -30,6 +30,9 @@
                     <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="cK2-rU-lmd">
                         <rect key="frame" x="206" y="12" width="51" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <action selector="toggleSwitchTapped:" destination="KGk-i7-Jjw" eventType="valueChanged" id="6eS-8K-WnB"/>
+                        </connections>
                     </switch>
                 </subviews>
                 <constraints>

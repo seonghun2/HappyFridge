@@ -10,6 +10,7 @@ import UIKit
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingList: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,8 +58,26 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 1 {
+            self.navigationController?.pushViewController(NickNameViewController(), animated: true)
+        }
+        
+        if indexPath.row == 2 {
+            self.navigationController?.pushViewController(NickNameViewController(), animated: true)
+        }
+        
         if indexPath.row == 3 {
             self.navigationController?.pushViewController(LicenseViewController(), animated: true)
         }
+        
+        if indexPath.row == 4 {
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
+        
+        if indexPath.row == 5 {
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
+            
     }
 }
