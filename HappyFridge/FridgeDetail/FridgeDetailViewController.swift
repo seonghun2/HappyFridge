@@ -171,7 +171,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             self.fridgesInfoArray.removeAll()
                             self.foodInfoArray.removeAll()
                             self.fridgesInfoArray.append(contentsOf: dic.fridges)
-                            print("푸드데이터췍")
                             //print(self.fridgesInfoArray[self.fridgesIndex])
                             
                             if let aa = self.fridgesInfoArray[self.fridgesIndex].food {
