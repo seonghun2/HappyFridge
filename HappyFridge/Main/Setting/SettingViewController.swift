@@ -7,14 +7,15 @@
 
 import UIKit
 
-class SettingView: UIViewController {
+class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupList()
-        //print(settingList)
+        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setupList() {
@@ -25,7 +26,7 @@ class SettingView: UIViewController {
     }
 }
 
-extension SettingView: UITableViewDelegate, UITableViewDataSource {
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
@@ -53,5 +54,11 @@ extension SettingView: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            self.navigationController?.pushViewController(LicenseViewController(), animated: true)
+        }
     }
 }

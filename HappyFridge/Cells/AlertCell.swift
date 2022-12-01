@@ -9,6 +9,12 @@ import UIKit
 
 class AlertCell: UITableViewCell {
 
+    @IBOutlet weak var alertTitleLabel: UILabel!
+    
+    @IBOutlet weak var alertMessageLabel: UILabel!
+    
+    @IBOutlet weak var alertDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
