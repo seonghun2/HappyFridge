@@ -12,9 +12,9 @@ class SearchViewController: UIViewController {
     
     lazy var db = Firestore.firestore()
     
-    var searchFridgesInfoArray: [Fridge] = []
-    var searchFoodInfoArray: [Food] = []
-    var searchFoodInfoArray2: [Food] = []
+    var searchFridgesInfoArray: [Refrigerator] = []
+    var searchFoodInfoArray: [Item] = []
+    var searchFoodInfoArray2: [Item] = []
     var searchIndex = 0
     var fridgeIndex = 0
     
@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
         if let keyWord = searchTextField.text {
             
             searchFoodInfoArray2 = searchFoodInfoArray.filter {
-                $0.foodName == keyWord
+                $0.name == keyWord
             }
             
             if searchFoodInfoArray2.count == 0 {
@@ -53,7 +53,7 @@ class SearchViewController: UIViewController {
             }
             
             searchIndex = searchFoodInfoArray.firstIndex {
-                $0.foodName == keyWord
+                $0.name == keyWord
             } ?? 0
             
             searchTableView.reloadData()
@@ -76,7 +76,7 @@ class SearchViewController: UIViewController {
         searchFridgesInfoArray[fridgeIndex].food?.removeAll()
         searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: searchFoodInfoArray)
         
-        let frid = Fridges(fridge: searchFridgesInfoArray)
+        let frid = Refrigerators(fridges: searchFridgesInfoArray)
         do {
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
@@ -94,7 +94,7 @@ class SearchViewController: UIViewController {
         searchFridgesInfoArray[fridgeIndex].food?.removeAll()
         searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: self.searchFoodInfoArray)
         
-        let frid = Fridges(fridge: self.searchFridgesInfoArray)
+        let frid = Refrigerators(fridges: self.searchFridgesInfoArray)
         do {
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             searchTableView.reloadData()
@@ -137,13 +137,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension SearchViewController: TableViewCellDelegate {
     
-    func deleteButton(index: Int?,food: Food?) {
+    func deleteButton(index: Int?,food: Item?) {
         print("x버튼 클릭 vc ")
         guard (index != nil) else {
             return
         }
         
-        let sheet = UIAlertController(title: "물품삭제", message: "\(searchFoodInfoArray2[index!].foodName)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
+        let sheet = UIAlertController(title: "물품삭제", message: "\(searchFoodInfoArray2[index!].name)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
             print("삭제 클릭")
             self.deleteFood(foodIndex: index!)

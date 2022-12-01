@@ -20,8 +20,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     @IBOutlet weak var addFoodButton: UIButton!
     var fridgesIndex = 0
-    var fridgesInfoArray: [Fridge] = []
-    var foodInfoArray: [Food] = []
+    var fridgesInfoArray: [Refrigerator] = []
+    var foodInfoArray: [Item] = []
     var fridgeName: String?
     
     
@@ -73,17 +73,17 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         
         let expirationDate = UIAlertAction(title:"유통기한순", style: .default) {data in
             self.filterButton.setTitle(data.title, for: .normal)
-            self.foodInfoArray.sort(by: { $0.expirationDate < $1.expirationDate})
+            self.foodInfoArray.sort(by: { $0.expirationDate! < $1.expirationDate!})
             self.tableView.reloadData()
         }
         let foodCount = UIAlertAction(title:"남은수량순", style: .default) {data in
             self.filterButton.setTitle(data.title, for: .normal)
-            self.foodInfoArray.sort(by: { $0.count < $1.count})
+            self.foodInfoArray.sort(by: { $0.count! < $1.count!})
             self.tableView.reloadData()
         }
         let addDate = UIAlertAction(title:"최근추가순", style: .default) {data in
             self.filterButton.setTitle(data.title, for: .normal)
-            self.foodInfoArray.sort(by: { $0.createDate > $1.createDate})
+            self.foodInfoArray.sort(by: { $0.createDate! > $1.createDate!})
             self.tableView.reloadData()
         }
         
@@ -105,6 +105,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         vc.modalPresentationStyle = .fullScreen
         vc.index = fridgesIndex
         vc.fridgesInfoArray = fridgesInfoArray
+        print("물품추가 : \(fridgesInfoArray)")
         vc.foodInfoArray = foodInfoArray
         vc.dataSendClosure = { [weak self] data  in
             print("클로저")
@@ -122,7 +123,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         self.fridgesInfoArray[fridgesIndex].food?.removeAll()
         self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
         
-        let frid = Fridges(fridge: self.fridgesInfoArray)
+        let frid = Refrigerators(fridges: self.fridgesInfoArray)
         do {
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             tableView.reloadData()
@@ -139,7 +140,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         self.fridgesInfoArray[fridgesIndex].food?.removeAll()
         self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
         
-        let frid = Fridges(fridge: self.fridgesInfoArray)
+        let frid = Refrigerators(fridges: self.fridgesInfoArray)
         do {
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             tableView.reloadData()
@@ -165,20 +166,20 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                             
                         }else {
                             print("냉장고있음")
-                            let dic = try document.data(as: Fridges.self)
+                            let dic = try document.data(as: Refrigerators.self)
                             print(dic)
                             self.fridgesInfoArray.removeAll()
                             self.foodInfoArray.removeAll()
-                            self.fridgesInfoArray.append(contentsOf: dic.fridge)
+                            self.fridgesInfoArray.append(contentsOf: dic.fridges)
                             print("푸드데이터췍")
-                            print(self.fridgesInfoArray[self.fridgesIndex])
+                            //print(self.fridgesInfoArray[self.fridgesIndex])
                             
                             if let aa = self.fridgesInfoArray[self.fridgesIndex].food {
                                 self.foodInfoArray.append(contentsOf: aa)
                                 self.emptyImageView.isHidden = true
                             }
                            
-                            if self.fridgesInfoArray[self.fridgesIndex].food?[0] == nil {
+                            if self.fridgesInfoArray[self.fridgesIndex].food == nil {
                                 self.tableView.isHidden = true
                             }
 //                            self.noticeContentLabel.text = self.fridgesInfoArray[self.fridgesIndex].notice
@@ -229,13 +230,13 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
 
 extension FridgeDetailViewController: TableViewCellDelegate {
     
-    func deleteButton(index: Int?,food: Food?) {
+    func deleteButton(index: Int?,food: Item?) {
         print("x버튼 클릭 vc ")
         guard (index != nil) else {
             return
         }
         
-        let sheet = UIAlertController(title: "물품삭제", message: "\(foodInfoArray[index!].foodName)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
+        let sheet = UIAlertController(title: "물품삭제", message: "\(foodInfoArray[index!].name)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
             print("삭제 클릭")
             self.deleteFood(foodIndex: index!)
