@@ -24,10 +24,13 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-Vb-j8j">
-                    <rect key="frame" x="33" y="601" width="324" height="59"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="kakao_login_medium_wide"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-Vb-j8j">
+                    <rect key="frame" x="45" y="615" width="300" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="s3u-h1-VOd"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button" image="kakao_login_medium_wide"/>
                     <connections>
                         <action selector="kakaoLoginAction:" destination="-1" eventType="touchUpInside" id="ZiE-Nu-Ico"/>
                     </connections>
@@ -46,7 +49,7 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKR-0g-WxJ">
-                    <rect key="frame" x="33" y="537" width="324" height="44"/>
+                    <rect key="frame" x="45" y="551" width="300" height="44"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="xlI-22-jwR"/>

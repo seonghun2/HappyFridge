@@ -8,7 +8,7 @@
 import Foundation
 
 struct Fridges: Codable {
-    var fridge: [Fridge]
+    var fridges: [Fridge]
 }
 
 struct Fridge: Codable {

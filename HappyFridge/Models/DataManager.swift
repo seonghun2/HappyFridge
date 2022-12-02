@@ -11,7 +11,7 @@ import FirebaseFirestore
 // 구조체에서 탈출클로저에 self사용 못해서 클래스로 사용
 class DataManager {
     var db = Firestore.firestore()
-    lazy var docRef = db.collection("fridge").document("횡성훈2")
+    lazy var docRef = db.collection("fridge").document(Constant.nickName!)
 //    lazy var fridges: [Refrigerator] = []
 //    lazy var foods: [Item] = []
     
@@ -105,9 +105,9 @@ class DataManager {
     }
     
     func addFridge(fridgeName: String) {
-        db.collection("fridge").document("횡성훈2")
+        db.collection("fridge").document(Constant.nickName!)
             .setData(["fridges": FieldValue.arrayUnion([["fridgeName": fridgeName,
-                                                        "owner": "횡성훈2",
+                                                        "owner": Constant.nickName!,
                                                         "createDate": Date(),
                                                         "isShared": false,
                                                         "notice": nil,
@@ -115,14 +115,14 @@ class DataManager {
     }
     
     func addFood(foodName: String) {
-        self.db.collection("fridge").document("횡성훈2")
+        self.db.collection("fridge").document(Constant.nickName!)
             .setData(["foods": FieldValue.arrayUnion([["name": foodName,
                                                        "createDate": Date(),
                                                        "isBookmarked": false]])],merge: true)
     }
     
     func addAlert(alert: Alert) {
-        self.db.collection("fridge").document("횡성훈2")
+        self.db.collection("fridge").document(Constant.nickName!)
             .setData(["alerts": FieldValue.arrayUnion([["alertDate": alert.alertDate,
                                                         "alertMessage": alert.alertMessage]])],merge: true)
     }
@@ -148,7 +148,7 @@ class DataManager {
     //        test.remove(at: test.count-1)
     //        let frid = Refrigerators(fridges: test)
     //        do {
-    //            try db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
+    //            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
     //        } catch {
     //            print(error)
     //        }

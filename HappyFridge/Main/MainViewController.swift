@@ -167,7 +167,7 @@ class MainViewController: UIViewController {
         let action = UIAlertAction(title: "이름순", style: .default) {_ in
             self.refrigerators.sort { $0.fridgeName < $1.fridgeName }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
+                try self.db.collection("fridge").document(Constant.nickName!).setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
             } catch {
                 print(error)
             }
@@ -178,7 +178,7 @@ class MainViewController: UIViewController {
         let action2 = UIAlertAction(title: "추가순", style: .default) {_ in
             self.refrigerators.sort { $0.createDate < $1.createDate }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
+                try self.db.collection("fridge").document(Constant.nickName!).setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
             } catch {
                 print(error)
             }
@@ -261,7 +261,7 @@ class MainViewController: UIViewController {
         let action = UIAlertAction(title: "이름순", style: .default) {_ in
             self.foods.sort { $0.name < $1.name }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from: Items(foods: self.foods), merge: true)
+                try self.db.collection("fridge").document(Constant.nickName!).setData(from: Items(foods: self.foods), merge: true)
             } catch {
                 print(error)
             }
@@ -272,7 +272,7 @@ class MainViewController: UIViewController {
         let action2 = UIAlertAction(title: "추가순", style: .default) {_ in
             self.foods.sort { $0.createDate! < $1.createDate! }
             do {
-                try self.db.collection("fridge").document("횡성훈2").setData(from: Items(foods: self.foods), merge: true)
+                try self.db.collection("fridge").document(Constant.nickName!).setData(from: Items(foods: self.foods), merge: true)
             } catch {
                 print(error)
             }
@@ -373,7 +373,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         if let name = alert.textFields?[0].text {
                             self.refrigerators[indexPath.row].fridgeName = name
                             do {
-                                try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
+                                try self.db.collection("fridge").document(Constant.nickName!).setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
                             } catch {
                                 print(error)
                             }
@@ -392,7 +392,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     let action = UIAlertAction(title: "삭제", style: .default) {_ in
                         self.refrigerators.remove(at: indexPath.row)
                         do {
-                            try self.db.collection("fridge").document("횡성훈2").setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
+                            try self.db.collection("fridge").document(Constant.nickName!).setData(from:Refrigerators(fridges: self.refrigerators), merge: true)
                         } catch {
                             print(error)
                         }
@@ -440,7 +440,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                             }
                         }
                         do {
-                            try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                            try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                         } catch {
                             print(error)
                         }
@@ -462,7 +462,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         }
                     }
                     do {
-                        try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                        try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                     } catch {
                         print(error)
                     }
@@ -477,7 +477,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 // 모든품목
             } else {
                 if showSearchItem {
-                    print(searchedFoods)
                     cell.isBookmarked = searchedFoods![indexPath.row].isBookmarked!
                     cell.setBookmarkButton()
                     cell.plusImage.isHidden = true
@@ -497,7 +496,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                 }
                             }
                             do {
-                                try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                                try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                             } catch {
                                 print(error)
                             }
@@ -519,7 +518,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                             }
                         }
                         do {
-                            try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                            try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                         } catch {
                             print(error)
                         }
@@ -548,7 +547,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                 self.foods.remove(at: indexPath.row - 1)
                                 
                                 do {
-                                    try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                                    try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                                 } catch {
                                     print(error)
                                 }
@@ -567,7 +566,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                             self.foods[indexPath.row - 1].isBookmarked = toggle
                             
                             do {
-                                try self.db.collection("fridge").document("횡성훈2").setData(from:Items(foods: self.foods), merge: true)
+                                try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                             } catch {
                                 print(error)
                             }
@@ -676,7 +675,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
 
                     let frid = Refrigerators(fridges: self.refrigerators)
                     do {
-                        try self.db.collection("fridge").document("횡성훈2").setData(from: frid, merge: true)
+                        try self.db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
                     } catch {
                         print(error)
                     }

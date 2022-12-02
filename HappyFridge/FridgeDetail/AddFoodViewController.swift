@@ -21,8 +21,8 @@ class AddFoodViewController: UIViewController {
     
     var foodCount = 0
     var index = 0
-    var fridgesInfoArray: [Fridge] = []
-    var foodInfoArray: [Food] = []
+    var fridgesInfoArray: [Refrigerator] = []
+    var foodInfoArray: [Item] = []
     var expirationDate: Date?
     private var alarmCheck = false
     
@@ -115,7 +115,7 @@ class AddFoodViewController: UIViewController {
         if activate {
             addButton.isEnabled = true
             addButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5882352941, blue: 0.1254901961, alpha: 1)
-
+            
         } else {
             addButton.isEnabled = false
             addButton.backgroundColor = .gray
@@ -136,13 +136,23 @@ class AddFoodViewController: UIViewController {
     func addFood() {
         let nowDate = Date()
         let alertDayValue = Int(alarmDayTextField.text ?? "0")
-        let fd = Food(foodName: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate, performAlert: alarmCheck , alertDay: alertDayValue ?? 0)
-        foodInfoArray.append(fd)
+//        let fd = Item(name: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate, performAlert: alarmCheck , alertDay: alertDayValue ?? 0)
+        let addFoodInfo = Item(name: foodNameTextField.text!, isBookmarked: false, performAlert: false, expirationDate: expirationDate ?? nowDate, count: foodCount, createDate: nowDate, alertDay: alertDayValue ?? 0)
+        foodInfoArray.append(addFoodInfo)
+        print("foodfood1: \(index)")
+        print("foodfood2: \(fridgesInfoArray)")
+        print("foodfood3: \(String(describing: fridgesInfoArray[index].food))")
         fridgesInfoArray[index].food?.removeAll()
+        
+        
         fridgesInfoArray[index].food?.append(contentsOf: self.foodInfoArray)
         
-        let frid = Fridges(fridge: self.fridgesInfoArray)
+        let frid = Refrigerators(fridges: self.fridgesInfoArray)
         do {
+            print("nickName: \(Constant.nickName!)")
+            print("frid: \(frid)")
+            print("foodInfoArray: \(foodInfoArray)")
+            print("fridgesInfoArrayindex: \(index)")
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             self.dataSendClosure?("물품추가")
             dismiss(animated: true)
