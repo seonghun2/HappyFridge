@@ -101,14 +101,6 @@ extension RefrigeSmallCell: UITableViewDataSource {
         let dayLeft = getDdayInt(date: itemList[indexPath.row].expirationDate ?? Date())
         
         if showLarge {
-//            cell.itemNameLabel.font = .systemFont(ofSize: 16)
-//            cell.DdayLabel.font = .systemFont(ofSize: 16)
-//
-//            cell.DdayLabel.snp.updateConstraints { make in
-//                make.width.equalTo(72)
-//                make.height.equalTo(26)
-//            }
-//
             if dayLeft > 7 {
                 cell.DdayLabel.backgroundColor = UIColor(hexString: "#DFF4C5")
                 cell.DdayLabel.text = "\(dayLeft)일 남음"
@@ -120,7 +112,6 @@ extension RefrigeSmallCell: UITableViewDataSource {
                 cell.DdayLabel.text = "\(dayLeft)일 남음"
             }
         } else {
-
             if dayLeft > 7 {
                 cell.DdayLabel.backgroundColor = UIColor(hexString: "#DFF4C5")
                 cell.DdayLabel.text = "d-\(dayLeft)"

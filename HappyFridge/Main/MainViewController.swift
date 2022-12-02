@@ -42,12 +42,23 @@ class MainViewController: UIViewController {
     
     var alerts: [Alert]?
     
+    let emptyText: UILabel = {
+        let label = UILabel()
+        label.text = "냉장고를 추가해주세요"
+        label.textColor = .systemGray3
+        return label
+    }()
+    
+    let emptyImage = UIImageView(image: UIImage(named: "emptyFridge"))
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
+            self.setEmptyImage()
+            self.isHiddenEmptyImage()
             self.refrigeCollectionView.reloadData()
         }
         
@@ -72,6 +83,32 @@ class MainViewController: UIViewController {
         print(#function, showLarge)
         setRefrigeCollectionView()
         refrigeCollectionView.reloadData()
+    }
+    
+    func setEmptyImage() {
+        refrigeCollectionView.addSubview(emptyImage)
+        emptyImage.snp.makeConstraints { make in
+            make.width.equalTo(89)
+            make.height.equalTo(120)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        refrigeCollectionView.addSubview(emptyText)
+        emptyText.snp.makeConstraints { make in
+            make.top.equalTo(emptyImage.snp.bottom).offset(4)
+            make.centerX.equalTo(emptyImage.snp.centerX)
+        }
+    }
+    func isHiddenEmptyImage() {
+        if !refrigerators.isEmpty {
+            emptyImage.isHidden = true
+            emptyText.isHidden = true
+            print(emptyText.isHidden)
+        } else {
+            emptyImage.isHidden = false
+            emptyText.isHidden = false
+        }
     }
 
     func setRefrigeCollectionView() {
@@ -111,14 +148,12 @@ class MainViewController: UIViewController {
         refrigeCollectionView.collectionViewLayout = flowLayout
         refrigeCollectionView.showsHorizontalScrollIndicator = false
         refrigeCollectionView.isPagingEnabled = true
-        
+        refrigeCollectionView.backgroundColor = .clear
         // 냉장고가 없을때 이미지 표시
-        refrigeCollectionView.backgroundView = UIImageView(image: UIImage(systemName: "sunrise"))
-        refrigeCollectionView.backgroundView?.isHidden = true
         
-//        if test.isEmpty {
-//            refrigeCollectionView.backgroundView?.isHidden = false
-//        }
+        //        if test.isEmpty {
+        //            refrigeCollectionView.backgroundView?.isHidden = false
+        //        }
     }
     
     func setItemCollectionView() {
@@ -213,6 +248,7 @@ class MainViewController: UIViewController {
                         self.dataManager.addFridge(fridgeName: name)
                         self.dataManager.getFridgeData { fridges in
                             self.refrigerators = fridges
+                            self.isHiddenEmptyImage()
                             self.refrigeCollectionView.reloadData()
                         }
                         
@@ -396,6 +432,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         } catch {
                             print(error)
                         }
+                        self.isHiddenEmptyImage()
                         self.refrigeCollectionView.reloadData()
                     }
                     alert.addAction(action)
