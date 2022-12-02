@@ -311,16 +311,16 @@
 		CE4A3C9B29178161003971DE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A3C9E29178161003971DE /* ItemCell.swift */,
-				CE4A3C9C29178161003971DE /* ItemCell.xib */,
 				CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */,
 				CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */,
+				CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */,
+				CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */,
 				CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */,
 				CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */,
 				CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */,
 				CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */,
-				CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */,
-				CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */,
+				CE4A3C9E29178161003971DE /* ItemCell.swift */,
+				CE4A3C9C29178161003971DE /* ItemCell.xib */,
 				CED8B136292CA7CE00CE6CAE /* AlertCell.swift */,
 				CED8B137292CA7CE00CE6CAE /* AlertCell.xib */,
 			);

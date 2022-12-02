@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.refrigeCollectionView.reloadData()
@@ -63,8 +64,16 @@ class MainViewController: UIViewController {
         setItemCollectionView()
         
         itemSearhBar.delegate = self
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        showLarge = UserDefaults.standard.bool(forKey: "showLarge")
+        print(#function, showLarge)
+        setRefrigeCollectionView()
+        refrigeCollectionView.reloadData()
+    }
+
     func setRefrigeCollectionView() {
         refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
         
@@ -324,6 +333,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if showLarge {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeLargeCell", for: indexPath) as! RefrigeSmallCell
             }
+            
             cell.showLarge = showLarge
             cell.refrigeNameLabel.text = refrigerators[indexPath.row].fridgeName
             cell.itemList = refrigerators[indexPath.row].food ?? []

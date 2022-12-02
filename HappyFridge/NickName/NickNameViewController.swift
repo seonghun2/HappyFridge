@@ -22,6 +22,7 @@ class NickNameViewController: UIViewController {
     lazy var db = Firestore.firestore()
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         print("kakaoid: \(userLoginToken)")
