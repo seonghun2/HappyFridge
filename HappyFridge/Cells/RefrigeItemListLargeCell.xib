@@ -28,9 +28,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHp-qH-bET">
-                        <rect key="frame" x="248" y="9" width="72" height="26"/>
+                        <rect key="frame" x="245" y="9" width="75" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="72" id="A61-gm-x25"/>
+                            <constraint firstAttribute="width" constant="75" id="A61-gm-x25"/>
                             <constraint firstAttribute="height" constant="26" id="zmk-y0-Eau"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
