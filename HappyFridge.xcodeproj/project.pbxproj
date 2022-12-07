@@ -78,6 +78,8 @@
 		CEC217E5292B59760088E8E6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC217E3292B59760088E8E6 /* SettingViewController.swift */; };
 		CEC217E6292B59760088E8E6 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC217E4292B59760088E8E6 /* SettingViewController.xib */; };
 		CEC217EB292B65B20088E8E6 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = CEC217EA292B65B20088E8E6 /* Toast */; };
+		CECDE410293C78C70059A05E /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDE40E293C78C70059A05E /* NoticeViewController.swift */; };
+		CECDE411293C78C70059A05E /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECDE40F293C78C70059A05E /* NoticeViewController.xib */; };
 		CED8B138292CA7CE00CE6CAE /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8B136292CA7CE00CE6CAE /* AlertCell.swift */; };
 		CED8B139292CA7CE00CE6CAE /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8B137292CA7CE00CE6CAE /* AlertCell.xib */; };
 		CED8B13B292D150000CE6CAE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8B13A292D150000CE6CAE /* Alert.swift */; };
@@ -166,6 +168,8 @@
 		CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertFoodViewController.swift; sourceTree = "<group>"; };
 		CEC217E3292B59760088E8E6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CEC217E4292B59760088E8E6 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		CECDE40E293C78C70059A05E /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		CECDE40F293C78C70059A05E /* NoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		CED8B136292CA7CE00CE6CAE /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
 		CED8B137292CA7CE00CE6CAE /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
 		CED8B13A292D150000CE6CAE /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -345,16 +349,11 @@
 			children = (
 				CEBEE7A0292A656900E92FAE /* InsertFoodViewController.swift */,
 				CEBEE79F292A656900E92FAE /* InsertFoodViewController.xib */,
-				CEBEE796292A654A00E92FAE /* Setting */,
 				CE4A3CB12917818E003971DE /* ItemSearchTextField.swift */,
 				CEFDD0E9291A24EB00E4FDBA /* TabBarController.swift */,
 				CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */,
 				CE4A3CAC2917818E003971DE /* MainViewController.swift */,
 				CE4A3CAD2917818E003971DE /* MainViewController.xib */,
-				CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */,
-				CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */,
-				CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */,
-				CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -362,14 +361,34 @@
 		CEBEE796292A654A00E92FAE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				CEBEE798292A654A00E92FAE /* SettingListCell.swift */,
 				CEBEE799292A654A00E92FAE /* SettingListCell.xib */,
+				CEBEE798292A654A00E92FAE /* SettingListCell.swift */,
 				CEC217E3292B59760088E8E6 /* SettingViewController.swift */,
 				CEC217E4292B59760088E8E6 /* SettingViewController.xib */,
 				CE428ECA29372E2F00907E1C /* LicenseViewController.swift */,
 				CE428ECB29372E2F00907E1C /* LicenseViewController.xib */,
+				CECDE40E293C78C70059A05E /* NoticeViewController.swift */,
+				CECDE40F293C78C70059A05E /* NoticeViewController.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		CEF42424293E334800B9482C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				CEFDD0DD291A200300E4FDBA /* AlertViewController.swift */,
+				CEFDD0DE291A200300E4FDBA /* AlertViewController.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		CEF42425293E336C00B9482C /* SharedFridge */ = {
+			isa = PBXGroup;
+			children = (
+				CEFDD0E5291A232B00E4FDBA /* SharedFridgeViewController.swift */,
+				CEFDD0E6291A232B00E4FDBA /* SharedFridgeViewController.xib */,
+			);
+			path = SharedFridge;
 			sourceTree = "<group>";
 		};
 		D1B889BF290DFA04009EEA55 = {
@@ -396,14 +415,17 @@
 				8674D2CB2918D78C00FC3A46 /* FridgeDetail */,
 				866084062917A33B00F108DD /* Comman */,
 				CE4A3CB7291781A5003971DE /* Main */,
+				CEF42425293E336C00B9482C /* SharedFridge */,
+				CEF42424293E334800B9482C /* Alert */,
+				CEBEE796292A654A00E92FAE /* Setting */,
 				CE4A3CAE2917818E003971DE /* Models */,
 				CE4A3C9B29178161003971DE /* Cells */,
-				86384760291693DB0042033B /* Fonts */,
 				866799B82914E38D004BB7B2 /* Permission */,
 				866799B22914DE0B004BB7B2 /* LaunchScreen */,
 				86DE9C1A29126B970090073A /* Model */,
 				86E59708290E5F23008EA5B0 /* NickName */,
 				86E596EA290E2880008EA5B0 /* Login */,
+				86384760291693DB0042033B /* Fonts */,
 				D1B889CB290DFA04009EEA55 /* AppDelegate.swift */,
 				D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */,
 				D1B889CF290DFA04009EEA55 /* ViewController.swift */,
@@ -521,6 +543,7 @@
 				CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */,
 				86ADE0992923D4ED005254F4 /* AddFoodViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
+				CECDE411293C78C70059A05E /* NoticeViewController.xib in Resources */,
 				CE428ECD29372E2F00907E1C /* LicenseViewController.xib in Resources */,
 				D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */,
 				8638476C291694610042033B /* Pretendard-Black.otf in Resources */,
@@ -568,6 +591,7 @@
 				CE428ED2293773BF00907E1C /* RefrigeItemListLargeCell.swift in Sources */,
 				8685D241292B5DA90075281D /* SearchViewController.swift in Sources */,
 				CED8B13B292D150000CE6CAE /* Alert.swift in Sources */,
+				CECDE410293C78C70059A05E /* NoticeViewController.swift in Sources */,
 				CE8E00CE291BB75100D50838 /* Extension.swift in Sources */,
 				86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
@@ -726,6 +750,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HappyFridge/HappyFridge.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: HappySmile Co., Ltd. (9SY2YSK7KA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -744,8 +769,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.fridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_dev2;
+				PROVISIONING_PROFILE_SPECIFIER = appstore_profile2;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_develop3;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -758,6 +783,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HappyFridge/HappyFridge.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -777,7 +803,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.happysmile.fridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_dev2;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fridge_develop3;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,15 +9,60 @@ import UIKit
 import SnapKit
 class RefrigeSmallCell: UICollectionViewCell {
     
+    var itemList: [Item] = []
+    
+    //var isshared: Bool = false
+    
+    @IBOutlet weak var refrigeNameLabel: UILabel!
+    
+    @IBOutlet weak var itemListTableView: UITableView!
+    
+    @IBOutlet weak var refrigeSettingButtton: UIButton!
+    
     var eventClosure: (() -> ())?
     var tapEventClosure: (() -> ())?
     
     var showLarge: Bool = false
     
+    let emptyText: UILabel = {
+        let label = UILabel()
+        label.text = "물품을 추가해주세요"
+        label.textColor = .systemGray3
+        return label
+    }()
+    
+    let emptyImage = UIImageView(image: UIImage(named: "emptyFridge"))
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setItemListTableView()
+        
+        setEmptyImage()
+    }
+    
+    func setEmptyImage() {
+        self.addSubview(emptyImage)
+        emptyImage.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(10)
+        }
+
+        self.addSubview(emptyText)
+        emptyText.snp.makeConstraints { make in
+            make.top.equalTo(emptyImage.snp.bottom).offset(4)
+            make.centerX.equalTo(emptyImage.snp.centerX)
+        }
+    }
+
+    func isHiddenEmptyImage() {
+        if !itemList.isEmpty {
+            emptyImage.isHidden = true
+            emptyText.isHidden = true
+        } else {
+            emptyImage.isHidden = false
+            emptyText.isHidden = false
+        }
     }
     
     func setItemListTableView() {
@@ -30,23 +75,7 @@ class RefrigeSmallCell: UICollectionViewCell {
         itemListTableView.isScrollEnabled = false
         itemListTableView.allowsSelection = false
         
-//        if showLarge {
-//            itemListTableView.rowHeight = 48
-//        } else {
-//            itemListTableView.rowHeight = 30
-//        }
-        
     }
-    
-    var itemList: [Item] = []
-    
-    //var isshared: Bool = false
-    
-    @IBOutlet weak var refrigeNameLabel: UILabel!
-    
-    @IBOutlet weak var itemListTableView: UITableView!
-    
-    @IBOutlet weak var refrigeSettingButtton: UIButton!
     
     func getDdayInt(date: Date) -> Int {
         

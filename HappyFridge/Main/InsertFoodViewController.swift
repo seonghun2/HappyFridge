@@ -9,9 +9,9 @@ import UIKit
 
 class InsertFoodViewController: UIViewController {
     
-    //var dragedFood: Item?
+    var dragedFoodName: String?
     
-    var destinationFridge: Refrigerator?
+    var destinationFridgeName: String?
 
     var foodCount: Int = 1
     
@@ -65,7 +65,7 @@ class InsertFoodViewController: UIViewController {
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        var expirationDay =  Calendar.current.dateComponents([.year,.month,.day], from: expirationDatePicker.date)
+        let expirationDay =  Calendar.current.dateComponents([.year,.month,.day], from: expirationDatePicker.date)
         let date = Calendar.current.date(from: expirationDay) ?? Date()
         addEventClosure?(Int(foodCountTextField.text ?? "0") ?? 0, date, alertSwitchState, Int(alertDayTextField.text ?? "0") ?? 0)
         dismiss(animated: true)
@@ -80,7 +80,7 @@ class InsertFoodViewController: UIViewController {
 
         popupView.layer.cornerRadius = 10
         foodCountTextField.keyboardType = .numberPad
-        expirationDatePicker.backgroundColor = .systemGray3
+        expirationDatePicker.backgroundColor = .systemGray
         expirationDatePicker.layer.cornerRadius = 5
         expirationDatePicker.layer.masksToBounds = true
         alertDayLabel.textColor = .systemGray4
@@ -88,6 +88,6 @@ class InsertFoodViewController: UIViewController {
         alertDayTextField.keyboardType = .numberPad
         foodCountTextField.text = "\(foodCount)"
         
-        //foodnameLabel.text = "\((dragedFood?.name)!) -> \((destinationFridge?.fridgeName)!)"
+        foodnameLabel.text = "\(destinationFridgeName!)에 \(dragedFoodName!) 추가"
     }
 }

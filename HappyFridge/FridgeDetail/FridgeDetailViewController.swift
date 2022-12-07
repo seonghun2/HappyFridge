@@ -115,6 +115,11 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
+    //MARK: 뒤로가기 버튼 (메인화면으로 이동)
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
     //MARK: 냉장고 물품 삭제
     func deleteFood(foodIndex:Int) {
         self.foodInfoArray.remove(at: foodIndex)

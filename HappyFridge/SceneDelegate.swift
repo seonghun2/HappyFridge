@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         
         //루트 뷰 컨트롤러 설정
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = CopyLaunchViewController()
         //window?.rootViewController = FridgeDetailViewController()
         window?.makeKeyAndVisible()
     }

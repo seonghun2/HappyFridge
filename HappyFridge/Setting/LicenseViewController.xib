@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="경기천년제목_Bold.ttf">
+            <string>GyeonggiTitleB</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LicenseViewController" customModule="HappyFridge" customModuleProvider="target">
             <connections>
@@ -205,11 +210,22 @@
                                 <action selector="button:" destination="-1" eventType="touchUpInside" id="U85-Gw-dX2"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈소스 라이선스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwj-yC-kCy">
+                            <rect key="frame" x="124.00000000000001" y="13" width="142.33333333333337" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="vPN-Bt-zjQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GyeonggiTitleB" family="GyeonggiTitle" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.83137254900000002" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="aHq-gQ-uNq" firstAttribute="top" secondItem="x24-ec-xTL" secondAttribute="top" constant="10" id="auQ-5N-S8B"/>
+                        <constraint firstItem="gwj-yC-kCy" firstAttribute="centerY" secondItem="x24-ec-xTL" secondAttribute="centerY" id="cdE-tp-hPq"/>
                         <constraint firstAttribute="bottom" secondItem="aHq-gQ-uNq" secondAttribute="bottom" constant="10" id="esU-Bj-VfZ"/>
+                        <constraint firstItem="gwj-yC-kCy" firstAttribute="centerX" secondItem="x24-ec-xTL" secondAttribute="centerX" id="gEU-yi-7eX"/>
                         <constraint firstAttribute="height" constant="48" id="gy8-kI-a5k"/>
                         <constraint firstItem="aHq-gQ-uNq" firstAttribute="leading" secondItem="x24-ec-xTL" secondAttribute="leading" constant="5" id="yGw-vd-4C2"/>
                     </constraints>

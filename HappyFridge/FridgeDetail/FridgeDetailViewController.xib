@@ -44,6 +44,18 @@
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="1vz-aN-kQh">
+                            <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="HLl-bt-u0j">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8bJ-4g-kzX">
+                                    <rect key="frame" x="16" y="4.6666666666666679" width="86" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="before"/>
+                                    <connections>
+                                        <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="IMN-le-VVu"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" systemItem="search" id="42U-cb-Yhf">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -117,7 +129,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyFridge" translatesAutoresizingMaskIntoConstraints="NO" id="w8J-uW-ctX">
-                    <rect key="frame" x="157" y="375" width="76" height="94.333333333333314"/>
+                    <rect key="frame" x="156.66666666666666" y="374.66666666666669" width="77" height="95"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -152,7 +164,8 @@
     </objects>
     <resources>
         <image name="arrowDown" width="10" height="6"/>
-        <image name="emptyFridge" width="76" height="94.333335876464844"/>
+        <image name="before" width="8" height="14"/>
+        <image name="emptyFridge" width="77" height="95"/>
         <image name="member" width="20" height="17"/>
         <image name="plus" width="16" height="16"/>
         <systemColor name="labelColor">

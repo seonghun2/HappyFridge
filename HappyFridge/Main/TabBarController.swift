@@ -27,6 +27,7 @@ class TabBarController: UITabBarController {
         view4.tabBarItem = UITabBarItem(title: "설정", image: UIImage(named: "setting"), tag: 3)
         
         tabBar.tintColor = UIColor(red: 0.039, green: 0.587, blue: 0.127, alpha: 1)
+        tabBar.unselectedItemTintColor = UIColor(red: 0.129, green: 0.129, blue: 0.129, alpha: 1)
         
     }
 

@@ -93,7 +93,8 @@ class LoginViewController: UIViewController {
                 Constant.nickName = getNickName
                 UserDefaults.standard.set(true, forKey: "Login")
                 UserDefaults.standard.set(getNickName, forKey: "nickName")
-                let vc = MainViewController(nibName:"MainViewController", bundle: nil)
+                //let vc = MainViewController(nibName:"MainViewController", bundle: nil)
+                let vc = TabBarController()
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }

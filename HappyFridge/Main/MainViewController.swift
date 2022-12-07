@@ -40,8 +40,6 @@ class MainViewController: UIViewController {
     // 드래그한 셀을 저장할 변수, 냉장고 셀에 드랍할때 사용
     var draggingFood: Item?
     
-    var alerts: [Alert]?
-    
     let emptyText: UILabel = {
         let label = UILabel()
         label.text = "냉장고를 추가해주세요"
@@ -67,10 +65,6 @@ class MainViewController: UIViewController {
             self.itemCollectionView.reloadData()
         }
         
-//        dataManager.getAlertData { alerts in
-//            self.alerts = alerts
-//        }
-        
         setRefrigeCollectionView()
         setItemCollectionView()
         
@@ -83,8 +77,17 @@ class MainViewController: UIViewController {
         print(#function, showLarge)
         setRefrigeCollectionView()
         refrigeCollectionView.reloadData()
+        dataManager.getFridgeData { fridges in
+            self.refrigerators = fridges
+            self.isHiddenEmptyImage()
+            self.refrigeCollectionView.reloadData()
+        }
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        print(#function)
+//    }
+//
     func setEmptyImage() {
         refrigeCollectionView.addSubview(emptyImage)
         emptyImage.snp.makeConstraints { make in
@@ -101,6 +104,7 @@ class MainViewController: UIViewController {
         }
     }
     func isHiddenEmptyImage() {
+        print(#function)
         if !refrigerators.isEmpty {
             emptyImage.isHidden = true
             emptyText.isHidden = true
@@ -229,9 +233,7 @@ class MainViewController: UIViewController {
     
     @IBAction func refrigeAddButtonTapped(_ sender: Any) {
         print(#function)
-//        updateData()
-//        return
-        
+
         let alert = UIAlertController(title: "장소 추가", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
@@ -339,6 +341,10 @@ class MainViewController: UIViewController {
         itemCollectionView.snp.updateConstraints { make in
             make.bottom.equalTo(view.snp.bottom)
         }
+        refrigeCollectionView.snp.updateConstraints { make in
+            make.bottom.equalTo(itemCollectionView.snp.top)
+        }
+        refrigeCollectionView.layoutMargins = UIEdgeInsets(top: 20, left: 15, bottom: 40, right: 15)
     }
 }
 
@@ -373,6 +379,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.showLarge = showLarge
             cell.refrigeNameLabel.text = refrigerators[indexPath.row].fridgeName
             cell.itemList = refrigerators[indexPath.row].food ?? []
+            cell.isHiddenEmptyImage()
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 20
@@ -392,6 +399,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 print(indexPath.row)
                 //VC.foodInfoArray = foods[indexPath.row]
                 //VC.fridgesInfoArray = test[indexPath.row]
+                VC.modalPresentationStyle = .fullScreen
                 VC.fridgesIndex = indexPath.row
                 VC.fridgeName = self.refrigerators[indexPath.row].fridgeName
                 self.present(VC, animated: true)
@@ -684,23 +692,10 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         if collectionView == refrigeCollectionView {
             
             if coordinator.proposal.operation == .copy {
-                let datePicker = UIDatePicker()
-                datePicker.datePickerMode = .date
-                datePicker.preferredDatePickerStyle = .compact
-                datePicker.locale = NSLocale(localeIdentifier: "ko_KR") as Locale
-                
-                let dateChooserAlert = UIAlertController(title: "유통기한 입력", message: nil, preferredStyle: .alert)
-                dateChooserAlert.view.addSubview(datePicker)
-                datePicker.snp.makeConstraints { make in
-                    make.top.equalTo(50)
-                    make.left.equalTo(20)
-                }
                 
                 let VC = InsertFoodViewController()
-                //VC.foodnameLabel.text = draggingItem?.name
-                //VC.foodnameLabel.text = "\(draggingFood?.name) -> \(refrigerators[destinationIndexPath].fridgeName)"
-                //VC.foodnameLabel.text = "123"
-                VC.destinationFridge = refrigerators[destinationIndexPath]
+                VC.dragedFoodName = draggingFood?.name
+                VC.destinationFridgeName = refrigerators[destinationIndexPath].fridgeName
                 VC.addEventClosure = { foodCount, expirationDate ,isAlert, alertDay in
                     self.draggingFood?.count = foodCount
                     self.draggingFood?.expirationDate = expirationDate
@@ -726,24 +721,15 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                         alert.generateAlert()
                         
                         self.dataManager.addAlert(alert: alert)
-//                        self.dataManager.getAlertData { alerts in
-//                            self.alerts = alerts
-//                        }
                     }
                     
-                    print(self.draggingFood?.expirationDate)
-                    print(Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!))
-                    
                     self.draggingFood = nil
-                    
-                    
                     
                     let indexPath = IndexPath(item: destinationIndexPath, section: 0)
                     self.refrigeCollectionView.reloadItems(at: [indexPath])
                     
                 }
                 present(VC, animated: true)
-                
             }
         }
     }
@@ -814,11 +800,13 @@ extension MainViewController: UITextFieldDelegate {
             update.left.equalTo(40)
             update.width.equalTo(340)
         }
+        
         itemCollectionView.snp.updateConstraints { make in
-            //make.height.equalTo()
-            
-            //make.top.equalTo(refrigeCollectionView.snp.bottom).inset(220)
             make.bottom.equalTo(view.snp.bottom).inset(150)
+        }
+        
+        refrigeCollectionView.snp.updateConstraints { make in
+            make.bottom.equalTo(itemCollectionView.snp.top).inset(60)
         }
     }
 //    func textFieldDidEndEditing(_ textField: UITextField) {

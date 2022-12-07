@@ -29,6 +29,9 @@ class AlertViewController: UIViewController {
         
         alertTableView.register(UINib(nibName: "AlertCell", bundle: nil), forCellReuseIdentifier: "AlertCell")
     }
+    override func viewDidAppear(_ animated: Bool) {
+        alertTableView.reloadData()
+    }
 }
 extension AlertViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
