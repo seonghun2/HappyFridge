@@ -41,6 +41,7 @@
                     <items>
                         <navigationItem title="물품추가" id="BbU-us-1ZG">
                             <barButtonItem key="leftBarButtonItem" title="Item" image="before" id="5mV-9a-14s">
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="backAction:" destination="-1" id="cFx-kq-FVb"/>
                                 </connections>
@@ -197,6 +198,9 @@
         <image name="before" width="8" height="14"/>
         <image name="minus" width="16.333333969116211" height="2.3333332538604736"/>
         <image name="plus" width="16" height="16"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

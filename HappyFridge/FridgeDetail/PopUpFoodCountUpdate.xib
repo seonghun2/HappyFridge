@@ -46,18 +46,16 @@
                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk7-Nh-0EU">
-                            <rect key="frame" x="178" y="70" width="40" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk7-Nh-0EU">
+                            <rect key="frame" x="175.66666666666666" y="70" width="40" height="30"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="plus"/>
                             <connections>
                                 <action selector="countPlusAction:" destination="-1" eventType="touchUpInside" id="jOc-Pa-8ZG"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-5y-ZN1">
-                            <rect key="frame" x="26" y="75" width="41" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-5y-ZN1">
+                            <rect key="frame" x="26.666666666666671" y="76.666666666666686" width="41" height="17"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="minus"/>
                             <connections>
@@ -78,9 +76,8 @@
                                 <constraint firstAttribute="width" constant="1" id="wPA-h5-BTf"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnw-GM-0kJ">
-                            <rect key="frame" x="37" y="131" width="54" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnw-GM-0kJ">
+                            <rect key="frame" x="32" y="134" width="30" height="32"/>
                             <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="취소">
@@ -90,9 +87,8 @@
                                 <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="CiX-cr-U8e"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCo-Rh-J1X">
-                            <rect key="frame" x="143" y="131" width="75" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCo-Rh-J1X">
+                            <rect key="frame" x="180.66666666666666" y="134" width="30" height="32"/>
                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="저장">
@@ -109,10 +105,18 @@
                         <constraint firstItem="J86-ax-rIU" firstAttribute="leading" secondItem="1Zs-Gx-GR8" secondAttribute="leading" id="5TF-C2-EZv"/>
                         <constraint firstAttribute="height" constant="172" id="7yS-QM-w07"/>
                         <constraint firstAttribute="bottom" secondItem="YMw-uN-fgU" secondAttribute="bottom" id="93A-cQ-BJL"/>
+                        <constraint firstItem="T1w-OJ-ZHc" firstAttribute="leading" secondItem="lwh-5y-ZN1" secondAttribute="trailing" constant="25" id="Fl9-tQ-gW2"/>
+                        <constraint firstItem="dk7-Nh-0EU" firstAttribute="centerY" secondItem="T1w-OJ-ZHc" secondAttribute="centerY" id="NpN-6b-PVn"/>
                         <constraint firstItem="J86-ax-rIU" firstAttribute="top" secondItem="T1w-OJ-ZHc" secondAttribute="bottom" constant="20" id="Wlu-RJ-j3F"/>
+                        <constraint firstItem="dk7-Nh-0EU" firstAttribute="leading" secondItem="T1w-OJ-ZHc" secondAttribute="trailing" constant="25" id="YDZ-aI-WBn"/>
                         <constraint firstAttribute="trailing" secondItem="J86-ax-rIU" secondAttribute="trailing" id="ZvF-8n-3WW"/>
+                        <constraint firstAttribute="bottom" secondItem="vnw-GM-0kJ" secondAttribute="bottom" constant="6" id="dDI-pj-N8Y"/>
+                        <constraint firstItem="lwh-5y-ZN1" firstAttribute="centerY" secondItem="T1w-OJ-ZHc" secondAttribute="centerY" id="dQ3-Yb-50r"/>
                         <constraint firstItem="YMw-uN-fgU" firstAttribute="centerX" secondItem="1Zs-Gx-GR8" secondAttribute="centerX" id="fh4-Cg-M5j"/>
                         <constraint firstItem="T1w-OJ-ZHc" firstAttribute="centerX" secondItem="VB9-Xx-aNh" secondAttribute="centerX" id="i5F-bw-k9G"/>
+                        <constraint firstItem="pCo-Rh-J1X" firstAttribute="centerX" secondItem="dk7-Nh-0EU" secondAttribute="centerX" id="ilQ-zE-ig0"/>
+                        <constraint firstItem="vnw-GM-0kJ" firstAttribute="centerX" secondItem="lwh-5y-ZN1" secondAttribute="centerX" id="izF-LX-m6Z"/>
+                        <constraint firstAttribute="bottom" secondItem="pCo-Rh-J1X" secondAttribute="bottom" constant="6" id="jBw-2N-47D"/>
                         <constraint firstItem="T1w-OJ-ZHc" firstAttribute="top" secondItem="VB9-Xx-aNh" secondAttribute="bottom" constant="24" id="nRg-ka-Zkw"/>
                         <constraint firstItem="YMw-uN-fgU" firstAttribute="top" secondItem="J86-ax-rIU" secondAttribute="top" id="o2A-FE-N3k"/>
                         <constraint firstItem="VB9-Xx-aNh" firstAttribute="centerX" secondItem="1Zs-Gx-GR8" secondAttribute="centerX" id="wxk-EW-1Kn"/>

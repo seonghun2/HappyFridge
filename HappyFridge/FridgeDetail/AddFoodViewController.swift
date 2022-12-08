@@ -33,7 +33,8 @@ class AddFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        foodCountTextField.keyboardType = .numberPad
+        alarmDayTextField.keyboardType = .numberPad
         datePicker.contentHorizontalAlignment = .left
         
         addButton.layer.cornerRadius = 8

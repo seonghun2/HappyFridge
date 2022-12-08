@@ -32,8 +32,9 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
-       
-        addFoodButton.layer.cornerRadius = 10
+        tableView.allowsSelection = false
+        
+        setAddFoodButton()
         
         getFridgeInfo()
         
@@ -52,6 +53,16 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         noticeContentLabel.constant = 0
         
     }
+    
+    func setAddFoodButton() {
+        addFoodButton.layer.cornerRadius = 25
+        addFoodButton.layer.shadowColor = UIColor.gray.cgColor
+        addFoodButton.layer.shadowOffset = .zero
+        addFoodButton.layer.shadowOpacity = 1.0
+        addFoodButton.layer.shadowRadius = 3
+        addFoodButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     //MARK: 검색버튼 클릭
     @IBAction func searchAction(_ sender: Any) {
         let vc = SearchViewController(nibName:"SearchViewController", bundle: nil)
