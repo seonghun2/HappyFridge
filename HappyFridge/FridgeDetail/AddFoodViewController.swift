@@ -130,7 +130,7 @@ class AddFoodViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //냉장고안에 물품 추가

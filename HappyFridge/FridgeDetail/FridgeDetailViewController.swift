@@ -123,7 +123,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
             print(data)
             self?.getFridgeInfo()
         }
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        //self.present(vc, animated: true, completion: nil)
     }
     
     //MARK: 뒤로가기 버튼 (메인화면으로 이동)
