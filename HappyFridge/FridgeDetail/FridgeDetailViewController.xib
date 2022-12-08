@@ -44,8 +44,8 @@
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="1vz-aN-kQh">
-                            <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="HLl-bt-u0j">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8bJ-4g-kzX">
+                            <barButtonItem key="leftBarButtonItem" title="Item" id="HLl-bt-u0j">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8bJ-4g-kzX">
                                     <rect key="frame" x="16" y="4.6666666666666679" width="86" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -65,7 +65,7 @@
                         </navigationItem>
                     </items>
                     <navigationBarAppearance key="standardAppearance">
-                        <color key="backgroundColor" red="0.99894839530000001" green="0.83261996510000003" blue="0.23202377560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.83137254901960778" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                         </textAttributes>

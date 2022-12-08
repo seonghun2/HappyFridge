@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let view1 = MainViewController()
+        let view1 = UINavigationController(rootViewController: MainViewController())
         //let view2 = SharedFridgeViewController()
         let view3 = AlertViewController()
         let view4 = UINavigationController(rootViewController: SettingViewController())

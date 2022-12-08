@@ -117,7 +117,7 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     //MARK: 뒤로가기 버튼 (메인화면으로 이동)
     @IBAction func exitButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: 냉장고 물품 삭제

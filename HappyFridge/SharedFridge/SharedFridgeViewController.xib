@@ -78,13 +78,23 @@
                         <constraint firstItem="Fx7-Pv-GMf" firstAttribute="leading" secondItem="Shc-ms-IH4" secondAttribute="leading" constant="26" id="wh2-LD-NCD"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-DY-IP6">
+                    <rect key="frame" x="0.0" y="115" width="50" height="0.0"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="OJd-sj-XZh"/>
+                        <constraint firstAttribute="height" id="hna-dv-gmR"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Shc-ms-IH4" secondAttribute="trailing" id="4xI-cl-lGF"/>
+                <constraint firstItem="mp0-DY-IP6" firstAttribute="top" secondItem="Shc-ms-IH4" secondAttribute="bottom" constant="20" id="EH8-MC-cNS"/>
                 <constraint firstItem="a3G-aX-Y0E" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="USF-gr-plT"/>
                 <constraint firstItem="a3G-aX-Y0E" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VOV-Ue-JFQ"/>
+                <constraint firstItem="mp0-DY-IP6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cmb-g4-DAr"/>
                 <constraint firstItem="Shc-ms-IH4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pne-WI-jAY"/>
                 <constraint firstItem="Shc-ms-IH4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vJC-HW-ybb"/>
             </constraints>
@@ -99,6 +109,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

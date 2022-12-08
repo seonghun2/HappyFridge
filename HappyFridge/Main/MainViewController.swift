@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var previousButton: UIButton!
     
-    var itemSearhBar = ItemSearchTextField()
+    var itemSearchBar = ItemSearchTextField()
     
     var bookmarkedFoods: [Item] = []
     var searchedFoods: [Item]?
@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.setEmptyImage()
@@ -65,29 +65,23 @@ class MainViewController: UIViewController {
             self.itemCollectionView.reloadData()
         }
         
-        setRefrigeCollectionView()
-        setItemCollectionView()
         
-        itemSearhBar.delegate = self
+        itemSearchBar.delegate = self
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showLarge = UserDefaults.standard.bool(forKey: "showLarge")
-        print(#function, showLarge)
         setRefrigeCollectionView()
-        refrigeCollectionView.reloadData()
+        setItemCollectionView()
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.isHiddenEmptyImage()
             self.refrigeCollectionView.reloadData()
         }
+        refrigeCollectionView.setContentOffset(.zero, animated: true)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        print(#function)
-//    }
-//
     func setEmptyImage() {
         refrigeCollectionView.addSubview(emptyImage)
         emptyImage.snp.makeConstraints { make in
@@ -103,6 +97,7 @@ class MainViewController: UIViewController {
             make.centerX.equalTo(emptyImage.snp.centerX)
         }
     }
+    
     func isHiddenEmptyImage() {
         print(#function)
         if !refrigerators.isEmpty {
@@ -130,8 +125,6 @@ class MainViewController: UIViewController {
             layout.scrollDirection = .horizontal
             
             let screenWidth = UIScreen.main.bounds.size.width
-            let screenHeight = UIScreen.main.bounds.size.height
-            let height = (screenHeight / 2.1) / 2 - 20
             
             if !showLarge {
                 layout.sectionInset = UIEdgeInsets(top: 20, left: 15, bottom: 40, right: 15)
@@ -153,11 +146,7 @@ class MainViewController: UIViewController {
         refrigeCollectionView.showsHorizontalScrollIndicator = false
         refrigeCollectionView.isPagingEnabled = true
         refrigeCollectionView.backgroundColor = .clear
-        // 냉장고가 없을때 이미지 표시
         
-        //        if test.isEmpty {
-        //            refrigeCollectionView.backgroundView?.isHidden = false
-        //        }
     }
     
     func setItemCollectionView() {
@@ -173,14 +162,12 @@ class MainViewController: UIViewController {
         let flowLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-            layout.sectionInset = UIEdgeInsets(top: 64, left: 15, bottom: 20, right: 15)
-            layout.minimumLineSpacing = 12
+            layout.sectionInset = UIEdgeInsets(top: 64, left: 20, bottom: 20, right: 20)
+            layout.minimumLineSpacing = 15
             
-            let screenHeight = UIScreen.main.bounds.size.height
-            let height = (screenHeight * 0.28 - 48) / 2 - 25
-            let screenWidth = UIScreen.main.bounds.size.width
-            let width = screenWidth / 4.7
-            layout.itemSize = CGSize(width: width, height: width * 0.8)
+            let viewHeight = itemCollectionView.frame.height
+            let cellHeight = (viewHeight - 100) / 2
+            layout.itemSize = CGSize(width: cellHeight * 1.25, height: cellHeight)
             
             return layout
         }()
@@ -190,9 +177,9 @@ class MainViewController: UIViewController {
         itemCollectionView.backgroundColor = .systemGray5
         itemCollectionView.isPagingEnabled = true
         
-        itemCollectionView.addSubview(itemSearhBar)
-        itemSearhBar.snp.makeConstraints { make in
-            make.top.equalTo(16)
+        view.addSubview(itemSearchBar)
+        itemSearchBar.snp.makeConstraints { make in
+            make.top.equalTo(itemCollectionView.snp.top).inset(16)
             make.left.equalTo(15)
             make.width.equalTo(248)
             make.height.equalTo(32)
@@ -252,18 +239,18 @@ class MainViewController: UIViewController {
                             self.refrigerators = fridges
                             self.isHiddenEmptyImage()
                             self.refrigeCollectionView.reloadData()
+                            // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
+                            let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
+                            if item >= 0 {
+                                let lastIndex = IndexPath(item: item, section: 0)
+                                
+                                self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
+                            }
                         }
                         
                         self.refrigeCollectionView.reloadData()
                         self.view.makeToast("\(name)이(가) 추가 되었습니다")
-                        // 셀 추가시 컬렉션 뷰 맨오른쪽으로 스크롤
-                        let item = self.refrigeCollectionView.numberOfItems(inSection: 0) - 1
-                        if item >= 0 {
-                            let lastIndex = IndexPath(item: item, section: 0)
-                            
-                            self.refrigeCollectionView.scrollToItem(at: lastIndex, at: .right, animated: true)
-                            print(lastIndex)
-                        }
+                        
                     } else {
                         self.present(alert,animated: true)
                         self.view.makeToast("같은 이름의 냉장고가 존재합니다.")
@@ -331,12 +318,12 @@ class MainViewController: UIViewController {
         bookMarkButton.isHidden = false
         itemSortButton.isHidden = false
         
-        itemSearhBar.resignFirstResponder()
-        itemSearhBar.text = ""
+        itemSearchBar.resignFirstResponder()
+        itemSearchBar.text = ""
         itemCollectionView.reloadData()
-        itemSearhBar.snp.updateConstraints { update in
+        itemSearchBar.snp.updateConstraints { update in
             update.width.equalTo(248)
-            update.left.equalTo(itemCollectionView.snp.left).inset(15)
+            update.left.equalTo(15)
         }
         itemCollectionView.snp.updateConstraints { make in
             make.bottom.equalTo(view.snp.bottom)
@@ -344,7 +331,6 @@ class MainViewController: UIViewController {
         refrigeCollectionView.snp.updateConstraints { make in
             make.bottom.equalTo(itemCollectionView.snp.top)
         }
-        refrigeCollectionView.layoutMargins = UIEdgeInsets(top: 20, left: 15, bottom: 40, right: 15)
     }
 }
 
@@ -396,13 +382,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             //냉장고셀 터치시 상세화면 띄움
             cell.tapEventClosure = {
                 let VC = FridgeDetailViewController()
-                print(indexPath.row)
-                //VC.foodInfoArray = foods[indexPath.row]
-                //VC.fridgesInfoArray = test[indexPath.row]
-                VC.modalPresentationStyle = .fullScreen
                 VC.fridgesIndex = indexPath.row
                 VC.fridgeName = self.refrigerators[indexPath.row].fridgeName
-                self.present(VC, animated: true)
+                //VC.foodInfoArray = foods[indexPath.row]
+                //VC.fridgesInfoArray = test[indexPath.row]
+                //VC.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(VC, animated: true)
+                
+                //self.present(VC, animated: true)
             }
             
             //냉장고이름 변경
@@ -783,12 +770,11 @@ extension MainViewController: UITextFieldDelegate {
         searchedFoods = foods.filter{ $0.name == textField.text }
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true
-        print(searchedFoods)
         itemCollectionView.snp.updateConstraints { make in
             make.bottom.equalTo(view.snp.bottom)
         }
         itemCollectionView.reloadData()
-//        itemSearhBar.resignFirstResponder()
+        itemSearchBar.resignFirstResponder()
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -796,23 +782,17 @@ extension MainViewController: UITextFieldDelegate {
         previousButton.isHidden = false
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true
-        itemSearhBar.snp.updateConstraints { update in
+        itemSearchBar.snp.updateConstraints { update in
             update.left.equalTo(40)
             update.width.equalTo(340)
         }
         
         itemCollectionView.snp.updateConstraints { make in
-            make.bottom.equalTo(view.snp.bottom).inset(150)
+            make.bottom.equalTo(view.snp.bottom).inset(160)
         }
         
         refrigeCollectionView.snp.updateConstraints { make in
             make.bottom.equalTo(itemCollectionView.snp.top).inset(60)
         }
     }
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print(#function)
-//        bookMarkButton.isHidden = false
-//        itemSortButton.isHidden = false
-//    }
-    
 }

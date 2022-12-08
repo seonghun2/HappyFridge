@@ -118,11 +118,12 @@ extension RefrigeSmallCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListCell", for: indexPath) as! RefrigeItemListCell
         itemListTableView.rowHeight = 30
-        
+        cell.DdayLabel.layer.cornerRadius = 7
         if showLarge {
             cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListLargeCell", for: indexPath) as! RefrigeItemListCell
             
             itemListTableView.rowHeight = 48
+            cell.DdayLabel.layer.cornerRadius = 12
         }
         
         cell.itemNameLabel.text = itemList[indexPath.row].name
@@ -155,7 +156,7 @@ extension RefrigeSmallCell: UITableViewDataSource {
         
         cell.DdayLabel.textAlignment = .center
         cell.DdayLabel.clipsToBounds = true
-        cell.DdayLabel.layer.cornerRadius = 10
+        
         return cell
     }
 }

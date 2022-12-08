@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().delegate = self
         
-//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//        UNUserNotificationCenter.current().requestAuthorization(
-//            options: authOptions,
-//            completionHandler: {_, _ in })
-//        application.registerForRemoteNotifications()
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        application.registerForRemoteNotifications()
 //        
 //        Messaging.messaging().token { token, error in
 //          if let error = error {
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print("FCM registration token: \(token)")
 //          }
 //        }
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     

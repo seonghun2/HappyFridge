@@ -8,6 +8,15 @@
 import UIKit
 
 class ItemSearchTextField: UITextField {
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [UIView(), UIImageView(image: UIImage(named: "search"))])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = -12
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,12 +25,9 @@ class ItemSearchTextField: UITextField {
         layer.cornerRadius = 15
         placeholder = "검색어를 입력하세요"
         returnKeyType = .search
-        leftView = UIImageView(image: UIImage(named: "search"))
+        leftView = stackView
         leftViewMode = .always
-//        rightView = UIImageView(image: UIImage(named: "search"))
-//        rightViewMode = .whileEditing
-        
-        
+     
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
