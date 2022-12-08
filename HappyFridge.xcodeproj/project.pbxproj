@@ -91,7 +91,6 @@
 		CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDD0EA291A24EB00E4FDBA /* TabBarController.xib */; };
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
-		D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CF290DFA04009EEA55 /* ViewController.swift */; };
 		D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D4290DFA06009EEA55 /* Assets.xcassets */; };
 		D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */; };
 		D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BCE8352928991D008586F8 /* GoogleService-Info.plist */; };
@@ -183,7 +182,6 @@
 		D1B889C8290DFA04009EEA55 /* HappyFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D1B889CF290DFA04009EEA55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1B889D4290DFA06009EEA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1B889D7290DFA06009EEA55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1B889D9290DFA06009EEA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -428,7 +426,6 @@
 				86384760291693DB0042033B /* Fonts */,
 				D1B889CB290DFA04009EEA55 /* AppDelegate.swift */,
 				D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */,
-				D1B889CF290DFA04009EEA55 /* ViewController.swift */,
 				D1B889D4290DFA06009EEA55 /* Assets.xcassets */,
 				D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */,
 				D1B889D9290DFA06009EEA55 /* Info.plist */,
@@ -605,7 +602,6 @@
 				CEC217E5292B59760088E8E6 /* SettingViewController.swift in Sources */,
 				866084082917A36100F108DD /* Constant.swift in Sources */,
 				CE4A3CB42917818E003971DE /* Item.swift in Sources */,
-				D1B889D0290DFA04009EEA55 /* ViewController.swift in Sources */,
 				CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */,
 				D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */,
 				CEBEE7A2292A656900E92FAE /* InsertFoodViewController.swift in Sources */,
@@ -762,6 +758,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -795,6 +792,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -17,13 +17,12 @@ class ItemSearchTextField: UITextField {
         stackView.distribution = .fillEqually
         return stackView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        
         layer.cornerRadius = 15
-        placeholder = "검색어를 입력하세요"
+        attributedPlaceholder = NSAttributedString(string: "검색어를 입력하세요", attributes: [.font: UIFont(name: "Pretendard-Regular", size: 18)])
         returnKeyType = .search
         leftView = stackView
         leftViewMode = .always

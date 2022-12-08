@@ -47,39 +47,48 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    let guideText: UILabel = {
+        let label = UILabel()
+        label.text = "물품 추가 후\n드래그해서 냉장고에 넣어주세요"
+        label.textColor = .systemGray2
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Pretendard-Regular", size: 17)
+        return label
+    }()
+    
     let emptyImage = UIImageView(image: UIImage(named: "emptyFridge"))
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        setGuideMessage()
         self.navigationController?.isNavigationBarHidden = true
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.setEmptyImage()
             self.isHiddenEmptyImage()
-            self.refrigeCollectionView.reloadData()
         }
         
         dataManager.getFoodData { foods in
             self.foods = foods
-            self.itemCollectionView.reloadData()
+            if foods.isEmpty {
+                self.guideText.isHidden = false
+            }
+            self.setItemCollectionView()
         }
-        
-        
+    
         itemSearchBar.delegate = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showLarge = UserDefaults.standard.bool(forKey: "showLarge")
         setRefrigeCollectionView()
-        setItemCollectionView()
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.isHiddenEmptyImage()
             self.refrigeCollectionView.reloadData()
         }
-        refrigeCollectionView.setContentOffset(.zero, animated: true)
     }
     
     func setEmptyImage() {
@@ -98,12 +107,19 @@ class MainViewController: UIViewController {
         }
     }
     
+    func setGuideMessage() {
+        itemCollectionView.addSubview(guideText)
+        guideText.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(20)
+        }
+        guideText.isHidden = true
+    }
+    
     func isHiddenEmptyImage() {
-        print(#function)
         if !refrigerators.isEmpty {
             emptyImage.isHidden = true
             emptyText.isHidden = true
-            print(emptyText.isHidden)
         } else {
             emptyImage.isHidden = false
             emptyText.isHidden = false
@@ -219,8 +235,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func refrigeAddButtonTapped(_ sender: Any) {
-        print(#function)
-
+        
         let alert = UIAlertController(title: "장소 추가", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
@@ -267,7 +282,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func bookMarkButtonTapped(_ sender: UIButton) {
-        print(#function, showBookmark)
         if showBookmark {
             showBookmark = false
             bookMarkButton.setImage(UIImage(named: "star_empty"), for: .normal)
@@ -276,7 +290,6 @@ class MainViewController: UIViewController {
             showBookmark = true
             bookMarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
         }
-        print(bookmarkedFoods)
         itemCollectionView.reloadData()
     }
     
@@ -384,12 +397,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let VC = FridgeDetailViewController()
                 VC.fridgesIndex = indexPath.row
                 VC.fridgeName = self.refrigerators[indexPath.row].fridgeName
-                //VC.foodInfoArray = foods[indexPath.row]
-                //VC.fridgesInfoArray = test[indexPath.row]
-                //VC.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(VC, animated: true)
                 
-                //self.present(VC, animated: true)
             }
             
             //냉장고이름 변경
@@ -445,15 +454,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             return cell
-            //하단품목
+        //하단품목
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 4
-            //cell.index = indexPath.row
             // 즐겨찾기품목
             if showBookmark {
+                itemSearchBar.isHidden = true
                 cell.plusImage.isHidden = true
                 cell.itemNameLabel.isHidden = false
                 cell.bookmarkButton.isHidden = false
@@ -498,16 +507,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     } catch {
                         print(error)
                     }
-                    //self.foods.map { $0.isBookmarked ? : }
-                    //                    self.foods.map {
-                    //                        if $0.name == self.bookmarkItemArray[indexPath.row].name {
-                    //                            $0.isBookmarked = toggle
-                    //                        }
-                    //                    }
                 }
                 return cell
                 // 모든품목
             } else {
+                itemSearchBar.isHidden = false
                 if showSearchItem {
                     cell.isBookmarked = searchedFoods![indexPath.row].isBookmarked!
                     cell.setBookmarkButton()
@@ -577,7 +581,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         cell.deleteEventClosure = {
                             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {_ in
                                 self.foods.remove(at: indexPath.row - 1)
-                                
+                                if self.foods.isEmpty {
+                                    self.guideText.isHidden = false
+                                }
                                 do {
                                     try self.db.collection("fridge").document(Constant.nickName!).setData(from:Items(foods: self.foods), merge: true)
                                 } catch {
@@ -602,24 +608,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                             } catch {
                                 print(error)
                             }
-                            
-                            print(toggle)
-                            
-                            print(self.foods)
                         }
-                        //                        if showSearchItem {
-                        //                            cell.eventClosure = { index, toggle in
-                        //                                self.foods[index].isBookmarked = toggle
-                        //                            }
-                        //                        } else {
-                        //                            cell.eventClosure = { index, toggle in
-                        //                                self.foods[index - 1].isBookmarked = toggle
-                        //                                print(index - 1, toggle)
-                        //                                print(self.foods[index - 1])
-                        //                                print(self.foods)
-                        //                            }
-                        //                        }
-                        
                     }
                 }
             }
@@ -643,6 +632,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                 self.dataManager.addFood(foodName: name)
                                 self.dataManager.getFoodData { foods in
                                     self.foods = foods
+                                    if !foods.isEmpty {
+                                        self.guideText.isHidden = true
+                                    }
                                     self.itemCollectionView.reloadData()
                                 }
                                 self.itemCollectionView.reloadData()
@@ -658,8 +650,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 itemAddAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
                 present(itemAddAlert, animated: true)
                 
-            } else {
-                print(indexPath.row)
             }
         }
     }
@@ -672,7 +662,6 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         
         if draggingFood == nil { return }
-        print(#function,coordinator.destinationIndexPath)
         
         guard let destinationIndexPath = coordinator.destinationIndexPath?[1] else {return}
         
@@ -743,7 +732,6 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         
-        print(#function, itemProvider, dragItem)
         if showSearchItem {
             draggingFood = searchedFoods![indexPath.row]
         }
@@ -758,14 +746,12 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                 }
             }
         }
-        print(draggingFood?.name)
         return [dragItem]
     }
 }
 
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(#function)
         showSearchItem = true
         searchedFoods = foods.filter{ $0.name == textField.text }
         bookMarkButton.isHidden = true
@@ -775,6 +761,7 @@ extension MainViewController: UITextFieldDelegate {
         }
         itemCollectionView.reloadData()
         itemSearchBar.resignFirstResponder()
+        
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -43,8 +43,6 @@ class AlertViewController: UIViewController {
             self?.showingAlerts = self?.alerts.filter { $0.alertDate.compare(Date()) == .orderedAscending } ?? []
             self?.showingAlerts.sort { $0.alertDate > $1.alertDate }
             
-            print((self?.showingAlerts.isEmpty)!)
-            
             if self?.showingAlerts.isEmpty ?? false {
                 self?.emptyText.isHidden = false
                 self?.emptyImage.isHidden = false
@@ -88,7 +86,7 @@ extension AlertViewController: UITableViewDataSource {
         let alertDate = showingAlerts[indexPath.row].alertDate
         let formatter = DateFormatter()
         formatter.dateFormat = "MM월 dd일"
-        var dateString = formatter.string(from: alertDate)
+        let dateString = formatter.string(from: alertDate)
         cell.alertDateLabel.text = dateString
         
         return cell

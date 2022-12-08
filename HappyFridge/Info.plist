@@ -18,6 +18,11 @@
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Pretendard-ExtraBold.otf</string>
+		<string>Pretendard-Regular.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -39,7 +44,5 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 </dict>
 </plist>

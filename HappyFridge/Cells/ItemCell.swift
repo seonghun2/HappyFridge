@@ -35,7 +35,6 @@ class ItemCell: UICollectionViewCell {
         
     }
     func setBookmarkButton() {
-        print(#function)
         if isBookmarked {
             bookmarkButton.setImage(UIImage(named: "star_fill"), for: .normal)
         } else {

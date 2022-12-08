@@ -11,8 +11,6 @@ class RefrigeSmallCell: UICollectionViewCell {
     
     var itemList: [Item] = []
     
-    //var isshared: Bool = false
-    
     @IBOutlet weak var refrigeNameLabel: UILabel!
     
     @IBOutlet weak var itemListTableView: UITableView!
@@ -88,7 +86,6 @@ class RefrigeSmallCell: UICollectionViewCell {
     }
     
     @IBAction func fridgeSettingButtonTapped(_ sender: UIButton) {
-        print(#function)
         eventClosure?()
     }
     

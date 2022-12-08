@@ -12,30 +12,6 @@ import FirebaseFirestore
 class DataManager {
     var db = Firestore.firestore()
     lazy var docRef = db.collection("fridge").document(Constant.nickName!)
-//    lazy var fridges: [Refrigerator] = []
-//    lazy var foods: [Item] = []
-    
-//    func getFridgeData() {
-//
-//        docRef.getDocument { document, error in
-//            if let error = error as NSError? {
-//                print("Error getting document: \(error.localizedDescription)")
-//            } else {
-//                if let document = document {
-//                    do {
-//                        print("do")
-//                        print("냉장고있음",document.data(),document.data()?.count)
-//                        let fridges = try document.data(as: Refrigerators.self).fridges
-//                        self.fridges = fridges
-//                    }
-//                    catch {
-//                        print("catch")
-//                        print(error)
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     func getFridgeData(completion : @escaping ([Refrigerator]) -> Void) {
         //var fridgeArray: [Refrigerator] = []
@@ -47,9 +23,8 @@ class DataManager {
                 if let document = document {
                     do {
                         print("do")
-                        print("냉장고있음",document.data(),document.data()?.count)
+                        
                         let fridges = try document.data(as: Refrigerators.self).fridges
-                        // self.fridges = fridges
                         completion(fridges)
                     }
                     catch {
@@ -71,9 +46,8 @@ class DataManager {
                 if let document = document {
                     do {
                         print("do")
-                        print("냉장고있음",document.data(),document.data()?.count)
+                        
                         let foods = try document.data(as: Items.self).foods
-                        //self.foods = foods
                         completion(foods)
                     }
                     catch {
@@ -93,7 +67,6 @@ class DataManager {
                 if let document = document {
                     do {
                         let alerts = try document.data(as: Alerts.self).alerts
-                        //self.foods = foods
                         completion(alerts)
                     }
                     catch {
@@ -125,32 +98,5 @@ class DataManager {
         self.db.collection("fridge").document(Constant.nickName!)
             .setData(["alerts": FieldValue.arrayUnion([["alertDate": alert.alertDate,
                                                         "alertMessage": alert.alertMessage]])],merge: true)
-    }
-    
-    func removeFridge() {
-
-    }
-    
-    func removeFood() {
-        
-    }
-    
-    func changeFridgeName() {
-        
-    }
-    
-    //냉장고안에 음식 넣을때
-    func dropFoodInFridge(food: Item, to: Refrigerator) {
-        
-    }
-    //        test[0].fridgeName = "changeTest"
-    //        test[1].food?.append(foods[0])
-    //        test.remove(at: test.count-1)
-    //        let frid = Refrigerators(fridges: test)
-    //        do {
-    //            try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
-    //        } catch {
-    //            print(error)
-    //        }
+    }    
 }
-// 파이어스토어에서 불러와서 메인뷰컨 배열에 넣어서 가공후 다시 파이어스토어로 넣어주기

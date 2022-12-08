@@ -17,7 +17,6 @@ struct Alert: Codable {
     var alertMessage: String
     
     func generateAlert() {
-        print(#function)
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization { granted, error in
             if !granted {

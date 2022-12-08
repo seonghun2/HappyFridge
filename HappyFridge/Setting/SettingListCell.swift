@@ -14,7 +14,6 @@ class SettingListCell: UITableViewCell {
     @IBOutlet weak var toggleSwitch: UISwitch!
     
     @IBAction func toggleSwitchTapped(_ sender: Any) {
-        print(#function)
         UserDefaults.standard.set(toggleSwitch.isOn, forKey: "showLarge")
 
     }
