@@ -75,7 +75,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
             print(data)
             self?.getFridgeInfo()
         }
-        self.present(vc, animated: true, completion: nil)
+        //self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: 냉장고물품 정렬

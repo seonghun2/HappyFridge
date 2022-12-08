@@ -62,7 +62,8 @@ class SearchViewController: UIViewController {
     
     
     @IBAction func backAction(_ sender: Any) {
-        dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        //dismiss(animated: true)
         searchClosure?("검색뷰에서뒤로가기")
     }
     
