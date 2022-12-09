@@ -43,13 +43,11 @@ class NickNameViewController: UIViewController {
         query.getDocuments() { (qs, err) in
             
             if qs!.documents.isEmpty {
-                print("데이터 중복 안 됨 가입 진행 가능")
                 self.nickNameCheckLabel.textColor = .label
                 self.nickNameCheckLabel.text = "사용가능한 닉네임 입니다."
                 
                 self.startButtonActivate(activate: true)
             } else {
-                print("데이터 중복 됨 가입 진행 불가")
                 self.nickNameCheckLabel.textColor = .red
                 self.nickNameCheckLabel.text = "이미 사용중인 닉네임 입니다."
             }
@@ -59,7 +57,6 @@ class NickNameViewController: UIViewController {
     
     // MARK: 닉네임 입력 값 변화감지
     @objc func nickNameDidChanged(_ sender: UITextField) {
-        print("text변경 감지")
         startButtonActivate(activate: false)
         
     }
@@ -78,7 +75,6 @@ class NickNameViewController: UIViewController {
     // MARK: FireStore유저정보 저장
     func insertUserInfo() {
         let registerDate = Date()
-        print(registerDate)
         
         db.collection("users").document(nickNameTextField.text!).setData(["nickName" : nickNameTextField.text!,"token":userLoginToken,"registerDate":registerDate])
         

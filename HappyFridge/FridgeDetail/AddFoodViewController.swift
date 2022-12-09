@@ -19,6 +19,8 @@ class AddFoodViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var dataManager = DataManager()
+    
     var foodCount = 0
     var index = 0
     var fridgesInfoArray: [Refrigerator] = []
@@ -43,17 +45,12 @@ class AddFoodViewController: UIViewController {
         foodCountTextField.text = String(foodCount)
         
         addButtonActivate(activate: false)
-        
-        print("foodinfoarray")
-        print(foodInfoArray)
-        
         self.foodNameTextField.addTarget(self, action: #selector(self.foodNameDidChanged(_:)), for: .editingChanged)
         self.foodCountTextField.addTarget(self, action: #selector(self.foodCountDidChanged(_:)), for: .editingChanged)
         
     }
     
     @objc func foodNameDidChanged(_ sender: UITextField) {
-        print("text변경 감지 name")
         if sender.text != "" && foodCountTextField.text != "" && foodCountTextField.text != nil && foodCountTextField.text != "0" {
             self.addButtonActivate(activate: true)
         }else {
@@ -63,7 +60,6 @@ class AddFoodViewController: UIViewController {
     }
     
     @objc func foodCountDidChanged(_ sender: UITextField) {
-        print("text변경 감지 count")
         if sender.text != "" && sender.text != "0" && foodNameTextField.text != "" && foodNameTextField.text != nil  {
             self.addButtonActivate(activate: true)
         }else {
@@ -106,7 +102,6 @@ class AddFoodViewController: UIViewController {
     }
     
     @IBAction func alarmCheck(_ sender: Any) {
-        print(alarmSwitch.isOn)
         alarmCheck = alarmSwitch.isOn
     }
     
@@ -124,7 +119,6 @@ class AddFoodViewController: UIViewController {
     }
     
     @IBAction func datePicker(_ sender: UIDatePicker) {
-        print("날짜선택")
         print(sender.date)
         expirationDate = sender.date
     }
@@ -137,26 +131,29 @@ class AddFoodViewController: UIViewController {
     func addFood() {
         let nowDate = Date()
         let alertDayValue = Int(alarmDayTextField.text ?? "0")
-//        let fd = Item(name: foodNameTextField.text!, count:foodCount, expirationDate: expirationDate ?? nowDate, createDate: nowDate, performAlert: alarmCheck , alertDay: alertDayValue ?? 0)
         let addFoodInfo = Item(name: foodNameTextField.text!, isBookmarked: false, performAlert: false, expirationDate: expirationDate ?? nowDate, count: foodCount, createDate: nowDate, alertDay: alertDayValue ?? 0)
         foodInfoArray.append(addFoodInfo)
-        print("foodfood1: \(index)")
-        print("foodfood2: \(fridgesInfoArray)")
-        print("foodfood3: \(String(describing: fridgesInfoArray[index].food))")
         fridgesInfoArray[index].food?.removeAll()
-        
         
         fridgesInfoArray[index].food?.append(contentsOf: self.foodInfoArray)
         
         let frid = Refrigerators(fridges: self.fridgesInfoArray)
         do {
-            print("nickName: \(Constant.nickName!)")
-            print("frid: \(frid)")
-            print("foodInfoArray: \(foodInfoArray)")
-            print("fridgesInfoArrayindex: \(index)")
             try db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
             self.dataSendClosure?("물품추가")
-            dismiss(animated: true)
+            
+            if alarmSwitch.isOn {
+                var alertMessage = "\(fridgesInfoArray[index].fridgeName)에 있는 \(addFoodInfo.name)의 유통기한이 \(alertDayValue ?? 0)일 남았습니다."
+                if alertDayValue == 0 {
+                    alertMessage = "\(fridgesInfoArray[index].fridgeName)에 있는 \(addFoodInfo.name)의 유통기한이 오늘까지 입니다."
+                }
+                let alertDate = Calendar.current.date(byAdding: .day, value: -(alertDayValue ?? 0), to: expirationDate ?? nowDate)
+                let alert = Alert(alertDate: alertDate!, alertMessage: alertMessage)
+                alert.generateAlert()
+                dataManager.addAlert(alert: alert)
+            }
+            
+            self.navigationController?.popViewController(animated: true)
         } catch {
             print(error)
         }

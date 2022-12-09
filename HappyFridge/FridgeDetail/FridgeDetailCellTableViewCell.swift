@@ -37,13 +37,11 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
     func setFoodInfo(food: Item) {
         foodName.text = food.name
         foodCountLabel.text = String(food.count!)
-        print(food.expirationDate)
         
         let date = food.expirationDate
         let formatter = DateFormatter()
         formatter.dateFormat = "yy.MM.dd"
         let stringDate = formatter.string(from: date!)
-        print(stringDate)
         expirationDateLabel.text = "\(stringDate)까지"
       
         let dayLeft = getDdayInt(date: food.expirationDate!)
@@ -69,12 +67,10 @@ class FridgeDetailCellTableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteFoodAction(_ sender: Any) {
-        print("x버튼 클릭 cell")
         self.delegate?.deleteButton(index: index,food: food)
     }
     
     @IBAction func updateFoodCountAction(_ sender: Any) {
-        print("물품 클릭 cell")
         self.delegate?.showFoodCountPopUp(index: index,count: count)
     }
 }

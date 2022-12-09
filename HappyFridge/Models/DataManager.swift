@@ -22,8 +22,6 @@ class DataManager {
             } else {
                 if let document = document {
                     do {
-                        print("do")
-                        
                         let fridges = try document.data(as: Refrigerators.self).fridges
                         completion(fridges)
                     }
@@ -45,13 +43,10 @@ class DataManager {
             } else {
                 if let document = document {
                     do {
-                        print("do")
-                        
                         let foods = try document.data(as: Items.self).foods
                         completion(foods)
                     }
                     catch {
-                        print("catch")
                         print(error)
                     }
                 }

@@ -135,7 +135,7 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="45.666666666666657"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qM-0D-TkZ" userLabel="fridgeSortButton">
-                            <rect key="frame" x="352.66666666666669" y="17.666666666666671" width="20" height="13"/>
+                            <rect key="frame" x="352.66666666666669" y="16.333333333333336" width="20" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="Zgg-OE-RR6"/>
                                 <constraint firstAttribute="height" constant="13" id="xhX-ht-shx"/>
@@ -150,7 +150,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-CF-d5V" userLabel="fridgeAddButton">
-                            <rect key="frame" x="322.66666666666669" y="16" width="16" height="16"/>
+                            <rect key="frame" x="322.66666666666669" y="15" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="6xS-SW-Rw9"/>
                                 <constraint firstAttribute="width" constant="16" id="T33-63-jV7"/>
@@ -164,7 +164,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해피냉장고" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRu-JD-FEC">
-                            <rect key="frame" x="26" y="14" width="88" height="22"/>
+                            <rect key="frame" x="26" y="12" width="88" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="Gtj-R4-jT9"/>
                                 <constraint firstAttribute="width" constant="88" id="NbP-76-Qdd"/>
@@ -176,12 +176,12 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.83137254901960778" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="tOb-CF-d5V" firstAttribute="centerY" secondItem="iQB-Kl-CeR" secondAttribute="centerY" id="2fO-7g-mrr"/>
                         <constraint firstItem="0qM-0D-TkZ" firstAttribute="leading" secondItem="tOb-CF-d5V" secondAttribute="trailing" constant="14" id="8Rc-5a-VrR"/>
-                        <constraint firstItem="0qM-0D-TkZ" firstAttribute="top" secondItem="iQB-Kl-CeR" secondAttribute="top" constant="17.5" id="Kik-xj-eg9"/>
+                        <constraint firstItem="pRu-JD-FEC" firstAttribute="centerY" secondItem="iQB-Kl-CeR" secondAttribute="centerY" id="GjR-s3-Id4"/>
                         <constraint firstItem="pRu-JD-FEC" firstAttribute="leading" secondItem="iQB-Kl-CeR" secondAttribute="leading" constant="26" id="Pz2-DC-Cuk"/>
-                        <constraint firstItem="pRu-JD-FEC" firstAttribute="top" secondItem="iQB-Kl-CeR" secondAttribute="top" constant="14" id="Zig-DG-bFB"/>
                         <constraint firstAttribute="trailing" secondItem="0qM-0D-TkZ" secondAttribute="trailing" constant="17.5" id="aul-ZH-i51"/>
-                        <constraint firstItem="tOb-CF-d5V" firstAttribute="top" secondItem="iQB-Kl-CeR" secondAttribute="top" constant="16" id="dHg-TH-JXy"/>
+                        <constraint firstItem="0qM-0D-TkZ" firstAttribute="centerY" secondItem="iQB-Kl-CeR" secondAttribute="centerY" id="owQ-ob-QUp"/>
                     </constraints>
                 </view>
             </subviews>

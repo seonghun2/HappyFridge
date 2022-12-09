@@ -29,7 +29,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
@@ -41,10 +40,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")
         
-        print("fridgesIndex")
-        print(fridgesIndex)
-        print("Constant.nickName!")
-        print(Constant.nickName!)
         if let name = fridgeName {
             navigationBar.title = name
         }
@@ -71,8 +66,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         vc.searchFridgesInfoArray = fridgesInfoArray
         vc.fridgeIndex = fridgesIndex
         vc.searchClosure = { [weak self] data  in
-            print("클로저")
-            print(data)
             self?.getFridgeInfo()
         }
         //self.present(vc, animated: true, completion: nil)
@@ -117,11 +110,8 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
         vc.modalPresentationStyle = .fullScreen
         vc.index = fridgesIndex
         vc.fridgesInfoArray = fridgesInfoArray
-        print("물품추가 : \(fridgesInfoArray)")
         vc.foodInfoArray = foodInfoArray
         vc.dataSendClosure = { [weak self] data  in
-            print("클로저")
-            print(data)
             self?.getFridgeInfo()
         }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -136,8 +126,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     //MARK: 냉장고 물품 삭제
     func deleteFood(foodIndex:Int) {
         self.foodInfoArray.remove(at: foodIndex)
-        print("foodInfoArray")
-        print(foodInfoArray)
         self.fridgesInfoArray[fridgesIndex].food?.removeAll()
         self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
         
@@ -152,8 +140,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
     
     //MARK: 냉장고안에 물품 수량 조절
     func updateFood(foodIndex: Int,foodCount: Int) {
-        print("foodInfoArray")
-        print(foodInfoArray)
         self.foodInfoArray[foodIndex].count = foodCount
         self.fridgesInfoArray[fridgesIndex].food?.removeAll()
         self.fridgesInfoArray[fridgesIndex].food?.append(contentsOf: self.foodInfoArray)
@@ -180,16 +166,11 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                         
                         if document.data()?.count == nil {
                             print("냉장고없음")
-                            
-                            
                         }else {
-                            print("냉장고있음")
                             let dic = try document.data(as: Refrigerators.self)
-                            print(dic)
                             self.fridgesInfoArray.removeAll()
                             self.foodInfoArray.removeAll()
                             self.fridgesInfoArray.append(contentsOf: dic.fridges)
-                            //print(self.fridgesInfoArray[self.fridgesIndex])
                             
                             if let aa = self.fridgesInfoArray[self.fridgesIndex].food {
                                 self.foodInfoArray.append(contentsOf: aa)
@@ -208,7 +189,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
                         
                     }
                     catch {
-                        print("catch")
                         print(error)
                     }
                 }
@@ -220,8 +200,6 @@ class FridgeDetailViewController: UIViewController, UIActionSheetDelegate {
 
 extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("array count : \(fridgesInfoArray.count)")
-        
         return foodInfoArray.count
     }
     
@@ -248,14 +226,12 @@ extension FridgeDetailViewController:UITableViewDelegate, UITableViewDataSource 
 extension FridgeDetailViewController: TableViewCellDelegate {
     
     func deleteButton(index: Int?,food: Item?) {
-        print("x버튼 클릭 vc ")
         guard (index != nil) else {
             return
         }
         
         let sheet = UIAlertController(title: "물품삭제", message: "\(foodInfoArray[index!].name)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
-            print("삭제 클릭")
             self.deleteFood(foodIndex: index!)
         }))
         
@@ -285,7 +261,6 @@ extension FridgeDetailViewController: TableViewCellDelegate {
 
 extension FridgeDetailViewController: PopUpFoodCountDelegate {
     func confirmButton(foodIndex:Int?, count: Int?) {
-        print("저장클릭 뷰컨")
         dismiss(animated: false) {
             if let foodCount = count {
                 if let index = foodIndex {

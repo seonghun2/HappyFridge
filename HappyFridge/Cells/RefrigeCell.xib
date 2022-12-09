@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RefrigeSmallCell" id="gTV-IL-0wX" customClass="RefrigeSmallCell" customModule="HappyFridge" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RefrigeCell" id="gTV-IL-0wX" customClass="RefrigeCell" customModule="HappyFridge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="178" height="167"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -40,10 +40,10 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button" image="3dot"/>
                         <connections>
-                            <action selector="fridgeSettingButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Nxb-JL-lUq"/>
+                            <action selector="fridgeSettingButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="KLN-d9-TVf"/>
                         </connections>
                     </button>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKs-bl-2Zs">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKs-bl-2Zs">
                         <rect key="frame" x="16" y="49" width="141" height="118"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
@@ -52,7 +52,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                         <connections>
-                            <action selector="cellTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="B6V-2D-qB7"/>
+                            <action selector="cellTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="N2x-PR-CZx"/>
                         </connections>
                     </button>
                 </subviews>
@@ -75,9 +75,9 @@
             </constraints>
             <size key="customSize" width="178" height="167"/>
             <connections>
-                <outlet property="itemListTableView" destination="dKs-bl-2Zs" id="dQW-wF-Pjj"/>
-                <outlet property="refrigeNameLabel" destination="4tU-Sa-XWg" id="RL5-7e-yfU"/>
-                <outlet property="refrigeSettingButtton" destination="SKD-Dv-rl1" id="F4E-u4-QkY"/>
+                <outlet property="itemListTableView" destination="dKs-bl-2Zs" id="SBx-eX-CAT"/>
+                <outlet property="refrigeNameLabel" destination="4tU-Sa-XWg" id="DdM-Ye-Mes"/>
+                <outlet property="refrigeSettingButtton" destination="SKD-Dv-rl1" id="18x-xa-dbA"/>
             </connections>
             <point key="canvasLocation" x="193.84615384615384" y="30.213270142180093"/>
         </collectionViewCell>

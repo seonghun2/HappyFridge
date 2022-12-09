@@ -53,7 +53,6 @@ class AlertViewController: UIViewController {
             
             self?.alertTableView.reloadData()
         }
-        
     }
     
     func setEmptyImage() {
@@ -91,6 +90,4 @@ extension AlertViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

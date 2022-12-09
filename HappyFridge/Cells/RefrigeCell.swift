@@ -1,5 +1,5 @@
 //
-//  RefrigeSmallCell.swift
+//  RefrigeCell.swift
 //  HappyFridge
 //
 //  Created by user on 2022/10/30.
@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-class RefrigeSmallCell: UICollectionViewCell {
+class RefrigeCell: UICollectionViewCell {
     
     var itemList: [Item] = []
     
@@ -69,7 +69,7 @@ class RefrigeSmallCell: UICollectionViewCell {
         itemListTableView.register(UINib(nibName: "RefrigeItemListLargeCell", bundle: nil), forCellReuseIdentifier: "RefrigeItemListLargeCell")
         
         itemListTableView.backgroundColor = .clear
-        itemListTableView.separatorColor = .clear
+        //itemListTableView.separatorColor = .clear
         itemListTableView.isScrollEnabled = false
         itemListTableView.allowsSelection = false
         
@@ -95,7 +95,7 @@ class RefrigeSmallCell: UICollectionViewCell {
     
 }
 
-extension RefrigeSmallCell: UITableViewDataSource {
+extension RefrigeCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if showLarge {
             if itemList.count < 8 {

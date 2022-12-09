@@ -127,7 +127,7 @@ class MainViewController: UIViewController {
     }
 
     func setRefrigeCollectionView() {
-        refrigeCollectionView.register(UINib(nibName: "RefrigeSmallCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeSmallCell")
+        refrigeCollectionView.register(UINib(nibName: "RefrigeCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeCell")
         
         refrigeCollectionView.register(UINib(nibName: "RefrigeLargeCell", bundle: nil), forCellWithReuseIdentifier: "RefrigeLargeCell")
         
@@ -369,10 +369,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // 냉장고 목록
         if collectionView == refrigeCollectionView {
             
-            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeSmallCell", for: indexPath) as! RefrigeSmallCell
+            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeCell", for: indexPath) as! RefrigeCell
             
             if showLarge {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeLargeCell", for: indexPath) as! RefrigeSmallCell
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigeLargeCell", for: indexPath) as! RefrigeCell
             }
             
             cell.showLarge = showLarge
@@ -382,15 +382,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 20
-            //****
+            
             cell.itemListTableView.reloadData()
-            if refrigerators[indexPath.row].isShared {
-                cell.layer.borderColor = UIColor(hexString: "#DFF4C5").cgColor
-                cell.layer.borderWidth = 2
-            } else{
-                cell.layer.borderColor = UIColor.systemGray5.cgColor
-                cell.layer.borderWidth = 2
-            }
+            
+            cell.layer.borderColor = UIColor.systemGray5.cgColor
+            cell.layer.borderWidth = 2
             
             //냉장고셀 터치시 상세화면 띄움
             cell.tapEventClosure = {
@@ -398,10 +394,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 VC.fridgesIndex = indexPath.row
                 VC.fridgeName = self.refrigerators[indexPath.row].fridgeName
                 self.navigationController?.pushViewController(VC, animated: true)
-                
             }
             
-            //냉장고이름 변경
+            //냉장고이름 변경,삭제 버튼 탭
             cell.eventClosure = {
                 let bottomSheet = UIAlertController(title: "편집", message: nil, preferredStyle: .actionSheet)
                 
@@ -628,7 +623,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                             self.view.makeToast("이름을 입력해주세요.")
                         } else {
                             if !self.foods.map{ $0.name }.contains(name) {
-                                
                                 self.dataManager.addFood(foodName: name)
                                 self.dataManager.getFoodData { foods in
                                     self.foods = foods
@@ -649,7 +643,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 itemAddAlert.addAction(addAction)
                 itemAddAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
                 present(itemAddAlert, animated: true)
-                
             }
         }
     }
@@ -680,7 +673,7 @@ extension MainViewController: UICollectionViewDragDelegate, UICollectionViewDrop
                     let alertDate = Calendar.current.date(byAdding: .day, value: -alertDay, to: (self.draggingFood?.expirationDate)!)
                     self.draggingFood?.alertDay = alertDay
                     self.refrigerators[destinationIndexPath].food?.append(self.draggingFood!)
-
+                    self.view.makeToast("\(self.draggingFood?.name ?? "")을(를) \(self.refrigerators[destinationIndexPath].fridgeName)에 넣었습니다.")
                     let frid = Refrigerators(fridges: self.refrigerators)
                     do {
                         try self.db.collection("fridge").document(Constant.nickName!).setData(from: frid, merge: true)
@@ -765,7 +758,6 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(#function)
         previousButton.isHidden = false
         bookMarkButton.isHidden = true
         itemSortButton.isHidden = true

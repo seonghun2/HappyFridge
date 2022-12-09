@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
         setupLoginView()
     }
     
@@ -46,13 +45,11 @@ class LoginViewController: UIViewController {
                 print(error)
             }
             else {
-                print("loginWithKakaoAccount() success.")
                 UserApi.shared.me() {(user, error) in
                     if let error = error {
                         print(error)
                     }
                     else {
-                        print("사용자 정보 가져오기 성공")
                         if let userid = user?.id {
                             let kakaoToken = String(userid)
                             self.moveNextView(token: kakaoToken)
@@ -75,7 +72,6 @@ class LoginViewController: UIViewController {
             let docs = snapshot!.documents
             
             if docs == [] {
-                print("디비조회x")
                 //닉네임 설정 화면으로 이동
                 let vc = NickNameViewController(nibName:"NickNameViewController", bundle: nil)
                 vc.userLoginToken = token
@@ -85,7 +81,6 @@ class LoginViewController: UIViewController {
             }else {
                 var getNickName:String?
                 for doc in docs {
-                    print("디비조회o")
                     getNickName = doc.documentID
                     
                 }
@@ -111,13 +106,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             return
         }
         
-        print("AppleID suceess user: \(appleIDCredential.user)")
         let appleToken = String(appleIDCredential.user)
         moveNextView(token: appleToken)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("AppleID error: \(error.localizedDescription)")
     }
 }
 

@@ -53,10 +53,10 @@
 		CE428ED2293773BF00907E1C /* RefrigeItemListLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */; };
 		CE428ED3293773BF00907E1C /* RefrigeItemListLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */; };
 		CE4A3CA429178161003971DE /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9C29178161003971DE /* ItemCell.xib */; };
-		CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */; };
+		CE4A3CA529178161003971DE /* RefrigeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3C9D29178161003971DE /* RefrigeCell.xib */; };
 		CE4A3CA629178161003971DE /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9E29178161003971DE /* ItemCell.swift */; };
 		CE4A3CA729178161003971DE /* RefrigeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */; };
-		CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */; };
+		CE4A3CA829178161003971DE /* RefrigeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CA029178161003971DE /* RefrigeCell.swift */; };
 		CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */; };
 		CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */; };
 		CE4A3CAB29178161003971DE /* RefrigeLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */; };
@@ -92,7 +92,6 @@
 		D1B889CC290DFA04009EEA55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CB290DFA04009EEA55 /* AppDelegate.swift */; };
 		D1B889CE290DFA04009EEA55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */; };
 		D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D4290DFA06009EEA55 /* Assets.xcassets */; };
-		D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */; };
 		D1BCE8362928991D008586F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BCE8352928991D008586F8 /* GoogleService-Info.plist */; };
 		D1BCE8552928A362008586F8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8542928A362008586F8 /* FirebaseAnalytics */; };
 		D1BCE8572928A362008586F8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BCE8562928A362008586F8 /* FirebaseAnalyticsSwift */; };
@@ -144,10 +143,10 @@
 		CE428ED0293773BF00907E1C /* RefrigeItemListLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigeItemListLargeCell.swift; sourceTree = "<group>"; };
 		CE428ED1293773BF00907E1C /* RefrigeItemListLargeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefrigeItemListLargeCell.xib; sourceTree = "<group>"; };
 		CE4A3C9C29178161003971DE /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
-		CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeSmallCell.xib; sourceTree = "<group>"; };
+		CE4A3C9D29178161003971DE /* RefrigeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeCell.xib; sourceTree = "<group>"; };
 		CE4A3C9E29178161003971DE /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeItemListCell.swift; sourceTree = "<group>"; };
-		CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeSmallCell.swift; sourceTree = "<group>"; };
+		CE4A3CA029178161003971DE /* RefrigeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeCell.swift; sourceTree = "<group>"; };
 		CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeLargeCell.xib; sourceTree = "<group>"; };
 		CE4A3CA229178161003971DE /* RefrigeItemListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefrigeItemListCell.xib; sourceTree = "<group>"; };
 		CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrigeLargeCell.swift; sourceTree = "<group>"; };
@@ -183,7 +182,6 @@
 		D1B889CB290DFA04009EEA55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D1B889D4290DFA06009EEA55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D1B889D7290DFA06009EEA55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1B889D9290DFA06009EEA55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1BCE8352928991D008586F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,8 +311,8 @@
 		CE4A3C9B29178161003971DE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A3CA029178161003971DE /* RefrigeSmallCell.swift */,
-				CE4A3C9D29178161003971DE /* RefrigeSmallCell.xib */,
+				CE4A3CA029178161003971DE /* RefrigeCell.swift */,
+				CE4A3C9D29178161003971DE /* RefrigeCell.xib */,
 				CE4A3CA329178161003971DE /* RefrigeLargeCell.swift */,
 				CE4A3CA129178161003971DE /* RefrigeLargeCell.xib */,
 				CE4A3C9F29178161003971DE /* RefrigeItemListCell.swift */,
@@ -427,7 +425,6 @@
 				D1B889CB290DFA04009EEA55 /* AppDelegate.swift */,
 				D1B889CD290DFA04009EEA55 /* SceneDelegate.swift */,
 				D1B889D4290DFA06009EEA55 /* Assets.xcassets */,
-				D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */,
 				D1B889D9290DFA06009EEA55 /* Info.plist */,
 				D1BCE8352928991D008586F8 /* GoogleService-Info.plist */,
 			);
@@ -536,7 +533,6 @@
 				CE8E00CB291BA1B000D50838 /* 경기천년제목_Bold.ttf in Resources */,
 				CE8E00CC291BA1B200D50838 /* 경기천년제목_Light.ttf in Resources */,
 				CE4A3CA429178161003971DE /* ItemCell.xib in Resources */,
-				D1B889D8290DFA06009EEA55 /* LaunchScreen.storyboard in Resources */,
 				CEBEE7A1292A656900E92FAE /* InsertFoodViewController.xib in Resources */,
 				86ADE0992923D4ED005254F4 /* AddFoodViewController.xib in Resources */,
 				CE4A3CAA29178161003971DE /* RefrigeItemListCell.xib in Resources */,
@@ -549,7 +545,7 @@
 				CEFDD0EC291A24EB00E4FDBA /* TabBarController.xib in Resources */,
 				866799B62914DE3F004BB7B2 /* CopyLaunchViewController.xib in Resources */,
 				CE4A3CA929178161003971DE /* RefrigeLargeCell.xib in Resources */,
-				CE4A3CA529178161003971DE /* RefrigeSmallCell.xib in Resources */,
+				CE4A3CA529178161003971DE /* RefrigeCell.xib in Resources */,
 				D1B889D5290DFA06009EEA55 /* Assets.xcassets in Resources */,
 				8638476F291694610042033B /* Pretendard-ExtraBold.otf in Resources */,
 				86E59707290E4D01008EA5B0 /* LoginViewController.xib in Resources */,
@@ -593,7 +589,7 @@
 				86ADE094292219FE005254F4 /* PopUpFoodCountUpdate.swift in Sources */,
 				86E59706290E4D01008EA5B0 /* LoginViewController.swift in Sources */,
 				CE4A3CB22917818E003971DE /* MainViewController.swift in Sources */,
-				CE4A3CA829178161003971DE /* RefrigeSmallCell.swift in Sources */,
+				CE4A3CA829178161003971DE /* RefrigeCell.swift in Sources */,
 				CE4A3CB52917818E003971DE /* Refrigerators.swift in Sources */,
 				CED8B138292CA7CE00CE6CAE /* AlertCell.swift in Sources */,
 				8638475F291664520042033B /* Fridges.swift in Sources */,
@@ -613,17 +609,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D1B889D6290DFA06009EEA55 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1B889D7290DFA06009EEA55 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D1B889DA290DFA06009EEA55 /* Debug */ = {
@@ -754,9 +739,12 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9SY2YSK7KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "해피냉장고";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -788,9 +776,12 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9SY2YSK7KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyFridge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "해피냉장고";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (

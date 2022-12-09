@@ -22,19 +22,16 @@ class PopUpFoodCountUpdate: UIViewController {
     
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: false) {
-            print("취소버튼 popup")
         }
     }
     
     @IBAction func confirmAction(_ sender: Any) {
-        print("저장버튼 popup")
         foodCount = Int((self.countTextField.text)!)
         self.delegate?.confirmButton(foodIndex:foodIndex,count: foodCount)
         
     }
     
     @IBAction func countMinusAction(_ sender: Any) {
-        print("-버튼 popup")
         if foodCount == 0 {
             return
         }
@@ -47,7 +44,6 @@ class PopUpFoodCountUpdate: UIViewController {
     }
     
     @IBAction func countPlusAction(_ sender: Any) {
-        print("+버튼 popup")
         if var fc = foodCount {
             fc += 1
             foodCount = fc

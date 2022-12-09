@@ -72,8 +72,6 @@ class SearchViewController: UIViewController {
     func deleteFood(foodIndex:Int) {
         searchFoodInfoArray2.remove(at: foodIndex)
         searchFoodInfoArray.remove(at: searchIndex)
-        print("searchFridgesInfoArray")
-        print(searchFridgesInfoArray)
         searchFridgesInfoArray[fridgeIndex].food?.removeAll()
         searchFridgesInfoArray[fridgeIndex].food?.append(contentsOf: searchFoodInfoArray)
         
@@ -88,8 +86,6 @@ class SearchViewController: UIViewController {
     
     //MARK: 냉장고안에 물품 수량 조절
     func updateFood(foodIndex: Int,foodCount: Int) {
-        print("foodInfoArray")
-        print(searchFoodInfoArray)
         searchFoodInfoArray2[foodIndex].count = foodCount
         searchFoodInfoArray[searchIndex].count = foodCount
         searchFridgesInfoArray[fridgeIndex].food?.removeAll()
@@ -139,14 +135,12 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: TableViewCellDelegate {
     
     func deleteButton(index: Int?,food: Item?) {
-        print("x버튼 클릭 vc ")
         guard (index != nil) else {
             return
         }
         
         let sheet = UIAlertController(title: "물품삭제", message: "\(searchFoodInfoArray2[index!].name)를(을)\n삭제하시겠습니까?", preferredStyle: .alert)
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
-            print("삭제 클릭")
             self.deleteFood(foodIndex: index!)
         }))
         
@@ -176,7 +170,6 @@ extension SearchViewController: TableViewCellDelegate {
 
 extension SearchViewController: PopUpFoodCountDelegate {
     func confirmButton(foodIndex:Int?, count: Int?) {
-        print("저장클릭 뷰컨")
         dismiss(animated: false) {
             if let foodCount = count {
                 if let index = foodIndex {
