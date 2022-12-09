@@ -69,7 +69,7 @@ class RefrigeCell: UICollectionViewCell {
         itemListTableView.register(UINib(nibName: "RefrigeItemListLargeCell", bundle: nil), forCellReuseIdentifier: "RefrigeItemListLargeCell")
         
         itemListTableView.backgroundColor = .clear
-        //itemListTableView.separatorColor = .clear
+        itemListTableView.separatorColor = .clear
         itemListTableView.isScrollEnabled = false
         itemListTableView.allowsSelection = false
         
