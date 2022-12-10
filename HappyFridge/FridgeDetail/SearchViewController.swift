@@ -30,6 +30,7 @@ class SearchViewController: UIViewController {
         
         searchTableView.dataSource = self
         searchTableView.delegate = self
+        searchTableView.allowsSelection = false
         
         let nibName = UINib(nibName: "FridgeDetailCellTableViewCell", bundle: nil)
         searchTableView.register(nibName, forCellReuseIdentifier: "FridgeDetailCellTableViewCell")

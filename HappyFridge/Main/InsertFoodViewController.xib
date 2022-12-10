@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,7 +38,7 @@
                     <rect key="frame" x="75" y="122" width="240" height="400"/>
                     <subviews>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="9zz-Jk-42R">
-                            <rect key="frame" x="100" y="155.66666666666669" width="100" height="34"/>
+                            <rect key="frame" x="99.666666666666657" y="155.66666666666669" width="100" height="34"/>
                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="5gr-iw-kHm"/>
@@ -64,8 +65,9 @@
                                 <constraint firstAttribute="width" constant="30" id="f38-Bh-sTI"/>
                                 <constraint firstAttribute="height" constant="30" id="rJr-L2-Ymu"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="close"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="close"/>
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="Fmr-nW-8hj"/>
                             </connections>
@@ -110,19 +112,20 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TD0-FO-4ZP">
-                            <rect key="frame" x="84.000000000000014" y="102" width="131.33333333333337" height="30"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TD0-FO-4ZP">
+                            <rect key="frame" x="95.666666666666657" y="102" width="107.33333333333334" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQM-aI-G9o">
-                                    <rect key="frame" x="0.0" y="0.0" width="40.333333333333336" height="30"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="minus"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="16.333333333333332" height="30"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="minus"/>
                                     <connections>
                                         <action selector="minusButtonTapped:" destination="-1" eventType="touchUpInside" id="MiC-Xz-YFM"/>
                                     </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-qh-vHg">
-                                    <rect key="frame" x="48.333333333333343" y="0.0" width="35" height="30"/>
+                                    <rect key="frame" x="36.333333333333343" y="0.0" width="35" height="30"/>
                                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Gyk-l7-ktT"/>
@@ -132,9 +135,10 @@
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-HI-2He">
-                                    <rect key="frame" x="91.333333333333343" y="0.0" width="40" height="30"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="plus"/>
+                                    <rect key="frame" x="91.333333333333343" y="0.0" width="16" height="30"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="plus"/>
                                     <connections>
                                         <action selector="plusButtonTapped:" destination="-1" eventType="touchUpInside" id="jj2-Em-OjL"/>
                                     </connections>
@@ -173,7 +177,7 @@
                         <constraint firstItem="9zz-Jk-42R" firstAttribute="centerY" secondItem="F30-4D-CH9" secondAttribute="centerY" id="is9-gc-IeZ"/>
                         <constraint firstItem="nvY-zF-eIz" firstAttribute="leading" secondItem="gYJ-MC-tPI" secondAttribute="leading" constant="20" id="kCd-4C-Nuu"/>
                         <constraint firstItem="TD0-FO-4ZP" firstAttribute="top" secondItem="3b6-tA-8G7" secondAttribute="bottom" constant="30.333333333333329" id="lgv-AE-ppe"/>
-                        <constraint firstItem="TD0-FO-4ZP" firstAttribute="leading" secondItem="nvY-zF-eIz" secondAttribute="trailing" constant="8.333333333333357" id="qGp-sZ-hP2"/>
+                        <constraint firstItem="TD0-FO-4ZP" firstAttribute="leading" secondItem="nvY-zF-eIz" secondAttribute="trailing" constant="20" id="qGp-sZ-hP2"/>
                         <constraint firstItem="Idd-LQ-etk" firstAttribute="top" secondItem="o1y-ua-QFJ" secondAttribute="bottom" constant="20" id="uWc-OA-aVO"/>
                         <constraint firstItem="3b6-tA-8G7" firstAttribute="leading" secondItem="gYJ-MC-tPI" secondAttribute="leading" constant="10" id="xAg-BH-8b1"/>
                         <constraint firstAttribute="height" constant="400" id="xHw-YX-d3e"/>

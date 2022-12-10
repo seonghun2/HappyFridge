@@ -114,12 +114,12 @@ extension RefrigeCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListCell", for: indexPath) as! RefrigeItemListCell
-        itemListTableView.rowHeight = 30
+        itemListTableView.rowHeight = itemListTableView.frame.height / 4
         cell.DdayLabel.layer.cornerRadius = 7
         if showLarge {
             cell = tableView.dequeueReusableCell(withIdentifier: "RefrigeItemListLargeCell", for: indexPath) as! RefrigeItemListCell
             
-            itemListTableView.rowHeight = 48
+            itemListTableView.rowHeight = itemListTableView.frame.height / 7
             cell.DdayLabel.layer.cornerRadius = 12
         }
         

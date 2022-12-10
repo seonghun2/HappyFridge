@@ -77,6 +77,8 @@ class NickNameViewController: UIViewController {
         let registerDate = Date()
         
         db.collection("users").document(nickNameTextField.text!).setData(["nickName" : nickNameTextField.text!,"token":userLoginToken,"registerDate":registerDate])
+        // 맨처음 로그인시 
+        db.collection("fridge").document(nickNameTextField.text!).setData(["alerts" : [], "foods":[], "fridges":[]])
         
         //로그인 했다는 이력 저장
         UserDefaults.standard.set(true, forKey: "Login")

@@ -60,30 +60,29 @@ class MainViewController: UIViewController {
     let emptyImage = UIImageView(image: UIImage(named: "emptyFridge"))
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        setGuideMessage()
         self.navigationController?.isNavigationBarHidden = true
-        dataManager.getFridgeData { fridges in
-            self.refrigerators = fridges
-            self.setEmptyImage()
-            self.isHiddenEmptyImage()
-        }
         
+        setRefrigeCollectionView()
+        setItemCollectionView()
+        
+        setEmptyImage()
+        setGuideMessage()
+                
         dataManager.getFoodData { foods in
             self.foods = foods
+            self.itemCollectionView.reloadData()
             if foods.isEmpty {
                 self.guideText.isHidden = false
             }
-            self.setItemCollectionView()
         }
-    
+        
         itemSearchBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showLarge = UserDefaults.standard.bool(forKey: "showLarge")
-        setRefrigeCollectionView()
+        
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.isHiddenEmptyImage()
@@ -105,6 +104,8 @@ class MainViewController: UIViewController {
             make.top.equalTo(emptyImage.snp.bottom).offset(4)
             make.centerX.equalTo(emptyImage.snp.centerX)
         }
+        emptyImage.isHidden = true
+        emptyText.isHidden = true
     }
     
     func setGuideMessage() {
