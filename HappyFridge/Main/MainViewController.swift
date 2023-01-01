@@ -63,7 +63,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         
-        setRefrigeCollectionView()
         setItemCollectionView()
         
         setEmptyImage()
@@ -82,7 +81,7 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         showLarge = UserDefaults.standard.bool(forKey: "showLarge")
-        
+        setRefrigeCollectionView()
         dataManager.getFridgeData { fridges in
             self.refrigerators = fridges
             self.isHiddenEmptyImage()
